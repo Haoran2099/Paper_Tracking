@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can LLMs Do Rocket Science? Exploring the Limits of Complex Reasoning with GTOC 12 - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/Paper_Tracking/static/css/style.css">
+    <script>window.SITE_BASE_URL = "/Paper_Tracking";</script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/Paper_Tracking/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/Paper_Tracking/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/Paper_Tracking/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/Paper_Tracking/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="/Paper_Tracking/">首页</a>
+            <span>/</span>
+            <a href="/Paper_Tracking/category/agent/">AI Agents</a>
+            <span>/</span>
+            <span>2602.03630v1</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">AI Agents</span>
+                <span class="paper-score score-high">
+                    相关度: 9/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">Can LLMs Do Rocket Science? Exploring the Limits of Complex Reasoning with GTOC 12</h1>
+            <div class="paper-detail-authors">
+                
+                <span class="author">Iñaki del Campo</span>, 
+                
+                <span class="author">Pablo Cuervo</span>, 
+                
+                <span class="author">Victor Rodriguez-Fernandez</span>, 
+                
+                <span class="author">Roberto Armellin</span>, 
+                
+                <span class="author">Jack Yarndley</span>
+                
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: 2602.03630v1</span>
+                <span>发布: 2026-02-03</span>
+                <span>更新: 2026-02-03</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="https://arxiv.org/pdf/2602.03630v1" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="http://arxiv.org/abs/2602.03630v1" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>评估LLM在复杂航天任务中的能力，发现其擅长策略但缺乏执行力。</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                
+                <li>评估LLM在GTOC 12挑战中的表现</li>
+                
+                <li>提出“LLM-as-a-Judge”的评估方法</li>
+                
+                <li>揭示LLM在策略和执行之间的能力差距</li>
+                
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>使用AIDE-based agent架构，并采用LLM作为裁判评估LLM生成的任务方案。</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>Large Language Models (LLMs) have demonstrated remarkable proficiency in code generation and general reasoning, yet their capacity for autonomous multi-stage planning in high-dimensional, physically constrained environments remains an open research question. This study investigates the limits of current AI agents by evaluating them against the 12th Global Trajectory Optimization Competition (GTOC 12), a complex astrodynamics challenge requiring the design of a large-scale asteroid mining campaign. We adapt the MLE-Bench framework to the domain of orbital mechanics and deploy an AIDE-based agent architecture to autonomously generate and refine mission solutions. To assess performance beyond binary validity, we employ an &#34;LLM-as-a-Judge&#34; methodology, utilizing a rubric developed by domain experts to evaluate strategic viability across five structural categories. A comparative analysis of models, ranging from GPT-4-Turbo to reasoning-enhanced architectures like Gemini 2.5 Pro, and o3, reveals a significant trend: the average strategic viability score has nearly doubled in the last two years (rising from 9.3 to 17.2 out of 26). However, we identify a critical capability gap between strategy and execution. While advanced models demonstrate sophisticated conceptual understanding, correctly framing objective functions and mission architectures, they consistently fail at implementation due to physical unit inconsistencies, boundary condition errors, and inefficient debugging loops. We conclude that, while current LLMs often demonstrate sufficient knowledge and intelligence to tackle space science tasks, they remain limited by an implementation barrier, functioning as powerful domain facilitators rather than fully autonomous engineers.</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                
+                <span class="tag">LLM</span>
+                
+                <span class="tag">航天</span>
+                
+                <span class="tag">GTOC 12</span>
+                
+                <span class="tag">推理</span>
+                
+                <span class="tag">智能体</span>
+                
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                
+                <span class="tag tag-secondary">cs.AI</span>
+                
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: gemini / gemini-2.0-flash
+                · 分析时间: 2026-02-04 20:43
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> 论文直接研究LLM作为智能体解决复杂航天任务的关键问题。
+            </p>
+        </footer>
+    </article>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-05 01:08 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/Paper_Tracking/static/js/main.js"></script>
+    
+</body>
+</html>

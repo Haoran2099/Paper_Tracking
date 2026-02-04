@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitigating Conversational Inertia in Multi-Turn Agents - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/Paper_Tracking/static/css/style.css">
+    <script>window.SITE_BASE_URL = "/Paper_Tracking";</script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/Paper_Tracking/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/Paper_Tracking/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/Paper_Tracking/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/Paper_Tracking/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="/Paper_Tracking/">首页</a>
+            <span>/</span>
+            <a href="/Paper_Tracking/category/agent/">AI Agents</a>
+            <span>/</span>
+            <span>2602.03664v1</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">AI Agents</span>
+                <span class="paper-score score-high">
+                    相关度: 9/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">Mitigating Conversational Inertia in Multi-Turn Agents</h1>
+            <div class="paper-detail-authors">
+                
+                <span class="author">Yang Wan</span>, 
+                
+                <span class="author">Zheng Cao</span>, 
+                
+                <span class="author">Zhenhao Zhang</span>, 
+                
+                <span class="author">Zhengwen Zeng</span>, 
+                
+                <span class="author">Shuheng Shen</span>, 
+                
+                <span class="author">Changhua Meng</span>, 
+                
+                <span class="author">Linchao Zhu</span>
+                
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: 2602.03664v1</span>
+                <span>发布: 2026-02-03</span>
+                <span>更新: 2026-02-03</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="https://arxiv.org/pdf/2602.03664v1" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="http://arxiv.org/abs/2602.03664v1" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>该论文研究了多轮Agent中的对话惯性问题，并提出通过上下文偏好学习降低惯性，提升性能。</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                
+                <li>发现了LLM Agent中的对话惯性现象</li>
+                
+                <li>提出了基于上下文偏好学习的解决方法</li>
+                
+                <li>提出了平衡探索和利用的上下文管理策略</li>
+                
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>通过注意力分析识别对话惯性，构建偏好对进行学习，并设计上下文管理策略。</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>Large language models excel as few-shot learners when provided with appropriate demonstrations, yet this strength becomes problematic in multiturn agent scenarios, where LLMs erroneously mimic their own previous responses as few-shot examples. Through attention analysis, we identify conversational inertia, a phenomenon where models exhibit strong diagonal attention to previous responses, which is associated with imitation bias that constrains exploration. This reveals a tension when transforming few-shot LLMs into agents: longer context enriches environmental feedback for exploitation, yet also amplifies conversational inertia that undermines exploration. Our key insight is that for identical states, actions generated with longer contexts exhibit stronger inertia than those with shorter contexts, enabling construction of preference pairs without environment rewards. Based on this, we propose Context Preference Learning to calibrate model preferences to favor low-inertia responses over highinertia ones. We further provide context management strategies at inference time to balance exploration and exploitation. Experimental results across eight agentic environments and one deep research scenario validate that our framework reduces conversational inertia and achieves performance improvements.</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                
+                <span class="tag">LLM Agent</span>
+                
+                <span class="tag">对话惯性</span>
+                
+                <span class="tag">偏好学习</span>
+                
+                <span class="tag">上下文管理</span>
+                
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                
+                <span class="tag tag-secondary">cs.AI</span>
+                
+                <span class="tag tag-secondary">cs.LG</span>
+                
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: gemini / gemini-2.0-flash
+                · 分析时间: 2026-02-04 20:42
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> 论文直接研究了多轮Agent中的核心问题，并提出了有效的解决方案。
+            </p>
+        </footer>
+    </article>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-05 01:08 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/Paper_Tracking/static/js/main.js"></script>
+    
+</body>
+</html>

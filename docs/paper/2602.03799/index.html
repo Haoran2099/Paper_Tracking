@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conformal Reachability for Safe Control in Unknown Environments - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/Paper_Tracking/static/css/style.css">
+    <script>window.SITE_BASE_URL = "/Paper_Tracking";</script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/Paper_Tracking/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/Paper_Tracking/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/Paper_Tracking/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/Paper_Tracking/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="/Paper_Tracking/">首页</a>
+            <span>/</span>
+            <a href="/Paper_Tracking/category/agent/">AI Agents</a>
+            <span>/</span>
+            <span>2602.03799v1</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">AI Agents</span>
+                <span class="paper-score score-high">
+                    相关度: 8/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">Conformal Reachability for Safe Control in Unknown Environments</h1>
+            <div class="paper-detail-authors">
+                
+                <span class="author">Xinhang Ma</span>, 
+                
+                <span class="author">Junlin Wu</span>, 
+                
+                <span class="author">Yiannis Kantaros</span>, 
+                
+                <span class="author">Yevgeniy Vorobeychik</span>
+                
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: 2602.03799v1</span>
+                <span>发布: 2026-02-03</span>
+                <span>更新: 2026-02-03</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="https://arxiv.org/pdf/2602.03799v1" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="http://arxiv.org/abs/2602.03799v1" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>提出结合一致性预测和可达性分析的未知动力系统安全控制框架。</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                
+                <li>提出基于一致性预测的安全控制框架</li>
+                
+                <li>开发优化名义奖励和最大化安全规划范围的控制策略训练算法</li>
+                
+                <li>在多个安全控制场景验证了算法的有效性</li>
+                
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>结合一致性预测获取不确定性区间，利用可达性分析验证安全，训练控制策略优化奖励和安全。</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>Designing provably safe control is a core problem in trustworthy autonomy. However, most prior work in this regard assumes either that the system dynamics are known or deterministic, or that the state and action space are finite, significantly limiting application scope. We address this limitation by developing a probabilistic verification framework for unknown dynamical systems which combines conformal prediction with reachability analysis. In particular, we use conformal prediction to obtain valid uncertainty intervals for the unknown dynamics at each time step, with reachability then verifying whether safety is maintained within the conformal uncertainty bounds. Next, we develop an algorithmic approach for training control policies that optimize nominal reward while also maximizing the planning horizon with sound probabilistic safety guarantees. We evaluate the proposed approach in seven safe control settings spanning four domains -- cartpole, lane following, drone control, and safe navigation -- for both affine and nonlinear safety specifications. Our experiments show that the policies we learn achieve the strongest provable safety guarantees while still maintaining high average reward.</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                
+                <span class="tag">安全控制</span>
+                
+                <span class="tag">一致性预测</span>
+                
+                <span class="tag">可达性分析</span>
+                
+                <span class="tag">未知动力系统</span>
+                
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                
+                <span class="tag tag-secondary">cs.RO</span>
+                
+                <span class="tag tag-secondary">cs.AI</span>
+                
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: gemini / gemini-2.0-flash
+                · 分析时间: 2026-02-04 20:42
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> 论文研究了在不确定环境下设计安全控制策略的问题，属于智能体控制的重要方面。
+            </p>
+        </footer>
+    </article>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-05 01:08 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/Paper_Tracking/static/js/main.js"></script>
+    
+</body>
+</html>

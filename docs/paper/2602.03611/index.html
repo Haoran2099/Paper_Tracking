@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explanations Leak: Membership Inference with Differential Privacy and Active Learning Defense - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/Paper_Tracking/static/css/style.css">
+    <script>window.SITE_BASE_URL = "/Paper_Tracking";</script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/Paper_Tracking/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/Paper_Tracking/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/Paper_Tracking/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/Paper_Tracking/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="/Paper_Tracking/">首页</a>
+            <span>/</span>
+            <a href="/Paper_Tracking/category/memory/">LLM Memory &amp; RAG</a>
+            <span>/</span>
+            <span>2602.03611v1</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">LLM Memory &amp; RAG</span>
+                <span class="paper-score score-low">
+                    相关度: 5/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">Explanations Leak: Membership Inference with Differential Privacy and Active Learning Defense</h1>
+            <div class="paper-detail-authors">
+                
+                <span class="author">Fatima Ezzeddine</span>, 
+                
+                <span class="author">Osama Zammar</span>, 
+                
+                <span class="author">Silvia Giordano</span>, 
+                
+                <span class="author">Omran Ayoub</span>
+                
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: 2602.03611v1</span>
+                <span>发布: 2026-02-03</span>
+                <span>更新: 2026-02-03</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="https://arxiv.org/pdf/2602.03611v1" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="http://arxiv.org/abs/2602.03611v1" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>研究对抗性解释如何增强成员推理攻击，并提出差分隐私和主动学习结合的防御框架。</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                
+                <li>分析了解释泄露对成员推理攻击的影响</li>
+                
+                <li>提出了基于差分隐私和主动学习的防御框架</li>
+                
+                <li>评估了隐私泄露、预测性能和解释质量之间的权衡</li>
+                
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>通过查询API暴露对抗解释，构建影子模型进行成员推理攻击，并使用DP和AL降低模型记忆。</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>Counterfactual explanations (CFs) are increasingly integrated into Machine Learning as a Service (MLaaS) systems to improve transparency; however, ML models deployed via APIs are already vulnerable to privacy attacks such as membership inference and model extraction, and the impact of explanations on this threat landscape remains insufficiently understood. In this work, we focus on the problem of how CFs expand the attack surface of MLaaS by strengthening membership inference attacks (MIAs), and on the need to design defense mechanisms that mitigate this emerging risk without undermining utility and explainability. First, we systematically analyze how exposing CFs through query-based APIs enables more effective shadow-based MIAs. Second, we propose a defense framework that integrates Differential Privacy (DP) with Active Learning (AL) to jointly reduce memorization and limit effective training data exposure. Finally, we conduct an extensive empirical evaluation to characterize the three-way trade-off between privacy leakage, predictive performance, and explanation quality. Our findings highlight the need to carefully balance transparency, utility, and privacy in the responsible deployment of explainable MLaaS systems.</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                
+                <span class="tag">成员推理攻击</span>
+                
+                <span class="tag">对抗性解释</span>
+                
+                <span class="tag">差分隐私</span>
+                
+                <span class="tag">主动学习</span>
+                
+                <span class="tag">隐私保护</span>
+                
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                
+                <span class="tag tag-secondary">cs.LG</span>
+                
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: gemini / gemini-2.0-flash
+                · 分析时间: 2026-02-04 20:43
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> 虽然主要关注隐私攻击，但涉及模型记忆和数据泄露，有一定参考价值。
+            </p>
+        </footer>
+    </article>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-05 01:08 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/Paper_Tracking/static/js/main.js"></script>
+    
+</body>
+</html>

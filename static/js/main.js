@@ -5,6 +5,9 @@
 (function() {
     'use strict';
 
+    // Get base URL from page
+    const BASE_URL = window.SITE_BASE_URL || '';
+
     // Search functionality
     const searchInput = document.getElementById('search-input');
     const searchDropdown = document.getElementById('search-results');
@@ -14,7 +17,7 @@
     // Load search index
     async function loadSearchIndex() {
         try {
-            const response = await fetch('/search_index.json');
+            const response = await fetch(BASE_URL + '/search_index.json');
             if (response.ok) {
                 searchIndex = await response.json();
             }
@@ -82,7 +85,7 @@
         }
 
         searchDropdown.innerHTML = results.map(paper => `
-            <a href="/paper/${paper.id.split('v')[0]}/" class="search-result">
+            <a href="${BASE_URL}/paper/${paper.id.split('v')[0]}/" class="search-result">
                 <div class="search-result-title">${escapeHtml(paper.title)}</div>
                 <div class="search-result-meta">
                     ${paper.date} · ${paper.category} · ${paper.score}/10

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robust Intervention Learning from Emergency Stop Interventions - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/Paper_Tracking/static/css/style.css">
+    <script>window.SITE_BASE_URL = "/Paper_Tracking";</script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/Paper_Tracking/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/Paper_Tracking/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/Paper_Tracking/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/Paper_Tracking/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="/Paper_Tracking/">首页</a>
+            <span>/</span>
+            <a href="/Paper_Tracking/category/agent/">AI Agents</a>
+            <span>/</span>
+            <span>2602.03825v1</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">AI Agents</span>
+                <span class="paper-score score-high">
+                    相关度: 8/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">Robust Intervention Learning from Emergency Stop Interventions</h1>
+            <div class="paper-detail-authors">
+                
+                <span class="author">Ethan Pronovost</span>, 
+                
+                <span class="author">Khimya Khetarpal</span>, 
+                
+                <span class="author">Siddhartha Srinivasa</span>
+                
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: 2602.03825v1</span>
+                <span>发布: 2026-02-03</span>
+                <span>更新: 2026-02-03</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="https://arxiv.org/pdf/2602.03825v1" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="http://arxiv.org/abs/2602.03825v1" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>提出Residual Intervention Fine-Tuning算法，从紧急停止干预中进行鲁棒学习，提升自动驾驶系统性能。</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                
+                <li>提出Robust Intervention Learning (RIL)问题定义</li>
+                
+                <li>提出Residual Intervention Fine-Tuning (RIFT)算法</li>
+                
+                <li>提供理论分析，表征算法的改进条件</li>
+                
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>将干预学习视为微调问题，利用先验策略的信息，通过残差微调的方式结合干预反馈信号。</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>Human interventions are a common source of data in autonomous systems during testing. These interventions provide an important signal about where the current policy needs improvement, but are often noisy and incomplete. We define Robust Intervention Learning (RIL) as the problem of learning from intervention data while remaining robust to the quality and informativeness of the intervention signal. In the best case, interventions are precise and avoiding them is sufficient to solve the task, but in many realistic settings avoiding interventions is necessary but not sufficient for achieving good performance. We study robust intervention learning in the context of emergency stop interventions and propose Residual Intervention Fine-Tuning (RIFT), a residual fine-tuning algorithm that treats intervention feedback as an incomplete learning signal and explicitly combines it with a prior policy. By framing intervention learning as a fine-tuning problem, our approach leverages structure encoded in the prior policy to resolve ambiguity when intervention signals under-specify the task. We provide theoretical analysis characterizing conditions under which this formulation yields principled policy improvement, and identify regimes where intervention learning is expected to fail. Our experiments reveal that residual fine-tuning enables robust and consistent policy improvement across a range of intervention strategies and prior policy qualities, and highlight robust intervention learning as a promising direction for future work.</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                
+                <span class="tag">强化学习</span>
+                
+                <span class="tag">干预学习</span>
+                
+                <span class="tag">自动驾驶</span>
+                
+                <span class="tag">微调</span>
+                
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                
+                <span class="tag tag-secondary">cs.LG</span>
+                
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: gemini / gemini-2.0-flash
+                · 分析时间: 2026-02-04 20:41
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> 研究如何利用干预信息提升自主系统性能，与Agent学习策略优化密切相关。
+            </p>
+        </footer>
+    </article>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-05 01:08 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/Paper_Tracking/static/js/main.js"></script>
+    
+</body>
+</html>

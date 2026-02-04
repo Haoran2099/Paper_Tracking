@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHRWorld: A Patient-Centric Medical World Model for Long-Horizon Clinical Trajectories - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/Paper_Tracking/static/css/style.css">
+    <script>window.SITE_BASE_URL = "/Paper_Tracking";</script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/Paper_Tracking/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/Paper_Tracking/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/Paper_Tracking/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/Paper_Tracking/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="/Paper_Tracking/">首页</a>
+            <span>/</span>
+            <a href="/Paper_Tracking/category/reasoning/">LLM Reasoning</a>
+            <span>/</span>
+            <span>2602.03569v1</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">LLM Reasoning</span>
+                <span class="paper-score score-high">
+                    相关度: 8/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">EHRWorld: A Patient-Centric Medical World Model for Long-Horizon Clinical Trajectories</h1>
+            <div class="paper-detail-authors">
+                
+                <span class="author">Linjie Mu</span>, 
+                
+                <span class="author">Zhongzhen Huang</span>, 
+                
+                <span class="author">Yannian Gu</span>, 
+                
+                <span class="author">Shengqian Qin</span>, 
+                
+                <span class="author">Shaoting Zhang</span>, 
+                
+                <span class="author">Xiaofan Zhang</span>
+                
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: 2602.03569v1</span>
+                <span>发布: 2026-02-03</span>
+                <span>更新: 2026-02-03</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="https://arxiv.org/pdf/2602.03569v1" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="http://arxiv.org/abs/2602.03569v1" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>EHRWorld模型通过在临床数据上训练，显著提升了LLM在长期医疗模拟中的稳定性和准确性。</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                
+                <li>提出了EHRWorld模型，用于模拟长期临床轨迹。</li>
+                
+                <li>构建了大规模纵向临床数据集EHRWorld-110K。</li>
+                
+                <li>证明了在因果和时序临床数据上训练对于可靠的医疗世界建模至关重要。</li>
+                
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>使用因果序贯范式，在大规模电子病历数据集上训练患者中心的医学世界模型EHRWorld。</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>World models offer a principled framework for simulating future states under interventions, but realizing such models in complex, high-stakes domains like medicine remains challenging. Recent large language models (LLMs) have achieved strong performance on static medical reasoning tasks, raising the question of whether they can function as dynamic medical world models capable of simulating disease progression and treatment outcomes over time. In this work, we show that LLMs only incorporating medical knowledge struggle to maintain consistent patient states under sequential interventions, leading to error accumulation in long-horizon clinical simulation. To address this limitation, we introduce EHRWorld, a patient-centric medical world model trained under a causal sequential paradigm, together with EHRWorld-110K, a large-scale longitudinal clinical dataset derived from real-world electronic health records. Extensive evaluations demonstrate that EHRWorld significantly outperforms naive LLM-based baselines, achieving more stable long-horizon simulation, improved modeling of clinically sensitive events, and favorable reasoning efficiency, highlighting the necessity of training on causally grounded, temporally evolving clinical data for reliable and robust medical world modeling.</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                
+                <span class="tag">医疗AI</span>
+                
+                <span class="tag">世界模型</span>
+                
+                <span class="tag">电子病历</span>
+                
+                <span class="tag">因果推理</span>
+                
+                <span class="tag">LLM</span>
+                
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                
+                <span class="tag tag-secondary">cs.AI</span>
+                
+                <span class="tag tag-secondary">cs.LG</span>
+                
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: gemini / gemini-2.0-flash
+                · 分析时间: 2026-02-04 20:43
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> 论文侧重于使用LLM进行医学推理，模拟疾病发展和治疗结果。
+            </p>
+        </footer>
+    </article>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-05 01:08 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/Paper_Tracking/static/js/main.js"></script>
+    
+</body>
+</html>

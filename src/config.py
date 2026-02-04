@@ -19,7 +19,7 @@ class SiteConfig(BaseModel):
 class LLMConfig(BaseModel):
     """LLM provider configuration."""
 
-    provider: Literal["claude", "openai", "ollama"] = "claude"
+    provider: Literal["claude", "openai", "ollama", "minimax", "gemini"] = "claude"
     model: str = "claude-sonnet-4-20250514"
     api_key_env: str = "ANTHROPIC_API_KEY"
 

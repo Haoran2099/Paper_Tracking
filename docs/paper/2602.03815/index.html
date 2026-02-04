@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast-Slow Efficient Training for Multimodal Large Language Models via Visual Token Pruning - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/Paper_Tracking/static/css/style.css">
+    <script>window.SITE_BASE_URL = "/Paper_Tracking";</script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/Paper_Tracking/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/Paper_Tracking/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/Paper_Tracking/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/Paper_Tracking/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="/Paper_Tracking/">首页</a>
+            <span>/</span>
+            <a href="/Paper_Tracking/category/agent/">AI Agents</a>
+            <span>/</span>
+            <span>2602.03815v1</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">AI Agents</span>
+                <span class="paper-score score-medium">
+                    相关度: 6/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">Fast-Slow Efficient Training for Multimodal Large Language Models via Visual Token Pruning</h1>
+            <div class="paper-detail-authors">
+                
+                <span class="author">Dingkun Zhang</span>, 
+                
+                <span class="author">Shuhan Qi</span>, 
+                
+                <span class="author">Yulin Wu</span>, 
+                
+                <span class="author">Xinyu Xiao</span>, 
+                
+                <span class="author">Xuan Wang</span>, 
+                
+                <span class="author">Long Chen</span>
+                
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: 2602.03815v1</span>
+                <span>发布: 2026-02-03</span>
+                <span>更新: 2026-02-03</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="https://arxiv.org/pdf/2602.03815v1" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="http://arxiv.org/abs/2602.03815v1" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>提出DualSpeed框架，通过视觉Token剪枝加速多模态大语言模型的训练，并保持推理性能。</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                
+                <li>提出DualSpeed快速-慢速训练框架</li>
+                
+                <li>结合视觉Token剪枝（VTP）加速训练</li>
+                
+                <li>使用自蒸馏保证训练-推理一致性</li>
+                
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>DualSpeed采用快速模式（VTP+模式隔离）和慢速模式（完整视觉序列+自蒸馏）交替训练，兼顾效率和性能。</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>Multimodal Large Language Models (MLLMs) suffer from severe training inefficiency issue, which is associated with their massive model sizes and visual token numbers. Existing efforts in efficient training focus on reducing model sizes or trainable parameters. Inspired by the success of Visual Token Pruning (VTP) in improving inference efficiency, we are exploring another substantial research direction for efficient training by reducing visual tokens. However, applying VTP at the training stage results in a training-inference mismatch: pruning-trained models perform poorly when inferring on non-pruned full visual token sequences. To close this gap, we propose DualSpeed, a fast-slow framework for efficient training of MLLMs. The fast-mode is the primary mode, which incorporates existing VTP methods as plugins to reduce visual tokens, along with a mode isolator to isolate the model&#39;s behaviors. The slow-mode is the auxiliary mode, where the model is trained on full visual sequences to retain training-inference consistency. To boost its training, it further leverages self-distillation to learn from the sufficiently trained fast-mode. Together, DualSpeed can achieve both training efficiency and non-degraded performance. Experiments show DualSpeed accelerates the training of LLaVA-1.5 by 2.1$\times$ and LLaVA-NeXT by 4.0$\times$, retaining over 99% performance. Code: https://github.com/dingkun-zhang/DualSpeed</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                
+                <span class="tag">多模态学习</span>
+                
+                <span class="tag">大语言模型</span>
+                
+                <span class="tag">视觉Token剪枝</span>
+                
+                <span class="tag">高效训练</span>
+                
+                <span class="tag">自蒸馏</span>
+                
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                
+                <span class="tag tag-secondary">cs.CV</span>
+                
+                <span class="tag tag-secondary">cs.LG</span>
+                
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: gemini / gemini-2.0-flash
+                · 分析时间: 2026-02-04 20:42
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> 虽然主要关注训练效率，但可能影响Agent在多模态环境中的应用。
+            </p>
+        </footer>
+    </article>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-05 01:08 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/Paper_Tracking/static/js/main.js"></script>
+    
+</body>
+</html>
