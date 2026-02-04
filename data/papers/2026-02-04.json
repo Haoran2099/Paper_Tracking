@@ -2426,6 +2426,96 @@
       "analyzed_at": "2026-02-04T17:19:25.642264",
       "llm_provider": "gemini",
       "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03845v1",
+      "title": "Parallel-Probe: Towards Efficient Parallel Thinking via 2D Probing",
+      "abstract": "Parallel thinking has emerged as a promising paradigm for reasoning, yet it imposes significant computational burdens. Existing efficiency methods primarily rely on local, per-trajectory signals and lack principled mechanisms to exploit global dynamics across parallel branches. We introduce 2D probing, an interface that exposes the width-depth dynamics of parallel thinking by periodically eliciting intermediate answers from all branches. Our analysis reveals three key insights: non-monotonic scaling across width-depth allocations, heterogeneous reasoning branch lengths, and early stabilization of global consensus. Guided by these insights, we introduce $\\textbf{Parallel-Probe}$, a training-free controller designed to optimize online parallel thinking. Parallel-Probe employs consensus-based early stopping to regulate reasoning depth and deviation-based branch pruning to dynamically adjust width. Extensive experiments across three benchmarks and multiple models demonstrate that Parallel-Probe establishes a superior Pareto frontier for test-time scaling. Compared to standard majority voting, it reduces sequential tokens by up to $\\textbf{35.8}$% and total token cost by over $\\textbf{25.8}$% while maintaining competitive accuracy.",
+      "authors": [
+        "Tong Zheng",
+        "Chengsong Huang",
+        "Runpeng Dai",
+        "Yun He",
+        "Rui Liu",
+        "Xin Ni",
+        "Huiwen Bao",
+        "Kaishen Wang",
+        "Hongtu Zhu",
+        "Jiaxin Huang",
+        "Furong Huang",
+        "Heng Huang"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T18:59:41Z",
+      "updated": "2026-02-03T18:59:41Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03845v1",
+      "abs_url": "http://arxiv.org/abs/2602.03845v1",
+      "summary": "提出Parallel-Probe框架，通过2D探测优化并行推理，实现效率与准确率的平衡。",
+      "key_contributions": [
+        "提出2D探测方法，揭示并行推理中的宽度-深度动态",
+        "设计Parallel-Probe控制器，基于共识提前停止和偏差剪枝动态优化并行推理",
+        "实验证明Parallel-Probe在效率上优于传统多数投票"
+      ],
+      "methodology": "通过2D探测分析并行推理的宽度-深度动态，利用共识和偏差信息进行推理深度调节和分支剪枝。",
+      "tags": [
+        "并行推理",
+        "效率优化",
+        "LLM",
+        "动态调整",
+        "2D探测"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注LLM推理过程中的效率优化，属于推理领域关键问题。",
+      "analyzed_at": "2026-02-04T17:29:57.650072",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03782v1",
+      "title": "QVLA: Not All Channels Are Equal in Vision-Language-Action Model's Quantization",
+      "abstract": "The advent of Vision-Language-Action (VLA) models represents a significant leap for embodied intelligence, yet their immense computational demands critically hinder deployment on resource-constrained robotic platforms. Intuitively, low-bit quantization is a prevalent and preferred technique for large-scale model compression. However, we find that a systematic analysis of VLA model's quantization is fundamentally lacking. We argue that naively applying uniform-bit quantization from Large Language Models (LLMs) to robotics is flawed, as these methods prioritize passive data fidelity while ignoring how minor action deviations compound into catastrophic task failures. To bridge this gap, we introduce QVLA, the first action-centric quantization framework specifically designed for embodied control. In a sharp departure from the rigid, uniform-bit quantization of LLM-based methods, QVLA introduces a highly granular, channel-wise bit allocation strategy. Its core mechanism is to directly measure the final action-space sensitivity when quantizing each individual channel to various bit-widths. This process yields a precise, per-channel importance metric that guides a global optimization, which elegantly unifies quantization and pruning (0-bit) into a single, cohesive framework. Extensive evaluations on different baselines demonstrate the superiority of our approach. In the LIBERO, the quantization version of OpenVLA-OFT with our method requires only 29.2% of the original model's VRAM while maintaining 98.9% of its original performance and achieving a 1.49x speedup. This translates to a 22.6% performance improvement over the LLM-derived method SmoothQuant. Our work establishes a new, principled foundation for compressing VLA models in robotics, paving the way for deploying powerful, large-scale models on real-world hardware. Code will be released.",
+      "authors": [
+        "Yuhao Xu",
+        "Yantai Yang",
+        "Zhenyang Fan",
+        "Yufan Liu",
+        "Yuming Li",
+        "Bing Li",
+        "Zhipeng Zhang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-03T17:43:45Z",
+      "updated": "2026-02-03T17:43:45Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03782v1",
+      "abs_url": "http://arxiv.org/abs/2602.03782v1",
+      "summary": "QVLA提出了一种面向具身控制的动作中心量化框架，有效压缩VLA模型并提升性能。",
+      "key_contributions": [
+        "提出QVLA：一种动作中心量化框架",
+        "引入细粒度的通道级比特分配策略",
+        "将量化和剪枝统一到单一框架"
+      ],
+      "methodology": "QVLA通过测量每个通道量化后的动作空间敏感性，确定通道重要性，并进行全局优化，实现高效的模型压缩。",
+      "tags": [
+        "VLA",
+        "Quantization",
+        "Embodied Control",
+        "Model Compression",
+        "Robotics"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接研究了视觉-语言-动作模型（VLA）的量化问题，属于多模态学习的核心方向。",
+      "analyzed_at": "2026-02-04T17:30:28.637519",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
     }
   ],
   "fetch_time": "2026-02-04T20:32:43.098241"
