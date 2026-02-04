@@ -2096,6 +2096,216 @@
       "analyzed_at": "2026-02-04T13:03:46.037592",
       "llm_provider": "gemini",
       "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03798v1",
+      "title": "FullStack-Agent: Enhancing Agentic Full-Stack Web Coding via Development-Oriented Testing and Repository Back-Translation",
+      "abstract": "Assisting non-expert users to develop complex interactive websites has become a popular task for LLM-powered code agents. However, existing code agents tend to only generate frontend web pages, masking the lack of real full-stack data processing and storage with fancy visual effects. Notably, constructing production-level full-stack web applications is far more challenging than only generating frontend web pages, demanding careful control of data flow, comprehensive understanding of constantly updating packages and dependencies, and accurate localization of obscure bugs in the codebase. To address these difficulties, we introduce FullStack-Agent, a unified agent system for full-stack agentic coding that consists of three parts: (1) FullStack-Dev, a multi-agent framework with strong planning, code editing, codebase navigation, and bug localization abilities. (2) FullStack-Learn, an innovative data-scaling and self-improving method that back-translates crawled and synthesized website repositories to improve the backbone LLM of FullStack-Dev. (3) FullStack-Bench, a comprehensive benchmark that systematically tests the frontend, backend and database functionalities of the generated website. Our FullStack-Dev outperforms the previous state-of-the-art method by 8.7%, 38.2%, and 15.9% on the frontend, backend, and database test cases respectively. Additionally, FullStack-Learn raises the performance of a 30B model by 9.7%, 9.5%, and 2.8% on the three sets of test cases through self-improvement, demonstrating the effectiveness of our approach. The code is released at https://github.com/mnluzimu/FullStack-Agent.",
+      "authors": [
+        "Zimu Lu",
+        "Houxing Ren",
+        "Yunqiao Yang",
+        "Ke Wang",
+        "Zhuofan Zong",
+        "Mingjie Zhan",
+        "Hongsheng Li"
+      ],
+      "categories": [
+        "cs.SE",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "primary_category": "cs.SE",
+      "published": "2026-02-03T18:01:34Z",
+      "updated": "2026-02-03T18:01:34Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03798v1",
+      "abs_url": "http://arxiv.org/abs/2602.03798v1",
+      "summary": "FullStack-Agent通过多智能体框架、回译学习和综合测试，提升全栈Web应用开发的性能。",
+      "key_contributions": [
+        "提出FullStack-Agent系统，包含开发、学习和测试三个模块",
+        "设计FullStack-Dev多智能体框架，具备规划、编辑、导航和调试能力",
+        "提出FullStack-Learn自提升方法，通过回译提升LLM性能"
+      ],
+      "methodology": "构建多智能体系统，结合回译技术进行数据增强，并利用全面基准测试评估模型在全栈各方面的表现。",
+      "tags": [
+        "AI Agent",
+        "Full-Stack Development",
+        "Code Generation",
+        "Back-Translation",
+        "Multi-Agent System"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于构建AI Agent解决全栈开发问题，涉及多智能体和工具使用。",
+      "analyzed_at": "2026-02-04T17:12:26.337040",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03792v1",
+      "title": "WebSentinel: Detecting and Localizing Prompt Injection Attacks for Web Agents",
+      "abstract": "Prompt injection attacks manipulate webpage content to cause web agents to execute attacker-specified tasks instead of the user's intended ones. Existing methods for detecting and localizing such attacks achieve limited effectiveness, as their underlying assumptions often do not hold in the web-agent setting. In this work, we propose WebSentinel, a two-step approach for detecting and localizing prompt injection attacks in webpages. Given a webpage, Step I extracts \\emph{segments of interest} that may be contaminated, and Step II evaluates each segment by checking its consistency with the webpage content as context. We show that WebSentinel is highly effective, substantially outperforming baseline methods across multiple datasets of both contaminated and clean webpages that we collected. Our code is available at: https://github.com/wxl-lxw/WebSentinel.",
+      "authors": [
+        "Xilong Wang",
+        "Yinuo Liu",
+        "Zhun Wang",
+        "Dawn Song",
+        "Neil Gong"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "primary_category": "cs.CR",
+      "published": "2026-02-03T17:55:04Z",
+      "updated": "2026-02-03T17:55:04Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03792v1",
+      "abs_url": "http://arxiv.org/abs/2602.03792v1",
+      "summary": "WebSentinel通过两步法检测并定位网页中的提示注入攻击，优于现有方法。",
+      "key_contributions": [
+        "提出WebSentinel检测框架",
+        "设计基于一致性检查的检测方法",
+        "构建了包含污染和干净网页的数据集"
+      ],
+      "methodology": "提取潜在污染片段，然后基于网页上下文对每个片段进行一致性检查，识别注入攻击。",
+      "tags": [
+        "Prompt Injection",
+        "Web Agents",
+        "Security",
+        "Detection"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "该论文直接解决了Web Agent环境下的提示注入攻击问题，属于核心研究领域。",
+      "analyzed_at": "2026-02-04T17:12:30.318384",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03787v1",
+      "title": "Inference-time Unlearning Using Conformal Prediction",
+      "abstract": "Machine unlearning is the process of efficiently removing specific information from a trained machine learning model without retraining from scratch. Existing unlearning methods, which often provide provable guarantees, typically involve retraining a subset of model parameters based on a forget set. While these approaches show promise in certain scenarios, their underlying assumptions are often challenged in real-world applications -- particularly when applied to generative models. Furthermore, updating parameters using these unlearning procedures often degrades the general-purpose capabilities the model acquired during pre-training. Motivated by these shortcomings, this paper considers the paradigm of inference time unlearning -- wherein, the generative model is equipped with an (approximately correct) verifier that judges whether the model's response satisfies appropriate unlearning guarantees. This paper introduces a framework that iteratively refines the quality of the generated responses using feedback from the verifier without updating the model parameters. The proposed framework leverages conformal prediction to reduce computational overhead and provide distribution-free unlearning guarantees. This paper's approach significantly outperforms existing state-of-the-art methods, reducing unlearning error by up to 93% across challenging unlearning benchmarks.",
+      "authors": [
+        "Somnath Basu Roy Chowdhury",
+        "Rahul Kidambi",
+        "Avinava Dubey",
+        "David Wang",
+        "Gokhan Mergen",
+        "Amr Ahmed",
+        "Aranyak Mehta"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T17:46:50Z",
+      "updated": "2026-02-03T17:46:50Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03787v1",
+      "abs_url": "http://arxiv.org/abs/2602.03787v1",
+      "summary": "提出一种基于Conformal Prediction的推理时免训练卸载框架，提升卸载性能并提供保证。",
+      "key_contributions": [
+        "提出了推理时卸载框架，无需模型参数更新",
+        "利用Conformal Prediction减少计算开销",
+        "提供分布无关的卸载保证"
+      ],
+      "methodology": "使用可验证器迭代优化生成响应，基于Conformal Prediction提供反馈，实现推理时卸载。",
+      "tags": [
+        "Machine Unlearning",
+        "Conformal Prediction",
+        "Generative Models"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 7,
+      "relevance_reason": "该论文提出了新的卸载方法，对提升模型安全和隐私有一定参考意义。",
+      "analyzed_at": "2026-02-04T17:12:32.363348",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03786v1",
+      "title": "AOrchestra: Automating Sub-Agent Creation for Agentic Orchestration",
+      "abstract": "Language agents have shown strong promise for task automation. Realizing this promise for increasingly complex, long-horizon tasks has driven the rise of a sub-agent-as-tools paradigm for multi-turn task solving. However, existing designs still lack a dynamic abstraction view of sub-agents, thereby hurting adaptability. We address this challenge with a unified, framework-agnostic agent abstraction that models any agent as a tuple Instruction, Context, Tools, Model. This tuple acts as a compositional recipe for capabilities, enabling the system to spawn specialized executors for each task on demand. Building on this abstraction, we introduce an agentic system AOrchestra, where the central orchestrator concretizes the tuple at each step: it curates task-relevant context, selects tools and models, and delegates execution via on-the-fly automatic agent creation. Such designs enable reducing human engineering efforts, and remain framework-agnostic with plug-and-play support for diverse agents as task executors. It also enables a controllable performance-cost trade-off, allowing the system to approach Pareto-efficient. Across three challenging benchmarks (GAIA, SWE-Bench, Terminal-Bench), AOrchestra achieves 16.28% relative improvement against the strongest baseline when paired with Gemini-3-Flash. The code is available at: https://github.com/FoundationAgents/AOrchestra",
+      "authors": [
+        "Jianhao Ruan",
+        "Zhihao Xu",
+        "Yiran Peng",
+        "Fashen Ren",
+        "Zhaoyang Yu",
+        "Xinbing Liang",
+        "Jinyu Xiang",
+        "Bang Liu",
+        "Chenglin Wu",
+        "Yuyu Luo",
+        "Jiayi Zhang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T17:46:16Z",
+      "updated": "2026-02-03T17:46:16Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03786v1",
+      "abs_url": "http://arxiv.org/abs/2602.03786v1",
+      "summary": "AOrchestra通过动态创建子代理实现复杂任务的自动化，并优化性能成本。",
+      "key_contributions": [
+        "提出了一个框架无关的代理抽象模型(Instruction, Context, Tools, Model)",
+        "实现了AOrchestra系统，支持自动子代理创建和任务委派",
+        "在多个benchmark上验证了AOrchestra的有效性和性能优势"
+      ],
+      "methodology": "AOrchestra通过动态抽象代理模型，根据任务需求自动选择工具和模型，并实时创建子代理执行任务。",
+      "tags": [
+        "Agentic Orchestration",
+        "Sub-agent",
+        "Task Automation",
+        "LLM"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心内容是关于AI Agent的编排和自动化，高度相关。",
+      "analyzed_at": "2026-02-04T17:12:34.560381",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03783v1",
+      "title": "Efficient Estimation of Kernel Surrogate Models for Task Attribution",
+      "abstract": "Modern AI agents such as large language models are trained on diverse tasks -- translation, code generation, mathematical reasoning, and text prediction -- simultaneously. A key question is to quantify how each individual training task influences performance on a target task, a problem we refer to as task attribution. The direct approach, leave-one-out retraining, measures the effect of removing each task, but is computationally infeasible at scale. An alternative approach that builds surrogate models to predict a target task's performance for any subset of training tasks has emerged in recent literature. Prior work focuses on linear surrogate models, which capture first-order relationships, but miss nonlinear interactions such as synergy, antagonism, or XOR-type effects. In this paper, we first consider a unified task weighting framework for analyzing task attribution methods, and show a new connection between linear surrogate models and influence functions through a second-order analysis. Then, we introduce kernel surrogate models, which more effectively represent second-order task interactions. To efficiently learn the kernel surrogate, we develop a gradient-based estimation procedure that leverages a first-order approximation of pretrained models; empirically, this yields accurate estimates with less than $2\\%$ relative error without repeated retraining. Experiments across multiple domains -- including math reasoning in transformers, in-context learning, and multi-objective reinforcement learning -- demonstrate the effectiveness of kernel surrogate models. They achieve a $25\\%$ higher correlation with the leave-one-out ground truth than linear surrogates and influence-function baselines. When used for downstream task selection, kernel surrogate models yield a $40\\%$ improvement in demonstration selection for in-context learning and multi-objective reinforcement learning benchmarks.",
+      "authors": [
+        "Zhenshuo Zhang",
+        "Minxuan Duan",
+        "Hongyang R. Zhang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T17:43:48Z",
+      "updated": "2026-02-03T17:43:48Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03783v1",
+      "abs_url": "http://arxiv.org/abs/2602.03783v1",
+      "summary": "提出核代理模型，用于高效准确地评估训练任务对目标任务的影响，优于线性模型。",
+      "key_contributions": [
+        "提出统一的任务权重框架分析任务归因方法。",
+        "引入核代理模型，有效捕捉二阶任务交互。",
+        "开发基于梯度的核代理模型高效估计方法。"
+      ],
+      "methodology": "利用预训练模型的一阶近似，通过梯度下降估计核代理模型，避免重复训练，提升效率和准确性。",
+      "tags": [
+        "任务归因",
+        "核代理模型",
+        "元学习",
+        "模型评估"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "论文探讨了模型训练中不同任务的影响，与LLM推理能力相关。",
+      "analyzed_at": "2026-02-04T17:12:38.697130",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
     }
   ],
   "fetch_time": "2026-02-04T20:32:43.098241"
