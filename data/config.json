@@ -27,6 +27,12 @@
       "categories": ["cs.CL", "cs.AI", "cs.LG"],
       "keywords": ["reasoning", "chain-of-thought", "CoT", "inference", "logical"],
       "output_category": "reasoning"
+    },
+    {
+      "name": "Multimodal Learning",
+      "categories": ["cs.CV", "cs.CL", "cs.MM", "cs.AI"],
+      "keywords": ["multimodal", "vision-language", "VLM", "MLLM", "image-text", "visual question answering", "VQA"],
+      "output_category": "multimodal"
     }
   ],
   "fetch": {
