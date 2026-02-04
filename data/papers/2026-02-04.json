@@ -2306,6 +2306,216 @@
       "analyzed_at": "2026-02-04T17:12:38.697130",
       "llm_provider": "gemini",
       "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03839v1",
+      "title": "Understanding and Exploiting Weight Update Sparsity for Communication-Efficient Distributed RL",
+      "abstract": "Reinforcement learning (RL) is a critical component for post-training large language models (LLMs). However, in bandwidth-constrained distributed RL, scalability is often bottlenecked by the synchronization of policy weights from trainers to inference workers, particularly over commodity networks or in decentralized settings. While recent studies suggest that RL updates modify only a small fraction of model parameters, these observations are typically based on coarse checkpoint differences. We present a systematic empirical study of weight-update sparsity at both step-level and multi-step granularities, examining its evolution across training dynamics, off-policy delay, and model scale. We find that update sparsity is consistently high, frequently exceeding 99% across practically relevant settings. Leveraging this structure, we propose PULSE (Patch Updates via Lossless Sparse Encoding), a simple yet highly efficient lossless weight synchronization method that transmits only the indices and values of modified parameters. PULSE is robust to transmission errors and avoids floating-point drift inherent in additive delta schemes. In bandwidth-constrained decentralized environments, our approach achieves over 100x (14 GB to ~108 MB) communication reduction while maintaining bit-identical training dynamics and performance compared to full weight synchronization. By exploiting this structure, PULSE enables decentralized RL training to approach centralized throughput, reducing the bandwidth required for weight synchronization from 20 Gbit/s to 0.2 Gbit/s to maintain high GPU utilization.",
+      "authors": [
+        "Erfan Miahi",
+        "Eugene Belilovsky"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T18:56:48Z",
+      "updated": "2026-02-03T18:56:48Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03839v1",
+      "abs_url": "http://arxiv.org/abs/2602.03839v1",
+      "summary": "论文提出PULSE方法，利用权重更新的稀疏性，显著降低分布式RL中的通信开销。",
+      "key_contributions": [
+        "系统性地研究了RL权重更新的稀疏性",
+        "提出了PULSE方法，一种高效的无损权重同步方法",
+        "实验证明PULSE能大幅减少通信开销，提升分布式RL性能"
+      ],
+      "methodology": "通过实验分析权重更新的稀疏性，并据此设计了只传输更新索引和值的PULSE算法。",
+      "tags": [
+        "强化学习",
+        "分布式学习",
+        "通信效率",
+        "权重稀疏性"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 7,
+      "relevance_reason": "该论文主要解决分布式RL中的通信问题，提升agent训练效率，高度相关。",
+      "analyzed_at": "2026-02-04T17:18:45.364971",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03828v1",
+      "title": "AutoFigure: Generating and Refining Publication-Ready Scientific Illustrations",
+      "abstract": "High-quality scientific illustrations are crucial for effectively communicating complex scientific and technical concepts, yet their manual creation remains a well-recognized bottleneck in both academia and industry. We present FigureBench, the first large-scale benchmark for generating scientific illustrations from long-form scientific texts. It contains 3,300 high-quality scientific text-figure pairs, covering diverse text-to-illustration tasks from scientific papers, surveys, blogs, and textbooks. Moreover, we propose AutoFigure, the first agentic framework that automatically generates high-quality scientific illustrations based on long-form scientific text. Specifically, before rendering the final result, AutoFigure engages in extensive thinking, recombination, and validation to produce a layout that is both structurally sound and aesthetically refined, outputting a scientific illustration that achieves both structural completeness and aesthetic appeal. Leveraging the high-quality data from FigureBench, we conduct extensive experiments to test the performance of AutoFigure against various baseline methods. The results demonstrate that AutoFigure consistently surpasses all baseline methods, producing publication-ready scientific illustrations. The code, dataset and huggingface space are released in https://github.com/ResearAI/AutoFigure.",
+      "authors": [
+        "Minjun Zhu",
+        "Zhen Lin",
+        "Yixuan Weng",
+        "Panzhong Lu",
+        "Qiujie Xie",
+        "Yifan Wei",
+        "Sifan Liu",
+        "Qiyao Sun",
+        "Yue Zhang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.DL"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T18:41:43Z",
+      "updated": "2026-02-03T18:41:43Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03828v1",
+      "abs_url": "http://arxiv.org/abs/2602.03828v1",
+      "summary": "AutoFigure提出一个自动生成高质量科学插图的Agent框架，并构建了大规模基准数据集FigureBench。",
+      "key_contributions": [
+        "构建了大规模科学插图基准数据集FigureBench",
+        "提出了Agentic框架AutoFigure，用于自动生成科学插图",
+        "AutoFigure通过思考、重组和验证，生成结构完整和美观的插图"
+      ],
+      "methodology": "AutoFigure采用Agent框架，通过思考、重组和验证步骤，最终生成高质量科学插图。",
+      "tags": [
+        "科学插图生成",
+        "Agentic框架",
+        "基准数据集",
+        "文本到图像"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "论文提出Agent框架解决科学插图生成问题，与Agent主题高度相关。",
+      "analyzed_at": "2026-02-04T17:18:49.386507",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03773v1",
+      "title": "Reasoning Cache: Continual Improvement Over Long Horizons via Short-Horizon RL",
+      "abstract": "Large Language Models (LLMs) that can continually improve beyond their training budgets are able to solve increasingly difficult problems by adapting at test time, a property we refer to as extrapolation. However, standard reinforcement learning (RL) operates over fixed problem distributions and training budgets, which limits extrapolation amidst distribution shift at test time. To address this, we introduce RC, an iterative decoding algorithm that replaces standard autoregressive decoding during both training and inference. RC exploits an asymmetry between the response generation and summarization capabilities of LLMs to construct reasoning chains that consistently improve across iterations. Models trained to use RC can extrapolate and continually improve over reasoning horizons more than an order of magnitude longer than those seen during training. Empirically, training a 4B model with RC using a 16k-token training budget improves performance on HMMT 2025 from 40% to nearly 70% with 0.5m tokens at test time, outperforming both comparably sized models and many larger reasoning LLMs. Finally, we also show that models trained with RC can more effectively leverage existing scaffolds to further scale test-time performance, due to the improved summary-conditioned generation abilities learned through training.",
+      "authors": [
+        "Ian Wu",
+        "Yuxiao Qu",
+        "Amrith Setlur",
+        "Aviral Kumar"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T17:34:04Z",
+      "updated": "2026-02-03T17:34:04Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03773v1",
+      "abs_url": "http://arxiv.org/abs/2602.03773v1",
+      "summary": "RC算法通过迭代解码，利用LLM的生成和总结能力，实现推理链的持续改进，提升模型在长推理任务上的性能。",
+      "key_contributions": [
+        "提出了一种新的迭代解码算法RC",
+        "证明RC可以提升模型在长推理任务上的外推能力",
+        "验证了RC在HMMT 2025数据集上的有效性"
+      ],
+      "methodology": "RC算法利用LLM的response generation和summarization能力，迭代构建推理链，并通过RL训练，使模型能在更长的推理horizon上持续改进。",
+      "tags": [
+        "Reasoning",
+        "Reinforcement Learning",
+        "Large Language Models",
+        "Extrapolation"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文的核心在于改进LLM的推理能力，并提出了新的算法。",
+      "analyzed_at": "2026-02-04T17:19:25.642264",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03845v1",
+      "title": "Parallel-Probe: Towards Efficient Parallel Thinking via 2D Probing",
+      "abstract": "Parallel thinking has emerged as a promising paradigm for reasoning, yet it imposes significant computational burdens. Existing efficiency methods primarily rely on local, per-trajectory signals and lack principled mechanisms to exploit global dynamics across parallel branches. We introduce 2D probing, an interface that exposes the width-depth dynamics of parallel thinking by periodically eliciting intermediate answers from all branches. Our analysis reveals three key insights: non-monotonic scaling across width-depth allocations, heterogeneous reasoning branch lengths, and early stabilization of global consensus. Guided by these insights, we introduce $\\textbf{Parallel-Probe}$, a training-free controller designed to optimize online parallel thinking. Parallel-Probe employs consensus-based early stopping to regulate reasoning depth and deviation-based branch pruning to dynamically adjust width. Extensive experiments across three benchmarks and multiple models demonstrate that Parallel-Probe establishes a superior Pareto frontier for test-time scaling. Compared to standard majority voting, it reduces sequential tokens by up to $\\textbf{35.8}$% and total token cost by over $\\textbf{25.8}$% while maintaining competitive accuracy.",
+      "authors": [
+        "Tong Zheng",
+        "Chengsong Huang",
+        "Runpeng Dai",
+        "Yun He",
+        "Rui Liu",
+        "Xin Ni",
+        "Huiwen Bao",
+        "Kaishen Wang",
+        "Hongtu Zhu",
+        "Jiaxin Huang",
+        "Furong Huang",
+        "Heng Huang"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T18:59:41Z",
+      "updated": "2026-02-03T18:59:41Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03845v1",
+      "abs_url": "http://arxiv.org/abs/2602.03845v1",
+      "summary": "提出Parallel-Probe框架，通过2D探测优化并行推理，实现效率与准确率的平衡。",
+      "key_contributions": [
+        "提出2D探测方法，揭示并行推理中的宽度-深度动态",
+        "设计Parallel-Probe控制器，基于共识提前停止和偏差剪枝动态优化并行推理",
+        "实验证明Parallel-Probe在效率上优于传统多数投票"
+      ],
+      "methodology": "通过2D探测分析并行推理的宽度-深度动态，利用共识和偏差信息进行推理深度调节和分支剪枝。",
+      "tags": [
+        "并行推理",
+        "效率优化",
+        "LLM",
+        "动态调整",
+        "2D探测"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注LLM推理过程中的效率优化，属于推理领域关键问题。",
+      "analyzed_at": "2026-02-04T17:29:57.650072",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03782v1",
+      "title": "QVLA: Not All Channels Are Equal in Vision-Language-Action Model's Quantization",
+      "abstract": "The advent of Vision-Language-Action (VLA) models represents a significant leap for embodied intelligence, yet their immense computational demands critically hinder deployment on resource-constrained robotic platforms. Intuitively, low-bit quantization is a prevalent and preferred technique for large-scale model compression. However, we find that a systematic analysis of VLA model's quantization is fundamentally lacking. We argue that naively applying uniform-bit quantization from Large Language Models (LLMs) to robotics is flawed, as these methods prioritize passive data fidelity while ignoring how minor action deviations compound into catastrophic task failures. To bridge this gap, we introduce QVLA, the first action-centric quantization framework specifically designed for embodied control. In a sharp departure from the rigid, uniform-bit quantization of LLM-based methods, QVLA introduces a highly granular, channel-wise bit allocation strategy. Its core mechanism is to directly measure the final action-space sensitivity when quantizing each individual channel to various bit-widths. This process yields a precise, per-channel importance metric that guides a global optimization, which elegantly unifies quantization and pruning (0-bit) into a single, cohesive framework. Extensive evaluations on different baselines demonstrate the superiority of our approach. In the LIBERO, the quantization version of OpenVLA-OFT with our method requires only 29.2% of the original model's VRAM while maintaining 98.9% of its original performance and achieving a 1.49x speedup. This translates to a 22.6% performance improvement over the LLM-derived method SmoothQuant. Our work establishes a new, principled foundation for compressing VLA models in robotics, paving the way for deploying powerful, large-scale models on real-world hardware. Code will be released.",
+      "authors": [
+        "Yuhao Xu",
+        "Yantai Yang",
+        "Zhenyang Fan",
+        "Yufan Liu",
+        "Yuming Li",
+        "Bing Li",
+        "Zhipeng Zhang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-03T17:43:45Z",
+      "updated": "2026-02-03T17:43:45Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03782v1",
+      "abs_url": "http://arxiv.org/abs/2602.03782v1",
+      "summary": "QVLA提出了一种面向具身控制的动作中心量化框架，有效压缩VLA模型并提升性能。",
+      "key_contributions": [
+        "提出QVLA：一种动作中心量化框架",
+        "引入细粒度的通道级比特分配策略",
+        "将量化和剪枝统一到单一框架"
+      ],
+      "methodology": "QVLA通过测量每个通道量化后的动作空间敏感性，确定通道重要性，并进行全局优化，实现高效的模型压缩。",
+      "tags": [
+        "VLA",
+        "Quantization",
+        "Embodied Control",
+        "Model Compression",
+        "Robotics"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接研究了视觉-语言-动作模型（VLA）的量化问题，属于多模态学习的核心方向。",
+      "analyzed_at": "2026-02-04T17:30:28.637519",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
     }
   ],
   "fetch_time": "2026-02-04T20:32:43.098241"
