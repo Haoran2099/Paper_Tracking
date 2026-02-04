@@ -32,15 +32,19 @@ An arXiv paper tracking system that fetches papers daily, analyzes them with LLM
 
 ### LLM Analyzers
 - All analyzers inherit from `BaseAnalyzer` in `src/llm/base.py`
-- Implement `_call_llm(prompt: str) -> str` method
-- Use `get_analyzer(config)` factory function
+- Constructor must accept `Config` object: `def __init__(self, config: Config)`
+- Implement `_call_llm(prompt: str) -> str` abstract method
+- Use `get_analyzer(config)` factory function to instantiate
 
 ### Data Flow
 1. `ArxivFetcher` produces `RawPaper` objects
 2. `BaseAnalyzer.analyze_paper()` produces `AnalysisResult`
-3. `AnalyzedPaper.from_raw_and_analysis()` combines them
-4. `save_daily_papers()` persists to JSON
-5. `SiteGenerator.generate()` creates static HTML
+3. `BaseAnalyzer.analyze_and_convert()` wraps steps 2-4 for convenience
+4. `AnalyzedPaper.from_raw_and_analysis()` combines raw + analysis
+5. `save_daily_papers()` persists to JSON
+6. `SiteGenerator.generate()` creates static HTML
+
+Note: `analyze_batch()` uses `analyze_and_convert()` internally for batch processing.
 
 ## Testing
 
