@@ -54,10 +54,13 @@ python -m src.main serve
 
 ### 选项
 
-- `--config, -c`: 指定配置文件路径
-- `--days, -d`: 回溯天数（默认 1）
-- `--dry-run`: 仅获取不分析
-- `--output, -o`: 输出目录（默认 `docs`）
+| 选项 | 适用命令 | 说明 |
+|------|---------|------|
+| `--config, -c` | 全局 | 指定配置文件路径 |
+| `--days, -d` | `fetch-and-analyze` | 回溯天数（默认 1） |
+| `--dry-run` | `fetch-and-analyze` | 仅获取不分析 |
+| `--output, -o` | `generate-site`, `serve` | 输出目录（默认 `docs`） |
+| `--port, -p` | `serve` | 服务器端口（默认 8000） |
 
 ## 配置说明
 
@@ -65,6 +68,11 @@ python -m src.main serve
 
 ```json
 {
+  "site": {
+    "title": "My Paper Tracker",
+    "description": "Tracking papers in my research areas",
+    "base_url": ""
+  },
   "llm": {
     "provider": "claude",
     "model": "claude-sonnet-4-20250514",
@@ -89,7 +97,9 @@ python -m src.main serve
 ## GitHub Actions 部署
 
 1. Fork 本仓库
-2. 设置 Repository Secret: `ANTHROPIC_API_KEY`
+2. 设置 Repository Secret（根据你选择的 LLM 提供商）:
+   - Claude: `ANTHROPIC_API_KEY`
+   - OpenAI: `OPENAI_API_KEY`
 3. 启用 GitHub Pages（Source: GitHub Actions）
 4. 工作流每日 UTC 6:00（北京 14:00）自动运行
 
@@ -97,6 +107,9 @@ python -m src.main serve
 
 ```
 Paper_Tracking/
+├── .github/
+│   └── workflows/
+│       └── daily_update.yml  # GitHub Actions 自动化
 ├── src/                    # 源代码
 │   ├── main.py            # CLI 入口
 │   ├── arxiv_fetcher.py   # arXiv API
