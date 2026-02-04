@@ -1,0 +1,115 @@
+# Paper Tracker
+
+每日自动追踪 arXiv 论文，使用 AI 进行分析和分类，生成静态网站展示。
+
+## 特性
+
+- **多领域支持**: 通过 `config.json` 自定义追踪任意研究领域
+- **多 LLM 支持**: Claude / OpenAI / Ollama（本地模型）
+- **自动化部署**: GitHub Actions 每日自动更新 + GitHub Pages 托管
+- **深色主题**: 类似 GitHub Dark 的简约风格
+- **客户端搜索**: 无需后端即可搜索论文
+
+## 快速开始
+
+### 1. 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. 配置
+
+复制并编辑配置文件：
+
+```bash
+cp .env.example .env
+# 编辑 .env 设置 API Key
+```
+
+编辑 `data/config.json` 自定义追踪领域。
+
+### 3. 运行
+
+```bash
+# 获取并分析论文
+python -m src.main fetch-and-analyze
+
+# 生成静态网站
+python -m src.main generate-site
+
+# 本地预览
+python -m src.main serve
+```
+
+## CLI 命令
+
+| 命令 | 说明 |
+|------|------|
+| `show-config` | 显示当前配置 |
+| `fetch-and-analyze` | 获取并分析论文 |
+| `generate-site` | 生成静态网站 |
+| `run` | 执行完整流程 |
+| `serve` | 启动本地预览服务器 |
+
+### 选项
+
+- `--config, -c`: 指定配置文件路径
+- `--days, -d`: 回溯天数（默认 1）
+- `--dry-run`: 仅获取不分析
+- `--output, -o`: 输出目录（默认 `docs`）
+
+## 配置说明
+
+`data/config.json` 示例：
+
+```json
+{
+  "llm": {
+    "provider": "claude",
+    "model": "claude-sonnet-4-20250514",
+    "api_key_env": "ANTHROPIC_API_KEY"
+  },
+  "domains": [
+    {
+      "name": "LLM Memory",
+      "categories": ["cs.CL", "cs.AI"],
+      "keywords": ["memory", "RAG", "retrieval"],
+      "output_category": "memory"
+    }
+  ],
+  "fetch": {
+    "days_back": 1,
+    "max_papers_per_domain": 50,
+    "min_relevance_score": 5
+  }
+}
+```
+
+## GitHub Actions 部署
+
+1. Fork 本仓库
+2. 设置 Repository Secret: `ANTHROPIC_API_KEY`
+3. 启用 GitHub Pages（Source: GitHub Actions）
+4. 工作流每日 UTC 6:00（北京 14:00）自动运行
+
+## 项目结构
+
+```
+Paper_Tracking/
+├── src/                    # 源代码
+│   ├── main.py            # CLI 入口
+│   ├── arxiv_fetcher.py   # arXiv API
+│   ├── site_generator.py  # 静态网站生成
+│   └── llm/               # LLM 分析器
+├── templates/             # Jinja2 模板
+├── static/                # CSS/JS 静态资源
+├── data/                  # 配置和数据
+│   ├── config.json       # 用户配置
+│   └── papers/           # 论文 JSON 数据
+└── docs/                  # 生成的静态网站
+```
+
+## License
+
+MIT
