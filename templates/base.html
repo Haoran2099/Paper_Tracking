@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ site.title }}{% endblock %}</title>
+    <meta name="description" content="{{ site.description }}">
+    <link rel="stylesheet" href="{{ site.base_url }}/static/css/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ site.base_url }}/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>{{ site.title }}</span>
+            </a>
+            <div class="nav-links">
+                {% for cat in categories %}
+                <a href="{{ site.base_url }}/category/{{ cat }}/" class="nav-link {% if current_category == cat %}active{% endif %}">
+                    {{ category_names.get(cat, cat) }}
+                </a>
+                {% endfor %}
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at {{ generated_at | format_date('%Y-%m-%d %H:%M') }} · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="{{ site.base_url }}/static/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

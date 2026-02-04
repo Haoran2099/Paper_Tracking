@@ -1,0 +1,37 @@
+{
+  "site": {
+    "title": "Paper Tracker",
+    "description": "Daily arXiv paper tracking with AI-powered analysis",
+    "base_url": ""
+  },
+  "llm": {
+    "provider": "claude",
+    "model": "claude-sonnet-4-20250514",
+    "api_key_env": "ANTHROPIC_API_KEY"
+  },
+  "domains": [
+    {
+      "name": "LLM Memory & RAG",
+      "categories": ["cs.CL", "cs.AI", "cs.LG"],
+      "keywords": ["memory", "long-term memory", "retrieval", "RAG", "retrieval-augmented"],
+      "output_category": "memory"
+    },
+    {
+      "name": "AI Agents",
+      "categories": ["cs.CL", "cs.AI", "cs.LG"],
+      "keywords": ["agent", "autonomous", "tool use", "planning", "multi-agent"],
+      "output_category": "agent"
+    },
+    {
+      "name": "LLM Reasoning",
+      "categories": ["cs.CL", "cs.AI", "cs.LG"],
+      "keywords": ["reasoning", "chain-of-thought", "CoT", "inference", "logical"],
+      "output_category": "reasoning"
+    }
+  ],
+  "fetch": {
+    "days_back": 1,
+    "max_papers_per_domain": 50,
+    "min_relevance_score": 5
+  }
+}

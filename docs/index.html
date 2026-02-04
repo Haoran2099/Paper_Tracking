@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Tracker - 首页</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/category/reasoning/" class="nav-link ">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <header class="page-header">
+        <h1>Paper Tracker</h1>
+        <p class="subtitle">Daily arXiv paper tracking with AI-powered analysis</p>
+        <div class="stats">
+            <span class="stat">
+                <strong>0</strong> 篇论文
+            </span>
+            <span class="stat">
+                <strong>3</strong> 个领域
+            </span>
+        </div>
+    </header>
+
+    
+
+    <section class="section">
+        <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            最新论文
+        </h2>
+        <div class="paper-list">
+            
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+            分类浏览
+        </h2>
+        <div class="category-grid">
+            
+            <a href="/category/memory/" class="category-card">
+                <h3>LLM Memory &amp; RAG</h3>
+                <p class="category-count">0 篇论文</p>
+            </a>
+            
+            <a href="/category/agent/" class="category-card">
+                <h3>AI Agents</h3>
+                <p class="category-count">0 篇论文</p>
+            </a>
+            
+            <a href="/category/reasoning/" class="category-card">
+                <h3>LLM Reasoning</h3>
+                <p class="category-count">0 篇论文</p>
+            </a>
+            
+        </div>
+    </section>
+</div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-04 16:26 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    
+</body>
+</html>

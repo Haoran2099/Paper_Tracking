@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Reasoning - Paper Tracker</title>
+    <meta name="description" content="Daily arXiv paper tracking with AI-powered analysis">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Paper Tracker</span>
+            </a>
+            <div class="nav-links">
+                
+                <a href="/category/memory/" class="nav-link ">
+                    LLM Memory &amp; RAG
+                </a>
+                
+                <a href="/category/agent/" class="nav-link ">
+                    AI Agents
+                </a>
+                
+                <a href="/category/reasoning/" class="nav-link active">
+                    LLM Reasoning
+                </a>
+                
+            </div>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索论文..." autocomplete="off">
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+<div class="container">
+    <header class="page-header">
+        <nav class="breadcrumb">
+            <a href="/">首页</a>
+            <span>/</span>
+            <span>LLM Reasoning</span>
+        </nav>
+        <h1>LLM Reasoning</h1>
+        <p class="subtitle">共 0 篇论文</p>
+    </header>
+
+    <div class="filter-bar">
+        <div class="filter-group">
+            <label>排序</label>
+            <select id="sort-select">
+                <option value="date">按日期</option>
+                <option value="score">按相关度</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>最低分数</label>
+            <select id="score-filter">
+                <option value="0">全部</option>
+                <option value="5">5+</option>
+                <option value="7">7+</option>
+                <option value="8">8+</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="paper-list" id="paper-list">
+        
+    </div>
+
+    
+    <div class="empty-state">
+        <p>该分类暂无论文</p>
+    </div>
+    
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const list = document.getElementById('paper-list');
+    const sortSelect = document.getElementById('sort-select');
+    const scoreFilter = document.getElementById('score-filter');
+
+    function sortAndFilter() {
+        const items = Array.from(list.querySelectorAll('.paper-item'));
+        const sortBy = sortSelect.value;
+        const minScore = parseInt(scoreFilter.value);
+
+        items.forEach(item => {
+            const score = parseInt(item.dataset.score);
+            item.style.display = score >= minScore ? '' : 'none';
+        });
+
+        items.sort((a, b) => {
+            if (sortBy === 'score') {
+                return parseInt(b.dataset.score) - parseInt(a.dataset.score);
+            } else {
+                return new Date(b.dataset.date) - new Date(a.dataset.date);
+            }
+        });
+
+        items.forEach(item => list.appendChild(item));
+    }
+
+    sortSelect.addEventListener('change', sortAndFilter);
+    scoreFilter.addEventListener('change', sortAndFilter);
+});
+</script>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Generated at 2026-02-04 16:26 · Powered by arXiv API</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const list = document.getElementById('paper-list');
+    const sortSelect = document.getElementById('sort-select');
+    const scoreFilter = document.getElementById('score-filter');
+
+    function sortAndFilter() {
+        const items = Array.from(list.querySelectorAll('.paper-item'));
+        const sortBy = sortSelect.value;
+        const minScore = parseInt(scoreFilter.value);
+
+        items.forEach(item => {
+            const score = parseInt(item.dataset.score);
+            item.style.display = score >= minScore ? '' : 'none';
+        });
+
+        items.sort((a, b) => {
+            if (sortBy === 'score') {
+                return parseInt(b.dataset.score) - parseInt(a.dataset.score);
+            } else {
+                return new Date(b.dataset.date) - new Date(a.dataset.date);
+            }
+        });
+
+        items.forEach(item => list.appendChild(item));
+    }
+
+    sortSelect.addEventListener('change', sortAndFilter);
+    scoreFilter.addEventListener('change', sortAndFilter);
+});
+</script>
+
+</body>
+</html>

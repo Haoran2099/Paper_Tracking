@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category_name }} - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header class="page-header">
+        <nav class="breadcrumb">
+            <a href="{{ site.base_url }}/">首页</a>
+            <span>/</span>
+            <span>{{ category_name }}</span>
+        </nav>
+        <h1>{{ category_name }}</h1>
+        <p class="subtitle">共 {{ papers | length }} 篇论文</p>
+    </header>
+
+    <div class="filter-bar">
+        <div class="filter-group">
+            <label>排序</label>
+            <select id="sort-select">
+                <option value="date">按日期</option>
+                <option value="score">按相关度</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>最低分数</label>
+            <select id="score-filter">
+                <option value="0">全部</option>
+                <option value="5">5+</option>
+                <option value="7">7+</option>
+                <option value="8">8+</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="paper-list" id="paper-list">
+        {% for paper in papers %}
+        <article class="paper-item" data-score="{{ paper.relevance_score }}" data-date="{{ paper.published.isoformat() }}">
+            <div class="paper-item-main">
+                <div class="paper-item-header">
+                    <span class="paper-score {% if paper.relevance_score >= 8 %}score-high{% elif paper.relevance_score >= 6 %}score-medium{% else %}score-low{% endif %}">
+                        {{ paper.relevance_score }}/10
+                    </span>
+                    <div class="paper-tags-inline">
+                        {% for tag in paper.tags[:3] %}
+                        <span class="tag-small">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <h3 class="paper-item-title">
+                    <a href="{{ site.base_url }}/paper/{{ paper.short_id }}/">{{ paper.title }}</a>
+                </h3>
+                <p class="paper-item-authors">{{ paper.authors[:3] | join(', ') }}{% if paper.authors | length > 3 %} et al.{% endif %}</p>
+                <p class="paper-item-summary">{{ paper.summary }}</p>
+                <ul class="paper-contributions">
+                    {% for contrib in paper.key_contributions[:2] %}
+                    <li>{{ contrib }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="paper-item-side">
+                <span class="paper-date">{{ paper.published | format_date }}</span>
+                <div class="paper-actions">
+                    <a href="{{ paper.pdf_url }}" class="btn-small" target="_blank" rel="noopener">PDF</a>
+                    <a href="{{ paper.abs_url }}" class="btn-small btn-outline" target="_blank" rel="noopener">arXiv</a>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+    {% if not papers %}
+    <div class="empty-state">
+        <p>该分类暂无论文</p>
+    </div>
+    {% endif %}
+</div>
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const list = document.getElementById('paper-list');
+    const sortSelect = document.getElementById('sort-select');
+    const scoreFilter = document.getElementById('score-filter');
+
+    function sortAndFilter() {
+        const items = Array.from(list.querySelectorAll('.paper-item'));
+        const sortBy = sortSelect.value;
+        const minScore = parseInt(scoreFilter.value);
+
+        items.forEach(item => {
+            const score = parseInt(item.dataset.score);
+            item.style.display = score >= minScore ? '' : 'none';
+        });
+
+        items.sort((a, b) => {
+            if (sortBy === 'score') {
+                return parseInt(b.dataset.score) - parseInt(a.dataset.score);
+            } else {
+                return new Date(b.dataset.date) - new Date(a.dataset.date);
+            }
+        });
+
+        items.forEach(item => list.appendChild(item));
+    }
+
+    sortSelect.addEventListener('change', sortAndFilter);
+    scoreFilter.addEventListener('change', sortAndFilter);
+});
+</script>
+{% endblock %}
+{% endblock %}

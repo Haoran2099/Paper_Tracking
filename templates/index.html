@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.title }} - 首页{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header class="page-header">
+        <h1>{{ site.title }}</h1>
+        <p class="subtitle">{{ site.description }}</p>
+        <div class="stats">
+            <span class="stat">
+                <strong>{{ total_papers }}</strong> 篇论文
+            </span>
+            <span class="stat">
+                <strong>{{ categories | length }}</strong> 个领域
+            </span>
+        </div>
+    </header>
+
+    {% if high_relevance_papers %}
+    <section class="section">
+        <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            高相关度论文
+        </h2>
+        <div class="paper-grid">
+            {% for paper in high_relevance_papers %}
+            <article class="paper-card featured">
+                <div class="paper-meta">
+                    <span class="paper-category">{{ category_names.get(paper.assigned_category, paper.assigned_category) }}</span>
+                    <span class="paper-score score-high">{{ paper.relevance_score }}/10</span>
+                </div>
+                <h3 class="paper-title">
+                    <a href="{{ site.base_url }}/paper/{{ paper.short_id }}/">{{ paper.title }}</a>
+                </h3>
+                <p class="paper-summary">{{ paper.summary }}</p>
+                <div class="paper-tags">
+                    {% for tag in paper.tags[:4] %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="paper-footer">
+                    <span class="paper-date">{{ paper.published | format_date }}</span>
+                    <a href="{{ paper.pdf_url }}" class="paper-link" target="_blank" rel="noopener">PDF</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="section">
+        <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            最新论文
+        </h2>
+        <div class="paper-list">
+            {% for paper in recent_papers %}
+            <article class="paper-item">
+                <div class="paper-item-main">
+                    <div class="paper-item-header">
+                        <span class="paper-category-badge">{{ category_names.get(paper.assigned_category, paper.assigned_category) }}</span>
+                        <span class="paper-score {% if paper.relevance_score >= 8 %}score-high{% elif paper.relevance_score >= 6 %}score-medium{% else %}score-low{% endif %}">
+                            {{ paper.relevance_score }}/10
+                        </span>
+                    </div>
+                    <h3 class="paper-item-title">
+                        <a href="{{ site.base_url }}/paper/{{ paper.short_id }}/">{{ paper.title }}</a>
+                    </h3>
+                    <p class="paper-item-authors">{{ paper.authors[:3] | join(', ') }}{% if paper.authors | length > 3 %} et al.{% endif %}</p>
+                    <p class="paper-item-summary">{{ paper.summary }}</p>
+                </div>
+                <div class="paper-item-side">
+                    <span class="paper-date">{{ paper.published | format_date }}</span>
+                    <a href="{{ paper.pdf_url }}" class="btn-small" target="_blank" rel="noopener">PDF</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+            分类浏览
+        </h2>
+        <div class="category-grid">
+            {% for cat in categories %}
+            <a href="{{ site.base_url }}/category/{{ cat }}/" class="category-card">
+                <h3>{{ category_names.get(cat, cat) }}</h3>
+                <p class="category-count">{{ papers_by_category.get(cat, []) | length }} 篇论文</p>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

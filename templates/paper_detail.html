@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}{{ paper.title }} - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <article class="paper-detail">
+        <nav class="breadcrumb">
+            <a href="{{ site.base_url }}/">首页</a>
+            <span>/</span>
+            <a href="{{ site.base_url }}/category/{{ paper.assigned_category }}/">{{ category_names.get(paper.assigned_category, paper.assigned_category) }}</a>
+            <span>/</span>
+            <span>{{ paper.arxiv_id }}</span>
+        </nav>
+
+        <header class="paper-detail-header">
+            <div class="paper-detail-meta">
+                <span class="paper-category-badge">{{ category_names.get(paper.assigned_category, paper.assigned_category) }}</span>
+                <span class="paper-score {% if paper.relevance_score >= 8 %}score-high{% elif paper.relevance_score >= 6 %}score-medium{% else %}score-low{% endif %}">
+                    相关度: {{ paper.relevance_score }}/10
+                </span>
+            </div>
+            <h1 class="paper-detail-title">{{ paper.title }}</h1>
+            <div class="paper-detail-authors">
+                {% for author in paper.authors %}
+                <span class="author">{{ author }}</span>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </div>
+            <div class="paper-detail-info">
+                <span>arXiv: {{ paper.arxiv_id }}</span>
+                <span>发布: {{ paper.published | format_date }}</span>
+                <span>更新: {{ paper.updated | format_date }}</span>
+            </div>
+            <div class="paper-detail-actions">
+                <a href="{{ paper.pdf_url }}" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载 PDF
+                </a>
+                <a href="{{ paper.abs_url }}" class="btn btn-outline" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    arXiv 页面
+                </a>
+            </div>
+        </header>
+
+        <section class="paper-section">
+            <h2>AI 摘要</h2>
+            <div class="summary-box">
+                <p>{{ paper.summary }}</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>主要贡献</h2>
+            <ul class="contributions-list">
+                {% for contrib in paper.key_contributions %}
+                <li>{{ contrib }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="paper-section">
+            <h2>方法论</h2>
+            <p>{{ paper.methodology }}</p>
+        </section>
+
+        <section class="paper-section">
+            <h2>原文摘要</h2>
+            <div class="abstract-box">
+                <p>{{ paper.abstract }}</p>
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>标签</h2>
+            <div class="paper-tags">
+                {% for tag in paper.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="paper-section">
+            <h2>arXiv 分类</h2>
+            <div class="paper-tags">
+                {% for cat in paper.categories %}
+                <span class="tag tag-secondary">{{ cat }}</span>
+                {% endfor %}
+            </div>
+        </section>
+
+        <footer class="paper-detail-footer">
+            <p class="analysis-info">
+                分析模型: {{ paper.llm_provider }} / {{ paper.llm_model }}
+                · 分析时间: {{ paper.analyzed_at | format_date('%Y-%m-%d %H:%M') }}
+            </p>
+            <p class="relevance-reason">
+                <strong>相关度评分原因:</strong> {{ paper.relevance_reason }}
+            </p>
+        </footer>
+    </article>
+</div>
+{% endblock %}
