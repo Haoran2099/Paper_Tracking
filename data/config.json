@@ -5,9 +5,9 @@
     "base_url": ""
   },
   "llm": {
-    "provider": "claude",
-    "model": "claude-sonnet-4-20250514",
-    "api_key_env": "ANTHROPIC_API_KEY"
+    "provider": "gemini",
+    "model": "gemini-2.0-flash",
+    "api_key_env": "GOOGLE_API_KEY"
   },
   "domains": [
     {

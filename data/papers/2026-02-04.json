@@ -1,0 +1,1365 @@
+{
+  "date": "2026-02-04",
+  "papers": [
+    {
+      "arxiv_id": "2602.03825v1",
+      "title": "Robust Intervention Learning from Emergency Stop Interventions",
+      "abstract": "Human interventions are a common source of data in autonomous systems during testing. These interventions provide an important signal about where the current policy needs improvement, but are often noisy and incomplete. We define Robust Intervention Learning (RIL) as the problem of learning from intervention data while remaining robust to the quality and informativeness of the intervention signal. In the best case, interventions are precise and avoiding them is sufficient to solve the task, but in many realistic settings avoiding interventions is necessary but not sufficient for achieving good performance. We study robust intervention learning in the context of emergency stop interventions and propose Residual Intervention Fine-Tuning (RIFT), a residual fine-tuning algorithm that treats intervention feedback as an incomplete learning signal and explicitly combines it with a prior policy. By framing intervention learning as a fine-tuning problem, our approach leverages structure encoded in the prior policy to resolve ambiguity when intervention signals under-specify the task. We provide theoretical analysis characterizing conditions under which this formulation yields principled policy improvement, and identify regimes where intervention learning is expected to fail. Our experiments reveal that residual fine-tuning enables robust and consistent policy improvement across a range of intervention strategies and prior policy qualities, and highlight robust intervention learning as a promising direction for future work.",
+      "authors": [
+        "Ethan Pronovost",
+        "Khimya Khetarpal",
+        "Siddhartha Srinivasa"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T18:33:21Z",
+      "updated": "2026-02-03T18:33:21Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03825v1",
+      "abs_url": "http://arxiv.org/abs/2602.03825v1",
+      "summary": "提出Residual Intervention Fine-Tuning算法，从紧急停止干预中进行鲁棒学习，提升自动驾驶系统性能。",
+      "key_contributions": [
+        "提出Robust Intervention Learning (RIL)问题定义",
+        "提出Residual Intervention Fine-Tuning (RIFT)算法",
+        "提供理论分析，表征算法的改进条件"
+      ],
+      "methodology": "将干预学习视为微调问题，利用先验策略的信息，通过残差微调的方式结合干预反馈信号。",
+      "tags": [
+        "强化学习",
+        "干预学习",
+        "自动驾驶",
+        "微调"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "研究如何利用干预信息提升自主系统性能，与Agent学习策略优化密切相关。",
+      "analyzed_at": "2026-02-04T20:41:59.231306",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03822v1",
+      "title": "They Said Memes Were Harmless-We Found the Ones That Hurt: Decoding Jokes, Symbols, and Cultural References",
+      "abstract": "Meme-based social abuse detection is challenging because harmful intent often relies on implicit cultural symbolism and subtle cross-modal incongruence. Prior approaches, from fusion-based methods to in-context learning with Large Vision-Language Models (LVLMs), have made progress but remain limited by three factors: i) cultural blindness (missing symbolic context), ii) boundary ambiguity (satire vs. abuse confusion), and iii) lack of interpretability (opaque model reasoning). We introduce CROSS-ALIGN+, a three-stage framework that systematically addresses these limitations: (1) Stage I mitigates cultural blindness by enriching multimodal representations with structured knowledge from ConceptNet, Wikidata, and Hatebase; (2) Stage II reduces boundary ambiguity through parameter-efficient LoRA adapters that sharpen decision boundaries; and (3) Stage III enhances interpretability by generating cascaded explanations. Extensive experiments on five benchmarks and eight LVLMs demonstrate that CROSS-ALIGN+ consistently outperforms state-of-the-art methods, achieving up to 17% relative F1 improvement while providing interpretable justifications for each decision.",
+      "authors": [
+        "Sahil Tripathi",
+        "Gautam Siddharth Kashyap",
+        "Mehwish Nasim",
+        "Jian Yang",
+        "Jiechao Gao",
+        "Usman Naseem"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T18:29:46Z",
+      "updated": "2026-02-03T18:29:46Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03822v1",
+      "abs_url": "http://arxiv.org/abs/2602.03822v1",
+      "summary": "提出了CROSS-ALIGN+框架，提升基于meme的社交恶意信息检测效果，并增强模型可解释性。",
+      "key_contributions": [
+        "缓解文化盲区",
+        "减少边界模糊",
+        "增强可解释性"
+      ],
+      "methodology": "三阶段框架：通过知识库增强表示、LoRA适配器锐化边界、生成级联解释。",
+      "tags": [
+        "Meme",
+        "Social Abuse Detection",
+        "Multimodal Learning",
+        "Explainability"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "涉及常识推理和文化背景理解，与LLM推理能力密切相关。",
+      "analyzed_at": "2026-02-04T20:42:02.063867",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03817v1",
+      "title": "Adaptive Evidence Weighting for Audio-Spatiotemporal Fusion",
+      "abstract": "Many machine learning systems have access to multiple sources of evidence for the same prediction target, yet these sources often differ in reliability and informativeness across inputs. In bioacoustic classification, species identity may be inferred both from the acoustic signal and from spatiotemporal context such as location and season; while Bayesian inference motivates multiplicative evidence combination, in practice we typically only have access to discriminative predictors rather than calibrated generative models. We introduce \\textbf{F}usion under \\textbf{IN}dependent \\textbf{C}onditional \\textbf{H}ypotheses (\\textbf{FINCH}), an adaptive log-linear evidence fusion framework that integrates a pre-trained audio classifier with a structured spatiotemporal predictor. FINCH learns a per-sample gating function that estimates the reliability of contextual information from uncertainty and informativeness statistics. The resulting fusion family \\emph{contains} the audio-only classifier as a special case and explicitly bounds the influence of contextual evidence, yielding a risk-contained hypothesis class with an interpretable audio-only fallback. Across benchmarks, FINCH consistently outperforms fixed-weight fusion and audio-only baselines, improving robustness and error trade-offs even when contextual information is weak in isolation. We achieve state-of-the-art performance on CBI and competitive or improved performance on several subsets of BirdSet using a lightweight, interpretable, evidence-based approach. Code is available: \\texttt{\\href{https://anonymous.4open.science/r/birdnoise-85CD/README.md}{anonymous-repository}}",
+      "authors": [
+        "Oscar Ovanger",
+        "Levi Harris",
+        "Timothy H. Keitt"
+      ],
+      "categories": [
+        "cs.SD",
+        "cs.AI"
+      ],
+      "primary_category": "cs.SD",
+      "published": "2026-02-03T18:21:13Z",
+      "updated": "2026-02-03T18:21:13Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03817v1",
+      "abs_url": "http://arxiv.org/abs/2602.03817v1",
+      "summary": "论文提出FINCH框架，自适应融合音频和时空信息，提升生物声学分类性能。",
+      "key_contributions": [
+        "提出了FINCH框架，用于自适应融合音频和时空证据。",
+        "引入per-sample gating函数，评估上下文信息的可靠性。",
+        "实现了在上下文信息较弱时，性能优于固定权重融合和仅使用音频的基线。"
+      ],
+      "methodology": "FINCH通过学习per-sample gating函数，基于不确定性和信息量统计，自适应地调整音频和时空证据的权重，最终进行融合。",
+      "tags": [
+        "音频分类",
+        "时空融合",
+        "自适应权重",
+        "生物声学"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 6,
+      "relevance_reason": "涉及多模态信息融合和决策，与推理有一定关联。",
+      "analyzed_at": "2026-02-04T20:42:04.630352",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03815v1",
+      "title": "Fast-Slow Efficient Training for Multimodal Large Language Models via Visual Token Pruning",
+      "abstract": "Multimodal Large Language Models (MLLMs) suffer from severe training inefficiency issue, which is associated with their massive model sizes and visual token numbers. Existing efforts in efficient training focus on reducing model sizes or trainable parameters. Inspired by the success of Visual Token Pruning (VTP) in improving inference efficiency, we are exploring another substantial research direction for efficient training by reducing visual tokens. However, applying VTP at the training stage results in a training-inference mismatch: pruning-trained models perform poorly when inferring on non-pruned full visual token sequences. To close this gap, we propose DualSpeed, a fast-slow framework for efficient training of MLLMs. The fast-mode is the primary mode, which incorporates existing VTP methods as plugins to reduce visual tokens, along with a mode isolator to isolate the model's behaviors. The slow-mode is the auxiliary mode, where the model is trained on full visual sequences to retain training-inference consistency. To boost its training, it further leverages self-distillation to learn from the sufficiently trained fast-mode. Together, DualSpeed can achieve both training efficiency and non-degraded performance. Experiments show DualSpeed accelerates the training of LLaVA-1.5 by 2.1$\\times$ and LLaVA-NeXT by 4.0$\\times$, retaining over 99% performance. Code: https://github.com/dingkun-zhang/DualSpeed",
+      "authors": [
+        "Dingkun Zhang",
+        "Shuhan Qi",
+        "Yulin Wu",
+        "Xinyu Xiao",
+        "Xuan Wang",
+        "Long Chen"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-03T18:18:11Z",
+      "updated": "2026-02-03T18:18:11Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03815v1",
+      "abs_url": "http://arxiv.org/abs/2602.03815v1",
+      "summary": "提出DualSpeed框架，通过视觉Token剪枝加速多模态大语言模型的训练，并保持推理性能。",
+      "key_contributions": [
+        "提出DualSpeed快速-慢速训练框架",
+        "结合视觉Token剪枝（VTP）加速训练",
+        "使用自蒸馏保证训练-推理一致性"
+      ],
+      "methodology": "DualSpeed采用快速模式（VTP+模式隔离）和慢速模式（完整视觉序列+自蒸馏）交替训练，兼顾效率和性能。",
+      "tags": [
+        "多模态学习",
+        "大语言模型",
+        "视觉Token剪枝",
+        "高效训练",
+        "自蒸馏"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 6,
+      "relevance_reason": "虽然主要关注训练效率，但可能影响Agent在多模态环境中的应用。",
+      "analyzed_at": "2026-02-04T20:42:07.016229",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03799v1",
+      "title": "Conformal Reachability for Safe Control in Unknown Environments",
+      "abstract": "Designing provably safe control is a core problem in trustworthy autonomy. However, most prior work in this regard assumes either that the system dynamics are known or deterministic, or that the state and action space are finite, significantly limiting application scope. We address this limitation by developing a probabilistic verification framework for unknown dynamical systems which combines conformal prediction with reachability analysis. In particular, we use conformal prediction to obtain valid uncertainty intervals for the unknown dynamics at each time step, with reachability then verifying whether safety is maintained within the conformal uncertainty bounds. Next, we develop an algorithmic approach for training control policies that optimize nominal reward while also maximizing the planning horizon with sound probabilistic safety guarantees. We evaluate the proposed approach in seven safe control settings spanning four domains -- cartpole, lane following, drone control, and safe navigation -- for both affine and nonlinear safety specifications. Our experiments show that the policies we learn achieve the strongest provable safety guarantees while still maintaining high average reward.",
+      "authors": [
+        "Xinhang Ma",
+        "Junlin Wu",
+        "Yiannis Kantaros",
+        "Yevgeniy Vorobeychik"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "primary_category": "cs.RO",
+      "published": "2026-02-03T18:01:38Z",
+      "updated": "2026-02-03T18:01:38Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03799v1",
+      "abs_url": "http://arxiv.org/abs/2602.03799v1",
+      "summary": "提出结合一致性预测和可达性分析的未知动力系统安全控制框架。",
+      "key_contributions": [
+        "提出基于一致性预测的安全控制框架",
+        "开发优化名义奖励和最大化安全规划范围的控制策略训练算法",
+        "在多个安全控制场景验证了算法的有效性"
+      ],
+      "methodology": "结合一致性预测获取不确定性区间，利用可达性分析验证安全，训练控制策略优化奖励和安全。",
+      "tags": [
+        "安全控制",
+        "一致性预测",
+        "可达性分析",
+        "未知动力系统"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "论文研究了在不确定环境下设计安全控制策略的问题，属于智能体控制的重要方面。",
+      "analyzed_at": "2026-02-04T20:42:11.673089",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03794v1",
+      "title": "Understanding Agent Scaling in LLM-Based Multi-Agent Systems via Diversity",
+      "abstract": "LLM-based multi-agent systems (MAS) have emerged as a promising approach to tackle complex tasks that are difficult for individual LLMs. A natural strategy is to scale performance by increasing the number of agents; however, we find that such scaling exhibits strong diminishing returns in homogeneous settings, while introducing heterogeneity (e.g., different models, prompts, or tools) continues to yield substantial gains. This raises a fundamental question: what limits scaling, and why does diversity help? We present an information-theoretic framework showing that MAS performance is bounded by the intrinsic task uncertainty, not by agent count. We derive architecture-agnostic bounds demonstrating that improvements depend on how many effective channels the system accesses. Homogeneous agents saturate early because their outputs are strongly correlated, whereas heterogeneous agents contribute complementary evidence. We further introduce $K^*$, an effective channel count that quantifies the number of effective channels without ground-truth labels. Empirically, we show that heterogeneous configurations consistently outperform homogeneous scaling: 2 diverse agents can match or exceed the performance of 16 homogeneous agents. Our results provide principled guidelines for building efficient and robust MAS through diversity-aware design. Code and Dataset are available at the link: https://github.com/SafeRL-Lab/Agent-Scaling.",
+      "authors": [
+        "Yingxuan Yang",
+        "Chengrui Qu",
+        "Muning Wen",
+        "Laixi Shi",
+        "Ying Wen",
+        "Weinan Zhang",
+        "Adam Wierman",
+        "Shangding Gu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T17:58:10Z",
+      "updated": "2026-02-03T17:58:10Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03794v1",
+      "abs_url": "http://arxiv.org/abs/2602.03794v1",
+      "summary": "论文研究了LLM多智能体系统中智能体数量与性能的关系，强调了多样性的重要性。",
+      "key_contributions": [
+        "提出了多智能体系统性能受限于任务不确定性的信息论框架",
+        "推导了架构无关的性能边界，强调有效通道数量的重要性",
+        "引入了$K^*$指标量化有效通道数量，无需ground-truth标签"
+      ],
+      "methodology": "通过信息论建模分析多智能体系统性能瓶颈，并进行实验验证异构智能体的优越性。",
+      "tags": [
+        "LLM",
+        "Multi-Agent System",
+        "Diversity",
+        "Information Theory"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "直接研究了基于LLM的多智能体系统，并提出了scaling的优化方法。",
+      "analyzed_at": "2026-02-04T20:42:16.091167",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03784v1",
+      "title": "Context Compression via Explicit Information Transmission",
+      "abstract": "Long-context inference with Large Language Models (LLMs) is costly due to quadratic attention and growing key-value caches, motivating context compression. In this work, we study soft context compression, where a long context is condensed into a small set of continuous representations. Existing methods typically re-purpose the LLM itself as a trainable compressor, relying on layer-by-layer self-attention to iteratively aggregate information. We argue that this paradigm suffers from two structural limitations: (i) progressive representation overwriting across layers (ii) uncoordinated allocation of compression capacity across tokens. We propose ComprExIT (Context Compression via Explicit Information Transmission), a lightweight framework that formulates soft compression into a new paradigm: explicit information transmission over frozen LLM hidden states. This decouples compression from the model's internal self-attention dynamics. ComprExIT performs (i) depth-wise transmission to selectively transmit multi-layer information into token anchors, mitigating progressive overwriting, and (ii) width-wise transmission to aggregate anchors into a small number of slots via a globally optimized transmission plan, ensuring coordinated allocation of information. Across six question-answering benchmarks, ComprExIT consistently outperforms state-of-the-art context compression methods while introducing only ~1% additional parameters, demonstrating that explicit and coordinated information transmission enables more effective and robust long-context compression.",
+      "authors": [
+        "Jiangnan Ye",
+        "Hanqi Yan",
+        "Zhenyi Shen",
+        "Heng Chang",
+        "Ye Mao",
+        "Yulan He"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T17:44:12Z",
+      "updated": "2026-02-03T17:44:12Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03784v1",
+      "abs_url": "http://arxiv.org/abs/2602.03784v1",
+      "summary": "ComprExIT通过显式信息传输实现高效LLM上下文压缩，解决了传统自注意力压缩的局限性。",
+      "key_contributions": [
+        "提出ComprExIT框架，解耦压缩和LLM内部自注意力。",
+        "引入深度和宽度方向的信息传输机制。",
+        "实验证明ComprExIT优于现有上下文压缩方法，参数量更少。"
+      ],
+      "methodology": "ComprExIT利用冻结LLM隐层状态，通过深度信息传输选择性传递信息，再通过宽度信息传输优化信息分配到少量token槽中。",
+      "tags": [
+        "LLM",
+        "上下文压缩",
+        "信息传输",
+        "长文本",
+        "效率"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接解决LLM长上下文的内存效率问题，属于核心相关研究。",
+      "analyzed_at": "2026-02-04T20:42:21.228668",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03769v1",
+      "title": "Reasoning with Latent Tokens in Diffusion Language Models",
+      "abstract": "Discrete diffusion models have recently become competitive with autoregressive models for language modeling, even outperforming them on reasoning tasks requiring planning and global coherence, but they require more computation at inference time. We trace this trade-off to a key mechanism: diffusion models are trained to jointly predict a distribution over all unknown tokens, including those that will not actually be decoded in the current step. Ablating this joint prediction yields faster inference but degrades performance, revealing that accurate prediction at the decoded position relies on joint reasoning about the distribution of undecoded tokens. We interpret these as latent tokens and introduce a method for modulating their number, demonstrating empirically that this enables a smooth tradeoff between inference speed and sample quality. Furthermore, we demonstrate that latent tokens can be introduced into autoregressive models through an auxiliary multi-token prediction objective, yielding substantial improvements on the same reasoning tasks where they have traditionally struggled. Our results suggest that latent tokens, while arising naturally in diffusion, represent a general mechanism for improving performance on tasks requiring global coherence or lookahead.",
+      "authors": [
+        "Andre He",
+        "Sean Welleck",
+        "Daniel Fried"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T17:27:46Z",
+      "updated": "2026-02-03T17:27:46Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03769v1",
+      "abs_url": "http://arxiv.org/abs/2602.03769v1",
+      "summary": "扩散语言模型通过联合预测未知token进行推理，本文探究了隐变量token的作用，并将其引入自回归模型。",
+      "key_contributions": [
+        "揭示了扩散模型中隐变量token对于推理能力的重要性",
+        "提出了一种调节隐变量token数量的方法，平衡推理速度和样本质量",
+        "将隐变量token引入自回归模型，提升其在推理任务上的表现"
+      ],
+      "methodology": "通过消融实验分析联合预测机制，提出调节隐变量token数量方法，并在扩散模型和自回归模型上进行实验验证。",
+      "tags": [
+        "扩散模型",
+        "自回归模型",
+        "推理",
+        "隐变量"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注扩散模型和自回归模型在推理任务上的能力，并提出了改进方法。",
+      "analyzed_at": "2026-02-04T20:42:27.993041",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03730v1",
+      "title": "Efficient Variance-reduced Estimation from Generative EHR Models: The SCOPE and REACH Estimators",
+      "abstract": "Generative models trained using self-supervision of tokenized electronic health record (EHR) timelines show promise for clinical outcome prediction. This is typically done using Monte Carlo simulation for future patient trajectories. However, existing approaches suffer from three key limitations: sparse estimate distributions that poorly differentiate patient risk levels, extreme computational costs, and high sampling variance. We propose two new estimators: the Sum of Conditional Outcome Probability Estimator (SCOPE) and Risk Estimation from Anticipated Conditional Hazards (REACH), that leverage next-token probability distributions discarded by standard Monte Carlo. We prove both estimators are unbiased and that REACH guarantees variance reduction over Monte Carlo sampling for any model and outcome. Empirically, on hospital mortality prediction in MIMIC-IV using the ETHOS-ARES framework, SCOPE and REACH match 100-sample Monte Carlo performance using only 10-11 samples (95% CI: [9,11]), representing a ~10x reduction in inference cost without degrading calibration. For ICU admission prediction, efficiency gains are more modest (~1.2x), which we attribute to the outcome's lower \"spontaneity,\" a property we characterize theoretically and empirically. These methods substantially improve the feasibility of deploying generative EHR models in resource-constrained clinical settings.",
+      "authors": [
+        "Luke Solo",
+        "Matthew B. A. McDermott",
+        "William F. Parker",
+        "Bashar Ramadan",
+        "Michael C. Burkhart",
+        "Brett K. Beaulieu-Jones"
+      ],
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "published": "2026-02-03T16:49:44Z",
+      "updated": "2026-02-03T16:49:44Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03730v1",
+      "abs_url": "http://arxiv.org/abs/2602.03730v1",
+      "summary": "提出了SCOPE和REACH两种新的EHR生成模型估计器，显著降低了计算成本和抽样方差。",
+      "key_contributions": [
+        "提出了SCOPE和REACH两种新的无偏估计器",
+        "证明了REACH保证了方差缩减",
+        "在MIMIC-IV数据集上验证了方法的有效性，显著降低了推理成本"
+      ],
+      "methodology": "利用生成模型中被丢弃的next-token概率分布，设计了SCOPE和REACH估计器，并进行了理论分析和实验验证。",
+      "tags": [
+        "EHR",
+        "生成模型",
+        "临床预测",
+        "方差缩减",
+        "自监督学习"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "论文研究降低计算成本，侧重推理效率，与推理相关。",
+      "analyzed_at": "2026-02-04T20:42:32.510094",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03709v1",
+      "title": "No Shortcuts to Culture: Indonesian Multi-hop Question Answering for Complex Cultural Understanding",
+      "abstract": "Understanding culture requires reasoning across context, tradition, and implicit social knowledge, far beyond recalling isolated facts. Yet most culturally focused question answering (QA) benchmarks rely on single-hop questions, which may allow models to exploit shallow cues rather than demonstrate genuine cultural reasoning. In this work, we introduce ID-MoCQA, the first large-scale multi-hop QA dataset for assessing the cultural understanding of large language models (LLMs), grounded in Indonesian traditions and available in both English and Indonesian. We present a new framework that systematically transforms single-hop cultural questions into multi-hop reasoning chains spanning six clue types (e.g., commonsense, temporal, geographical). Our multi-stage validation pipeline, combining expert review and LLM-as-a-judge filtering, ensures high-quality question-answer pairs. Our evaluation across state-of-the-art models reveals substantial gaps in cultural reasoning, particularly in tasks requiring nuanced inference. ID-MoCQA provides a challenging and essential benchmark for advancing the cultural competency of LLMs.",
+      "authors": [
+        "Vynska Amalia Permadi",
+        "Xingwei Tan",
+        "Nafise Sadat Moosavi",
+        "Nikos Aletras"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T16:32:00Z",
+      "updated": "2026-02-03T16:32:00Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03709v1",
+      "abs_url": "http://arxiv.org/abs/2602.03709v1",
+      "summary": "提出了ID-MoCQA，一个用于评估LLM文化理解能力的大规模多跳印尼文化问答数据集。",
+      "key_contributions": [
+        "构建了大规模印尼文化多跳问答数据集ID-MoCQA",
+        "提出了将单跳问题转换为多跳推理链的框架",
+        "设计了多阶段验证流程确保数据集质量"
+      ],
+      "methodology": "通过专家评审和LLM筛选，系统性地将单跳文化问题转化为包含六种线索类型的多跳推理链。",
+      "tags": [
+        "多跳问答",
+        "文化理解",
+        "印尼文化",
+        "LLM评估"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注LLM在文化推理方面的能力，与reasoning类别高度相关。",
+      "analyzed_at": "2026-02-04T20:42:36.250593",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03708v1",
+      "title": "Beyond Tokens: Semantic-Aware Speculative Decoding for Efficient Inference by Probing Internal States",
+      "abstract": "Large Language Models (LLMs) achieve strong performance across many tasks but suffer from high inference latency due to autoregressive decoding. The issue is exacerbated in Large Reasoning Models (LRMs), which generate lengthy chains of thought. While speculative decoding accelerates inference by drafting and verifying multiple tokens in parallel, existing methods operate at the token level and ignore semantic equivalence (i.e., different token sequences expressing the same meaning), leading to inefficient rejections. We propose SemanticSpec, a semantic-aware speculative decoding framework that verifies entire semantic sequences instead of tokens. SemanticSpec introduces a semantic probability estimation mechanism that probes the model's internal hidden states to assess the likelihood of generating sequences with specific meanings.Experiments on four benchmarks show that SemanticSpec achieves up to 2.7x speedup on DeepSeekR1-32B and 2.1x on QwQ-32B, consistently outperforming token-level and sequence-level baselines in both efficiency and effectiveness.",
+      "authors": [
+        "Ximing Dong",
+        "Shaowei Wang",
+        "Dayi Lin",
+        "Boyuan Chen",
+        "Ahmed E. Hassan"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.PF"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T16:30:30Z",
+      "updated": "2026-02-03T16:30:30Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03708v1",
+      "abs_url": "http://arxiv.org/abs/2602.03708v1",
+      "summary": "SemanticSpec通过语义感知的推测解码，提升LLM推理效率，尤其在长链推理中表现突出。",
+      "key_contributions": [
+        "提出语义感知的推测解码框架SemanticSpec",
+        "引入语义概率估计机制，利用内部隐状态评估语义序列的可能性",
+        "实验证明在多个基准测试上优于传统方法"
+      ],
+      "methodology": "通过探查模型内部隐状态，评估生成具有特定语义序列的可能性，从而实现更高效的推测解码。",
+      "tags": [
+        "LLM",
+        "推测解码",
+        "语义理解",
+        "推理效率",
+        "内部状态"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心解决LLM推理效率问题，与推理主题高度相关。",
+      "analyzed_at": "2026-02-04T20:42:39.158296",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03704v1",
+      "title": "Cognitively Diverse Multiple-Choice Question Generation: A Hybrid Multi-Agent Framework with Large Language Models",
+      "abstract": "Recent advances in large language models (LLMs) have made automated multiple-choice question (MCQ) generation increasingly feasible; however, reliably producing items that satisfy controlled cognitive demands remains a challenge. To address this gap, we introduce ReQUESTA, a hybrid, multi-agent framework for generating cognitively diverse MCQs that systematically target text-based, inferential, and main idea comprehension. ReQUESTA decomposes MCQ authoring into specialized subtasks and coordinates LLM-powered agents with rule-based components to support planning, controlled generation, iterative evaluation, and post-processing. We evaluated the framework in a large-scale reading comprehension study using academic expository texts, comparing ReQUESTA-generated MCQs with those produced by a single-pass GPT-5 zero-shot baseline. Psychometric analyses of learner responses assessed item difficulty and discrimination, while expert raters evaluated question quality across multiple dimensions, including topic relevance and distractor quality. Results showed that ReQUESTA-generated items were consistently more challenging, more discriminative, and more strongly aligned with overall reading comprehension performance. Expert evaluations further indicated stronger alignment with central concepts and superior distractor linguistic consistency and semantic plausibility, particularly for inferential questions. These findings demonstrate that hybrid, agentic orchestration can systematically improve the reliability and controllability of LLM-based generation, highlighting workflow design as a key lever for structured artifact generation beyond single-pass prompting.",
+      "authors": [
+        "Yu Tian",
+        "Linh Huynh",
+        "Katerina Christhilf",
+        "Shubham Chakraborty",
+        "Micah Watanabe",
+        "Tracy Arner",
+        "Danielle McNamara"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T16:26:47Z",
+      "updated": "2026-02-03T16:26:47Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03704v1",
+      "abs_url": "http://arxiv.org/abs/2602.03704v1",
+      "summary": "ReQUESTA框架利用多智能体和LLM生成认知多样化、高质量的多项选择题。",
+      "key_contributions": [
+        "提出ReQUESTA框架，用于生成认知多样化的多项选择题",
+        "结合LLM和规则，实现可控的问题生成流程",
+        "实验证明ReQUESTA生成的问题质量更高，更具挑战性和区分度"
+      ],
+      "methodology": "构建混合多智能体框架，分解问题生成任务，结合LLM和规则，进行规划、生成、评估和后处理。",
+      "tags": [
+        "多项选择题生成",
+        "大型语言模型",
+        "智能体",
+        "阅读理解",
+        "认知评估"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "核心是多智能体框架设计，用于改进LLM生成任务，符合agent类别。",
+      "analyzed_at": "2026-02-04T20:42:43.605004",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03695v1",
+      "title": "Agent Primitives: Reusable Latent Building Blocks for Multi-Agent Systems",
+      "abstract": "While existing multi-agent systems (MAS) can handle complex problems by enabling collaboration among multiple agents, they are often highly task-specific, relying on manually crafted agent roles and interaction prompts, which leads to increased architectural complexity and limited reusability across tasks. Moreover, most MAS communicate primarily through natural language, making them vulnerable to error accumulation and instability in long-context, multi-stage interactions within internal agent histories.   In this work, we propose \\textbf{Agent Primitives}, a set of reusable latent building blocks for LLM-based MAS. Inspired by neural network design, where complex models are built from reusable components, we observe that many existing MAS architectures can be decomposed into a small number of recurring internal computation patterns. Based on this observation, we instantiate three primitives: Review, Voting and Selection, and Planning and Execution. All primitives communicate internally via key-value (KV) cache, which improves both robustness and efficiency by mitigating information degradation across multi-stage interactions. To enable automatic system construction, an Organizer agent selects and composes primitives for each query, guided by a lightweight knowledge pool of previously successful configurations, forming a primitive-based MAS.   Experiments show that primitives-based MAS improve average accuracy by 12.0-16.5\\% over single-agent baselines, reduce token usage and inference latency by approximately 3$\\times$-4$\\times$ compared to text-based MAS, while incurring only 1.3$\\times$-1.6$\\times$ overhead relative to single-agent inference and providing more stable performance across model backbones.",
+      "authors": [
+        "Haibo Jin",
+        "Kuang Peng",
+        "Ye Yu",
+        "Xiaopeng Yuan",
+        "Haohan Wang"
+      ],
+      "categories": [
+        "cs.MA",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "primary_category": "cs.MA",
+      "published": "2026-02-03T16:17:53Z",
+      "updated": "2026-02-03T16:17:53Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03695v1",
+      "abs_url": "http://arxiv.org/abs/2602.03695v1",
+      "summary": "提出了Agent Primitives，一种可复用的多智能体系统构建块，提升了效率和鲁棒性。",
+      "key_contributions": [
+        "提出了Agent Primitives的概念，包括Review, Voting and Selection, Planning and Execution三种基本单元。",
+        "使用KV cache进行内部通信，提高鲁棒性和效率。",
+        "提出了基于知识池的自动系统构建方法，通过Organizer agent选择和组合Primitives。"
+      ],
+      "methodology": "通过观察现有MAS架构的共性，提炼出可复用的Agent Primitives，并设计了基于KV cache的内部通信机制，实现自动系统构建。",
+      "tags": [
+        "Multi-Agent Systems",
+        "LLM",
+        "Agent Primitives",
+        "KV Cache"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于多智能体系统的设计和构建，直接研究了AI Agents领域的重要问题。",
+      "analyzed_at": "2026-02-04T20:42:46.417857",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03693v1",
+      "title": "OCRTurk: A Comprehensive OCR Benchmark for Turkish",
+      "abstract": "Document parsing is now widely used in applications, such as large-scale document digitization, retrieval-augmented generation, and domain-specific pipelines in healthcare and education. Benchmarking these models is crucial for assessing their reliability and practical robustness. Existing benchmarks mostly target high-resource languages and provide limited coverage for low-resource settings, such as Turkish. Moreover, existing studies on Turkish document parsing lack a standardized benchmark that reflects real-world scenarios and document diversity. To address this gap, we introduce OCRTurk, a Turkish document parsing benchmark covering multiple layout elements and document categories at three difficulty levels. OCRTurk consists of 180 Turkish documents drawn from academic articles, theses, slide decks, and non-academic articles. We evaluate seven OCR models on OCRTurk using element-wise metrics. Across difficulty levels, PaddleOCR achieves the strongest overall results, leading most element-wise metrics except figures and attaining high Normalized Edit Distance scores in easy, medium, and hard subsets. We also observe performance variation by document type. Models perform well on non-academic documents, while slideshows become the most challenging.",
+      "authors": [
+        "Deniz Yılmaz",
+        "Evren Ayberk Munis",
+        "Çağrı Toraman",
+        "Süha Kağan Köse",
+        "Burak Aktaş",
+        "Mehmet Can Baytekin",
+        "Bilge Kaan Görür"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T16:11:25Z",
+      "updated": "2026-02-03T16:11:25Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03693v1",
+      "abs_url": "http://arxiv.org/abs/2602.03693v1",
+      "summary": "OCRTurk是一个土耳其语文档解析基准，包含多种文档类型和难度等级，评估了七个OCR模型。",
+      "key_contributions": [
+        "提出了OCRTurk土耳其语文档解析基准",
+        "覆盖多种文档类型和布局元素",
+        "评估了七个OCR模型在OCRTurk上的性能"
+      ],
+      "methodology": "构建包含180个土耳其语文档的数据集，并使用元素级指标评估七个OCR模型的性能，分析不同文档类型和难度下的表现。",
+      "tags": [
+        "OCR",
+        "文档解析",
+        "土耳其语",
+        "基准测试",
+        "评估"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 6,
+      "relevance_reason": "与RAG相关，通过提高文档解析质量提升检索效果。",
+      "analyzed_at": "2026-02-04T20:42:49.384865",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03664v1",
+      "title": "Mitigating Conversational Inertia in Multi-Turn Agents",
+      "abstract": "Large language models excel as few-shot learners when provided with appropriate demonstrations, yet this strength becomes problematic in multiturn agent scenarios, where LLMs erroneously mimic their own previous responses as few-shot examples. Through attention analysis, we identify conversational inertia, a phenomenon where models exhibit strong diagonal attention to previous responses, which is associated with imitation bias that constrains exploration. This reveals a tension when transforming few-shot LLMs into agents: longer context enriches environmental feedback for exploitation, yet also amplifies conversational inertia that undermines exploration. Our key insight is that for identical states, actions generated with longer contexts exhibit stronger inertia than those with shorter contexts, enabling construction of preference pairs without environment rewards. Based on this, we propose Context Preference Learning to calibrate model preferences to favor low-inertia responses over highinertia ones. We further provide context management strategies at inference time to balance exploration and exploitation. Experimental results across eight agentic environments and one deep research scenario validate that our framework reduces conversational inertia and achieves performance improvements.",
+      "authors": [
+        "Yang Wan",
+        "Zheng Cao",
+        "Zhenhao Zhang",
+        "Zhengwen Zeng",
+        "Shuheng Shen",
+        "Changhua Meng",
+        "Linchao Zhu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T15:47:32Z",
+      "updated": "2026-02-03T15:47:32Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03664v1",
+      "abs_url": "http://arxiv.org/abs/2602.03664v1",
+      "summary": "该论文研究了多轮Agent中的对话惯性问题，并提出通过上下文偏好学习降低惯性，提升性能。",
+      "key_contributions": [
+        "发现了LLM Agent中的对话惯性现象",
+        "提出了基于上下文偏好学习的解决方法",
+        "提出了平衡探索和利用的上下文管理策略"
+      ],
+      "methodology": "通过注意力分析识别对话惯性，构建偏好对进行学习，并设计上下文管理策略。",
+      "tags": [
+        "LLM Agent",
+        "对话惯性",
+        "偏好学习",
+        "上下文管理"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接研究了多轮Agent中的核心问题，并提出了有效的解决方案。",
+      "analyzed_at": "2026-02-04T20:42:56.705334",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03652v1",
+      "title": "RAGTurk: Best Practices for Retrieval Augmented Generation in Turkish",
+      "abstract": "Retrieval-Augmented Generation (RAG) enhances LLM factuality, yet design guidance remains English-centric, limiting insights for morphologically rich languages like Turkish. We address this by constructing a comprehensive Turkish RAG dataset derived from Turkish Wikipedia and CulturaX, comprising question-answer pairs and relevant passage chunks. We benchmark seven stages of the RAG pipeline, from query transformation and reranking to answer refinement, without task-specific fine-tuning. Our results show that complex methods like HyDE maximize accuracy (85%) that is considerably higher than the baseline (78.70%). Also a Pareto-optimal configuration using Cross-encoder Reranking and Context Augmentation achieves comparable performance (84.60%) with much lower cost. We further demonstrate that over-stacking generative modules can degrade performance by distorting morphological cues, whereas simple query clarification with robust reranking offers an effective solution.",
+      "authors": [
+        "Süha Kağan Köse",
+        "Mehmet Can Baytekin",
+        "Burak Aktaş",
+        "Bilge Kaan Görür",
+        "Evren Ayberk Munis",
+        "Deniz Yılmaz",
+        "Muhammed Yusuf Kartal",
+        "Çağrı Toraman"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.IR"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T15:35:11Z",
+      "updated": "2026-02-03T15:35:11Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03652v1",
+      "abs_url": "http://arxiv.org/abs/2602.03652v1",
+      "summary": "该论文构建了土耳其语RAG数据集，并评估了不同RAG流程的性能，优化土耳其语RAG系统。",
+      "key_contributions": [
+        "构建了土耳其语RAG数据集",
+        "评估了不同RAG流程在土耳其语上的性能",
+        "提出了针对土耳其语RAG的优化方法"
+      ],
+      "methodology": "构建土耳其语数据集，基准测试RAG流程各个阶段，对比不同方法的效果，寻找帕累托最优配置。",
+      "tags": [
+        "RAG",
+        "土耳其语",
+        "检索增强生成",
+        "多语言"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 9,
+      "relevance_reason": "直接研究了土耳其语RAG系统的构建和优化，属于核心相关。",
+      "analyzed_at": "2026-02-04T20:42:59.339087",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03645v1",
+      "title": "Reinforcement Fine-Tuning for History-Aware Dense Retriever in RAG",
+      "abstract": "Retrieval-augmented generation (RAG) enables large language models (LLMs) to produce evidence-based responses, and its performance hinges on the matching between the retriever and LLMs. Retriever optimization has emerged as an efficient alternative to fine-tuning LLMs. However, existing solutions suffer from objective mismatch between retriever optimization and the goal of RAG pipeline. Reinforcement learning (RL) provides a promising solution to address this limitation, yet applying RL to retriever optimization introduces two fundamental challenges: 1) the deterministic retrieval is incompatible with RL formulations, and 2) state aliasing arises from query-only retrieval in multi-hop reasoning. To address these challenges, we replace deterministic retrieval with stochastic sampling and formulate RAG as a Markov decision process, making retriever optimizable by RL. Further, we incorporate retrieval history into the state at each retrieval step to mitigate state aliasing. Extensive experiments across diverse RAG pipelines, datasets, and retriever scales demonstrate consistent improvements of our approach in RAG performance.",
+      "authors": [
+        "Yicheng Zhang",
+        "Zhen Qin",
+        "Zhaomin Wu",
+        "Wenqi Zhang",
+        "Shuiguang Deng"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T15:30:14Z",
+      "updated": "2026-02-03T15:30:14Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03645v1",
+      "abs_url": "http://arxiv.org/abs/2602.03645v1",
+      "summary": "提出了一种基于强化学习的历史感知稠密检索器微调方法，优化RAG管道的检索性能。",
+      "key_contributions": [
+        "提出了基于强化学习的检索器优化方法。",
+        "使用随机抽样代替确定性检索，使检索器可以通过RL优化。",
+        "引入检索历史到状态中，缓解多跳推理中的状态混叠问题。"
+      ],
+      "methodology": "将RAG构建为马尔科夫决策过程，用强化学习优化检索器，并在状态中加入检索历史信息。",
+      "tags": [
+        "RAG",
+        "强化学习",
+        "检索器优化",
+        "历史感知"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 9,
+      "relevance_reason": "直接研究RAG中的检索器优化问题，与RAG领域核心相关。",
+      "analyzed_at": "2026-02-04T20:43:02.493975",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03640v1",
+      "title": "Tutorial on Reasoning for IR & IR for Reasoning",
+      "abstract": "Information retrieval has long focused on ranking documents by semantic relatedness. Yet many real-world information needs demand more: enforcement of logical constraints, multi-step inference, and synthesis of multiple pieces of evidence. Addressing these requirements is, at its core, a problem of reasoning. Across AI communities, researchers are developing diverse solutions for the problem of reasoning, from inference-time strategies and post-training of LLMs, to neuro-symbolic systems, Bayesian and probabilistic frameworks, geometric representations, and energy-based models. These efforts target the same problem: to move beyond pattern-matching systems toward structured, verifiable inference. However, they remain scattered across disciplines, making it difficult for IR researchers to identify the most relevant ideas and opportunities. To help navigate the fragmented landscape of research in reasoning, this tutorial first articulates a working definition of reasoning within the context of information retrieval and derives from it a unified analytical framework. The framework maps existing approaches along axes that reflect the core components of the definition. By providing a comprehensive overview of recent approaches and mapping current methods onto the defined axes, we expose their trade-offs and complementarities, highlight where IR can benefit from cross-disciplinary advances, and illustrate how retrieval process itself can play a central role in broader reasoning systems. The tutorial will equip participants with both a conceptual framework and practical guidance for enhancing reasoning-capable IR systems, while situating IR as a domain that both benefits and contributes to the broader development of reasoning methodologies.",
+      "authors": [
+        "Mohanna Hoveyda",
+        "Panagiotis Efstratiadis",
+        "Arjen de Vries",
+        "Maarten de Rijke"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "primary_category": "cs.IR",
+      "published": "2026-02-03T15:24:36Z",
+      "updated": "2026-02-03T15:24:36Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03640v1",
+      "abs_url": "http://arxiv.org/abs/2602.03640v1",
+      "summary": "本教程定义了信息检索中的推理，构建统一分析框架，促进跨学科合作，提升IR系统的推理能力。",
+      "key_contributions": [
+        "定义了信息检索中推理的概念",
+        "构建了推理方法的统一分析框架",
+        "揭示了现有方法的权衡和互补性，强调了IR在推理系统中的作用"
+      ],
+      "methodology": "通过文献综述和分析，构建概念框架，并对现有方法进行映射和比较，从而提供指导。",
+      "tags": [
+        "信息检索",
+        "推理",
+        "知识推理",
+        "语义理解"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于探讨LLM在信息检索任务中的推理能力，高度相关。",
+      "analyzed_at": "2026-02-04T20:43:05.073105",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03630v1",
+      "title": "Can LLMs Do Rocket Science? Exploring the Limits of Complex Reasoning with GTOC 12",
+      "abstract": "Large Language Models (LLMs) have demonstrated remarkable proficiency in code generation and general reasoning, yet their capacity for autonomous multi-stage planning in high-dimensional, physically constrained environments remains an open research question. This study investigates the limits of current AI agents by evaluating them against the 12th Global Trajectory Optimization Competition (GTOC 12), a complex astrodynamics challenge requiring the design of a large-scale asteroid mining campaign. We adapt the MLE-Bench framework to the domain of orbital mechanics and deploy an AIDE-based agent architecture to autonomously generate and refine mission solutions. To assess performance beyond binary validity, we employ an \"LLM-as-a-Judge\" methodology, utilizing a rubric developed by domain experts to evaluate strategic viability across five structural categories. A comparative analysis of models, ranging from GPT-4-Turbo to reasoning-enhanced architectures like Gemini 2.5 Pro, and o3, reveals a significant trend: the average strategic viability score has nearly doubled in the last two years (rising from 9.3 to 17.2 out of 26). However, we identify a critical capability gap between strategy and execution. While advanced models demonstrate sophisticated conceptual understanding, correctly framing objective functions and mission architectures, they consistently fail at implementation due to physical unit inconsistencies, boundary condition errors, and inefficient debugging loops. We conclude that, while current LLMs often demonstrate sufficient knowledge and intelligence to tackle space science tasks, they remain limited by an implementation barrier, functioning as powerful domain facilitators rather than fully autonomous engineers.",
+      "authors": [
+        "Iñaki del Campo",
+        "Pablo Cuervo",
+        "Victor Rodriguez-Fernandez",
+        "Roberto Armellin",
+        "Jack Yarndley"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T15:18:26Z",
+      "updated": "2026-02-03T15:18:26Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03630v1",
+      "abs_url": "http://arxiv.org/abs/2602.03630v1",
+      "summary": "评估LLM在复杂航天任务中的能力，发现其擅长策略但缺乏执行力。",
+      "key_contributions": [
+        "评估LLM在GTOC 12挑战中的表现",
+        "提出“LLM-as-a-Judge”的评估方法",
+        "揭示LLM在策略和执行之间的能力差距"
+      ],
+      "methodology": "使用AIDE-based agent架构，并采用LLM作为裁判评估LLM生成的任务方案。",
+      "tags": [
+        "LLM",
+        "航天",
+        "GTOC 12",
+        "推理",
+        "智能体"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接研究LLM作为智能体解决复杂航天任务的关键问题。",
+      "analyzed_at": "2026-02-04T20:43:10.750284",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03627v1",
+      "title": "Ultra Fast PDE Solving via Physics Guided Few-step Diffusion",
+      "abstract": "Diffusion-based models have demonstrated impressive accuracy and generalization in solving partial differential equations (PDEs). However, they still face significant limitations, such as high sampling costs and insufficient physical consistency, stemming from their many-step iterative sampling mechanism and lack of explicit physics constraints. To address these issues, we propose Phys-Instruct, a novel physics-guided distillation framework which not only (1) compresses a pre-trained diffusion PDE solver into a few-step generator via matching generator and prior diffusion distributions to enable rapid sampling, but also (2) enhances the physics consistency by explicitly injecting PDE knowledge through a PDE distillation guidance. Physic-Instruct is built upon a solid theoretical foundation, leading to a practical physics-constrained training objective that admits tractable gradients. Across five PDE benchmarks, Phys-Instruct achieves orders-of-magnitude faster inference while reducing PDE error by more than 8 times compared to state-of-the-art diffusion baselines. Moreover, the resulting unconditional student model functions as a compact prior, enabling efficient and physically consistent inference for various downstream conditional tasks. Our results indicate that Phys-Instruct is a novel, effective, and efficient framework for ultra-fast PDE solving powered by deep generative models.",
+      "authors": [
+        "Cindy Xiangrui Kong",
+        "Yueqi Wang",
+        "Haoyang Zheng",
+        "Weijian Luo",
+        "Guang Lin"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T15:16:42Z",
+      "updated": "2026-02-03T15:16:42Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03627v1",
+      "abs_url": "http://arxiv.org/abs/2602.03627v1",
+      "summary": "Phys-Instruct通过物理引导的蒸馏，加速扩散模型求解偏微分方程，并提升物理一致性。",
+      "key_contributions": [
+        "提出Phys-Instruct框架，加速PDE求解。",
+        "通过PDE知识蒸馏，增强物理一致性。",
+        "实现比现有扩散模型快几个数量级的推理速度，并降低PDE误差。"
+      ],
+      "methodology": "通过匹配生成器和先验扩散分布，将预训练扩散模型压缩为少步生成器，并注入PDE知识。",
+      "tags": [
+        "扩散模型",
+        "偏微分方程",
+        "知识蒸馏",
+        "物理约束"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "涉及通过物理信息提升模型推理能力，与LLM推理具有一定关联。",
+      "analyzed_at": "2026-02-04T20:43:13.265212",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03619v1",
+      "title": "Learning Query-Specific Rubrics from Human Preferences for DeepResearch Report Generation",
+      "abstract": "Nowadays, training and evaluating DeepResearch-generated reports remain challenging due to the lack of verifiable reward signals. Accordingly, rubric-based evaluation has become a common practice. However, existing approaches either rely on coarse, pre-defined rubrics that lack sufficient granularity, or depend on manually constructed query-specific rubrics that are costly and difficult to scale. In this paper, we propose a pipeline to train human-preference-aligned query-specific rubric generators tailored for DeepResearch report generation. We first construct a dataset of DeepResearch-style queries annotated with human preferences over paired reports, and train rubric generators via reinforcement learning with a hybrid reward combining human preference supervision and LLM-based rubric evaluation. To better handle long-horizon reasoning, we further introduce a Multi-agent Markov-state (MaMs) workflow for report generation. We empirically show that our proposed rubric generators deliver more discriminative and better human-aligned supervision than existing rubric design strategies. Moreover, when integrated into the MaMs training framework, DeepResearch systems equipped with our rubric generators consistently outperform all open-source baselines on the DeepResearch Bench and achieve performance comparable to that of leading closed-source models.",
+      "authors": [
+        "Changze Lv",
+        "Jie Zhou",
+        "Wentao Zhao",
+        "Jingwen Xu",
+        "Zisu Huang",
+        "Muzhao Tian",
+        "Shihan Dou",
+        "Tao Gui",
+        "Le Tian",
+        "Xiao Zhou",
+        "Xiaoqing Zheng",
+        "Xuanjing Huang",
+        "Jie Zhou"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T15:09:56Z",
+      "updated": "2026-02-03T15:09:56Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03619v1",
+      "abs_url": "http://arxiv.org/abs/2602.03619v1",
+      "summary": "提出一种基于人类偏好的查询特定评估标准生成方法，用于提升深度研究报告的生成质量。",
+      "key_contributions": [
+        "构建了深度研究风格查询及人类偏好标注的数据集",
+        "提出使用混合奖励强化学习训练评估标准生成器",
+        "引入多智能体马尔可夫状态工作流(MaMs)提升报告生成效果"
+      ],
+      "methodology": "通过强化学习训练评估标准生成器，结合人类偏好监督和LLM评估，并采用MaMs工作流优化长程推理。",
+      "tags": [
+        "深度研究报告",
+        "评估标准生成",
+        "强化学习",
+        "人类偏好",
+        "多智能体"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "涉及多智能体和AI Agent驱动的研究报告生成，密切相关。",
+      "analyzed_at": "2026-02-04T20:43:15.620819",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03611v1",
+      "title": "Explanations Leak: Membership Inference with Differential Privacy and Active Learning Defense",
+      "abstract": "Counterfactual explanations (CFs) are increasingly integrated into Machine Learning as a Service (MLaaS) systems to improve transparency; however, ML models deployed via APIs are already vulnerable to privacy attacks such as membership inference and model extraction, and the impact of explanations on this threat landscape remains insufficiently understood. In this work, we focus on the problem of how CFs expand the attack surface of MLaaS by strengthening membership inference attacks (MIAs), and on the need to design defense mechanisms that mitigate this emerging risk without undermining utility and explainability. First, we systematically analyze how exposing CFs through query-based APIs enables more effective shadow-based MIAs. Second, we propose a defense framework that integrates Differential Privacy (DP) with Active Learning (AL) to jointly reduce memorization and limit effective training data exposure. Finally, we conduct an extensive empirical evaluation to characterize the three-way trade-off between privacy leakage, predictive performance, and explanation quality. Our findings highlight the need to carefully balance transparency, utility, and privacy in the responsible deployment of explainable MLaaS systems.",
+      "authors": [
+        "Fatima Ezzeddine",
+        "Osama Zammar",
+        "Silvia Giordano",
+        "Omran Ayoub"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T15:04:09Z",
+      "updated": "2026-02-03T15:04:09Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03611v1",
+      "abs_url": "http://arxiv.org/abs/2602.03611v1",
+      "summary": "研究对抗性解释如何增强成员推理攻击，并提出差分隐私和主动学习结合的防御框架。",
+      "key_contributions": [
+        "分析了解释泄露对成员推理攻击的影响",
+        "提出了基于差分隐私和主动学习的防御框架",
+        "评估了隐私泄露、预测性能和解释质量之间的权衡"
+      ],
+      "methodology": "通过查询API暴露对抗解释，构建影子模型进行成员推理攻击，并使用DP和AL降低模型记忆。",
+      "tags": [
+        "成员推理攻击",
+        "对抗性解释",
+        "差分隐私",
+        "主动学习",
+        "隐私保护"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 5,
+      "relevance_reason": "虽然主要关注隐私攻击，但涉及模型记忆和数据泄露，有一定参考价值。",
+      "analyzed_at": "2026-02-04T20:43:19.000153",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03582v1",
+      "title": "Optimization and Generation in Aerodynamics Inverse Design",
+      "abstract": "Inverse design with physics-based objectives is challenging because it couples high-dimensional geometry with expensive simulations, as exemplified by aerodynamic shape optimization for drag reduction. We revisit inverse design through two canonical solutions, the optimal design point and the optimal design distribution, and relate them to optimization and guided generation. Building on this view, we propose a new training loss for cost predictors and a density-gradient optimization method that improves objectives while preserving plausible shapes. We further unify existing training-free guided generation methods. To address their inability to approximate conditional covariance in high dimensions, we develop a time- and memory-efficient algorithm for approximate covariance estimation. Experiments on a controlled 2D study and high-fidelity 3D aerodynamic benchmarks (car and aircraft), validated by OpenFOAM simulations and miniature wind-tunnel tests with 3D-printed prototypes, demonstrate consistent gains in both optimization and guided generation. Additional offline RL results further support the generality of our approach.",
+      "authors": [
+        "Huaguan Chen",
+        "Ning Lin",
+        "Luxi Chen",
+        "Rui Zhang",
+        "Wenbing Huang",
+        "Chongxuan Li",
+        "Hao Sun"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T14:32:26Z",
+      "updated": "2026-02-03T14:32:26Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03582v1",
+      "abs_url": "http://arxiv.org/abs/2602.03582v1",
+      "summary": "论文提出优化和引导生成方法，解决气动逆向设计中高维几何与昂贵仿真的挑战。",
+      "key_contributions": [
+        "提出新的成本预测器训练损失",
+        "开发密度梯度优化方法",
+        "统一现有无训练引导生成方法",
+        "提出时间高效的近似协方差估计算法"
+      ],
+      "methodology": "结合优化和引导生成视角，改进成本预测，优化设计，并通过OpenFOAM和风洞实验验证。",
+      "tags": [
+        "气动优化",
+        "逆向设计",
+        "引导生成",
+        "协方差估计",
+        "强化学习"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 5,
+      "relevance_reason": "通过优化设计进行任务规划和执行，可用于智能体设计。",
+      "analyzed_at": "2026-02-04T20:43:29.514853",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03578v1",
+      "title": "Use Graph When It Needs: Efficiently and Adaptively Integrating Retrieval-Augmented Generation with Graphs",
+      "abstract": "Large language models (LLMs) often struggle with knowledge-intensive tasks due to hallucinations and outdated parametric knowledge. While Retrieval-Augmented Generation (RAG) addresses this by integrating external corpora, its effectiveness is limited by fragmented information in unstructured domain documents. Graph-augmented RAG (GraphRAG) emerged to enhance contextual reasoning through structured knowledge graphs, yet paradoxically underperforms vanilla RAG in real-world scenarios, exhibiting significant accuracy drops and prohibitive latency despite gains on complex queries. We identify the rigid application of GraphRAG to all queries, regardless of complexity, as the root cause. To resolve this, we propose an efficient and adaptive GraphRAG framework called EA-GraphRAG that dynamically integrates RAG and GraphRAG paradigms through syntax-aware complexity analysis. Our approach introduces: (i) a syntactic feature constructor that parses each query and extracts a set of structural features; (ii) a lightweight complexity scorer that maps these features to a continuous complexity score; and (iii) a score-driven routing policy that selects dense RAG for low-score queries, invokes graph-based retrieval for high-score queries, and applies complexity-aware reciprocal rank fusion to handle borderline cases. Extensive experiments on a comprehensive benchmark, consisting of two single-hop and two multi-hop QA benchmarks, demonstrate that our EA-GraphRAG significantly improves accuracy, reduces latency, and achieves state-of-the-art performance in handling mixed scenarios involving both simple and complex queries.",
+      "authors": [
+        "Su Dong",
+        "Qinggang Zhang",
+        "Yilin Xiao",
+        "Shengyuan Chen",
+        "Chuang Zhou",
+        "Xiao Huang"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T14:26:28Z",
+      "updated": "2026-02-03T14:26:28Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03578v1",
+      "abs_url": "http://arxiv.org/abs/2602.03578v1",
+      "summary": "EA-GraphRAG通过语法分析自适应地结合RAG和GraphRAG，提升了知识密集型任务的准确性和效率。",
+      "key_contributions": [
+        "提出了语法感知的复杂度分析方法",
+        "设计了轻量级的复杂度评分器",
+        "实现了基于分数的自适应路由策略"
+      ],
+      "methodology": "通过语法特征提取和复杂度评分，动态选择RAG或GraphRAG，并用复杂性感知的倒数排名融合处理边界情况。",
+      "tags": [
+        "RAG",
+        "知识图谱",
+        "检索增强生成",
+        "复杂度分析"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于改进RAG，利用图谱提高知识检索和利用效率。",
+      "analyzed_at": "2026-02-04T20:43:32.619552",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03569v1",
+      "title": "EHRWorld: A Patient-Centric Medical World Model for Long-Horizon Clinical Trajectories",
+      "abstract": "World models offer a principled framework for simulating future states under interventions, but realizing such models in complex, high-stakes domains like medicine remains challenging. Recent large language models (LLMs) have achieved strong performance on static medical reasoning tasks, raising the question of whether they can function as dynamic medical world models capable of simulating disease progression and treatment outcomes over time. In this work, we show that LLMs only incorporating medical knowledge struggle to maintain consistent patient states under sequential interventions, leading to error accumulation in long-horizon clinical simulation. To address this limitation, we introduce EHRWorld, a patient-centric medical world model trained under a causal sequential paradigm, together with EHRWorld-110K, a large-scale longitudinal clinical dataset derived from real-world electronic health records. Extensive evaluations demonstrate that EHRWorld significantly outperforms naive LLM-based baselines, achieving more stable long-horizon simulation, improved modeling of clinically sensitive events, and favorable reasoning efficiency, highlighting the necessity of training on causally grounded, temporally evolving clinical data for reliable and robust medical world modeling.",
+      "authors": [
+        "Linjie Mu",
+        "Zhongzhen Huang",
+        "Yannian Gu",
+        "Shengqian Qin",
+        "Shaoting Zhang",
+        "Xiaofan Zhang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T14:12:24Z",
+      "updated": "2026-02-03T14:12:24Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03569v1",
+      "abs_url": "http://arxiv.org/abs/2602.03569v1",
+      "summary": "EHRWorld模型通过在临床数据上训练，显著提升了LLM在长期医疗模拟中的稳定性和准确性。",
+      "key_contributions": [
+        "提出了EHRWorld模型，用于模拟长期临床轨迹。",
+        "构建了大规模纵向临床数据集EHRWorld-110K。",
+        "证明了在因果和时序临床数据上训练对于可靠的医疗世界建模至关重要。"
+      ],
+      "methodology": "使用因果序贯范式，在大规模电子病历数据集上训练患者中心的医学世界模型EHRWorld。",
+      "tags": [
+        "医疗AI",
+        "世界模型",
+        "电子病历",
+        "因果推理",
+        "LLM"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "论文侧重于使用LLM进行医学推理，模拟疾病发展和治疗结果。",
+      "analyzed_at": "2026-02-04T20:43:36.026912",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03554v1",
+      "title": "When Single Answer Is Not Enough: Rethinking Single-Step Retrosynthesis Benchmarks for LLMs",
+      "abstract": "Recent progress has expanded the use of large language models (LLMs) in drug discovery, including synthesis planning. However, objective evaluation of retrosynthesis performance remains limited. Existing benchmarks and metrics typically rely on published synthetic procedures and Top-K accuracy based on single ground-truth, which does not capture the open-ended nature of real-world synthesis planning. We propose a new benchmarking framework for single-step retrosynthesis that evaluates both general-purpose and chemistry-specialized LLMs using ChemCensor, a novel metric for chemical plausibility. By emphasizing plausibility over exact match, this approach better aligns with human synthesis planning practices. We also introduce CREED, a novel dataset comprising millions of ChemCensor-validated reaction records for LLM training, and use it to train a model that improves over the LLM baselines under this benchmark.",
+      "authors": [
+        "Bogdan Zagribelnyy",
+        "Ivan Ilin",
+        "Maksim Kuznetsov",
+        "Nikita Bondarev",
+        "Roman Schutski",
+        "Thomas MacDougall",
+        "Rim Shayakhmetov",
+        "Zulfat Miftakhutdinov",
+        "Mikolaj Mizera",
+        "Vladimir Aladinskiy",
+        "Alex Aliper",
+        "Alex Zhavoronkov"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CE",
+        "cs.CL"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T14:03:32Z",
+      "updated": "2026-02-03T14:03:32Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03554v1",
+      "abs_url": "http://arxiv.org/abs/2602.03554v1",
+      "summary": "论文提出一种新的单步逆合成基准测试框架，并使用化学合理性指标ChemCensor评估LLM的性能。",
+      "key_contributions": [
+        "提出了新的逆合成基准测试框架",
+        "引入了化学合理性指标ChemCensor",
+        "构建了大规模数据集CREED用于LLM训练"
+      ],
+      "methodology": "使用ChemCensor评估LLM生成的逆合成反应的化学合理性，并使用CREED数据集训练LLM。",
+      "tags": [
+        "LLM",
+        "逆合成",
+        "药物发现",
+        "基准测试",
+        "化学信息学"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "涉及LLM在特定领域的推理能力评估，并提出新评估方法。",
+      "analyzed_at": "2026-02-04T20:43:44.804699",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03548v1",
+      "title": "SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue",
+      "abstract": "Large Language Models have demonstrated remarkable capabilities in open-domain dialogues. However, current methods exhibit suboptimal performance in service dialogues, as they rely on noisy, low-quality human conversation data. This limitation arises from data scarcity and the difficulty of simulating authentic, goal-oriented user behaviors. To address these issues, we propose SEAD (Self-Evolving Agent for Service Dialogue), a framework that enables agents to learn effective strategies without large-scale human annotations. SEAD decouples user modeling into two components: a Profile Controller that generates diverse user states to manage training curriculum, and a User Role-play Model that focuses on realistic role-playing. This design ensures the environment provides adaptive training scenarios rather than acting as an unfair adversary. Experiments demonstrate that SEAD significantly outperforms Open-source Foundation Models and Closed-source Commercial Models, improving task completion rate by 17.6% and dialogue efficiency by 11.1%. Code is available at: https://github.com/Da1yuqin/SEAD.",
+      "authors": [
+        "Yuqin Dai",
+        "Ning Gao",
+        "Wei Zhang",
+        "Jie Wang",
+        "Zichen Luo",
+        "Jinpeng Wang",
+        "Yujie Wang",
+        "Ruiyuan Wu",
+        "Chaozheng Wang"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T14:01:11Z",
+      "updated": "2026-02-03T14:01:11Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03548v1",
+      "abs_url": "http://arxiv.org/abs/2602.03548v1",
+      "summary": "SEAD框架通过自进化学习提升LLM在服务对话中的表现，无需大量人工标注。",
+      "key_contributions": [
+        "提出SEAD框架，解决服务对话数据稀缺和用户行为模拟难题",
+        "解耦用户建模为Profile Controller和User Role-play Model",
+        "显著提升任务完成率和对话效率"
+      ],
+      "methodology": "SEAD通过Profile Controller生成多样用户状态，User Role-play Model模拟真实用户行为，实现自适应训练。",
+      "tags": [
+        "服务对话",
+        "自进化学习",
+        "用户建模",
+        "强化学习"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于构建服务对话Agent，属于AI Agent领域关键研究。",
+      "analyzed_at": "2026-02-04T20:43:47.620157",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03527v1",
+      "title": "WARP Logic Neural Networks",
+      "abstract": "Fast and efficient AI inference is increasingly important, and recent models that directly learn low-level logic operations have achieved state-of-the-art performance. However, existing logic neural networks incur high training costs, introduce redundancy or rely on approximate gradients, which limits scalability. To overcome these limitations, we introduce WAlsh Relaxation for Probabilistic (WARP) logic neural networks -- a novel gradient-based framework that efficiently learns combinations of hardware-native logic blocks. We show that WARP yields the most parameter-efficient representation for exactly learning Boolean functions and that several prior approaches arise as restricted special cases. Training is improved by introducing learnable thresholding and residual initialization, while we bridge the gap between relaxed training and discrete logic inference through stochastic smoothing. Experiments demonstrate faster convergence than state-of-the-art baselines, while scaling effectively to deeper architectures and logic functions with higher input arity.",
+      "authors": [
+        "Lino Gerlach",
+        "Thore Gerlach",
+        "Liv Våge",
+        "Elliott Kauffman",
+        "Isobel Ojalvo"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T13:46:51Z",
+      "updated": "2026-02-03T13:46:51Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03527v1",
+      "abs_url": "http://arxiv.org/abs/2602.03527v1",
+      "summary": "WARP逻辑神经网络通过高效学习硬件原生逻辑块组合，降低训练成本，提高推理速度。",
+      "key_contributions": [
+        "提出WARP逻辑神经网络框架",
+        "参数效率最高的布尔函数表示",
+        "引入可学习阈值和残差初始化"
+      ],
+      "methodology": "基于梯度学习，利用Walsh松弛学习概率逻辑，结合随机平滑实现离散逻辑推理。",
+      "tags": [
+        "逻辑神经网络",
+        "硬件加速",
+        "机器学习",
+        "梯度下降"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注逻辑推理，并提出新的逻辑神经网络模型。",
+      "analyzed_at": "2026-02-04T20:43:53.816651",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03516v1",
+      "title": "Not All Negative Samples Are Equal: LLMs Learn Better from Plausible Reasoning",
+      "abstract": "Learning from negative samples holds great promise for improving Large Language Model (LLM) reasoning capability, yet existing methods treat all incorrect responses as equally informative, overlooking the crucial role of sample quality. To address this, we propose Plausible Negative Samples (PNS), a method that synthesizes high-quality negative samples exhibiting expected format and structural coherence while ultimately yielding incorrect answers. PNS trains a dedicated model via reverse reinforcement learning (RL) guided by a composite reward combining format compliance, accuracy inversion, reward model assessment, and chain-of-thought evaluation, generating responses nearly indistinguishable from correct solutions. We further validate PNS as a plug-and-play data source for preference optimization across three backbone models on seven mathematical reasoning benchmarks. Results demonstrate that PNS consistently outperforms other negative sample synthesis methods, achieving an average improvement of 2.03% over RL-trained models.",
+      "authors": [
+        "Zixiang Di",
+        "Jinyi Han",
+        "Shuo Zhang",
+        "Ying Liao",
+        "Zhi Li",
+        "Xiaofeng Ji",
+        "Yongqi Wang",
+        "Zheming Yang",
+        "Ming Gao",
+        "Bingdong Li",
+        "Jie Wang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T13:32:02Z",
+      "updated": "2026-02-03T13:32:02Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03516v1",
+      "abs_url": "http://arxiv.org/abs/2602.03516v1",
+      "summary": "提出PNS方法，通过合成高质量负样本来提升LLM的推理能力。",
+      "key_contributions": [
+        "提出了Plausible Negative Samples（PNS）方法",
+        "使用逆向强化学习生成高质量负样本",
+        "验证了PNS作为偏好优化的数据源的有效性"
+      ],
+      "methodology": "使用逆向强化学习训练模型，生成格式正确但答案错误的负样本，用于训练LLM。",
+      "tags": [
+        "LLM",
+        "推理",
+        "负样本",
+        "强化学习"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接针对LLM的推理能力，并提出了新的负样本生成方法。",
+      "analyzed_at": "2026-02-04T20:43:56.162416",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03507v1",
+      "title": "Learning to Reason Faithfully through Step-Level Faithfulness Maximization",
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has markedly improved the performance of Large Language Models (LLMs) on tasks requiring multi-step reasoning. However, most RLVR pipelines rely on sparse outcome-based rewards, providing little supervision over intermediate steps and thus encouraging over-confidence and spurious reasoning, which in turn increases hallucinations. To address this, we propose FaithRL, a general reinforcement learning framework that directly optimizes reasoning faithfulness. We formalize a faithfulness-maximization objective and theoretically show that optimizing it mitigates over-confidence. To instantiate this objective, we introduce a geometric reward design and a faithfulness-aware advantage modulation mechanism that assigns step-level credit by penalizing unsupported steps while preserving valid partial derivations. Across diverse backbones and benchmarks, FaithRL consistently reduces hallucination rates while maintaining (and often improving) answer correctness. Further analysis confirms that FaithRL increases step-wise reasoning faithfulness and generalizes robustly. Our code is available at https://github.com/aintdoin/FaithRL.",
+      "authors": [
+        "Runquan Gui",
+        "Yafu Li",
+        "Xiaoye Qu",
+        "Ziyan Liu",
+        "Yeqiu Cheng",
+        "Yu Cheng"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T13:28:17Z",
+      "updated": "2026-02-03T13:28:17Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03507v1",
+      "abs_url": "http://arxiv.org/abs/2602.03507v1",
+      "summary": "FaithRL通过最大化步骤级忠实度来提升LLM多步推理的可靠性，降低幻觉率。",
+      "key_contributions": [
+        "提出了FaithRL框架，直接优化推理忠实度",
+        "设计了几何奖励机制和忠实度感知的优势调制机制",
+        "理论证明优化忠实度目标可以缓解过度自信问题"
+      ],
+      "methodology": "FaithRL通过几何奖励惩罚不支持的步骤，并使用忠实度感知的优势调制机制分配步骤级信用，从而最大化推理忠实度。",
+      "tags": [
+        "Reinforcement Learning",
+        "Reasoning",
+        "Faithfulness",
+        "Hallucination"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 10,
+      "relevance_reason": "论文核心在于提升LLM的推理能力和忠实度，直接解决关键问题。",
+      "analyzed_at": "2026-02-04T20:43:59.243319",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03496v1",
+      "title": "Lookahead Path Likelihood Optimization for Diffusion LLMs",
+      "abstract": "Diffusion Large Language Models (dLLMs) support arbitrary-order generation, yet their inference performance critically depends on the unmasking order. Existing strategies rely on heuristics that greedily optimize local confidence, offering limited guidance for identifying unmasking paths that are globally consistent and accurate. To bridge this gap, we introduce path log-likelihood (Path LL), a trajectory-conditioned objective that strongly correlates with downstream accuracy and enables principled selection of unmasking paths. To optimize Path LL at inference time, we propose POKE, an efficient value estimator that predicts the expected future Path LL of a partial decoding trajectory. We then integrate this lookahead signal into POKE-SMC, a Sequential Monte Carlo-based search framework for dynamically identifying optimal unmasking paths. Extensive experiments across 6 reasoning tasks show that POKE-SMC consistently improves accuracy, achieving 2%--3% average gains over strong decoding-time scaling baselines at comparable inference overhead on LLaDA models and advancing the accuracy--compute Pareto frontier.",
+      "authors": [
+        "Xuejie Liu",
+        "Yap Vit Chun",
+        "Yitao Liang",
+        "Anji Liu"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T13:12:41Z",
+      "updated": "2026-02-03T13:12:41Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03496v1",
+      "abs_url": "http://arxiv.org/abs/2602.03496v1",
+      "summary": "提出了一种基于路径似然优化的扩散LLM解码方法，提升推理准确性。",
+      "key_contributions": [
+        "提出了路径对数似然(Path LL)目标",
+        "设计了高效的值估计器POKE",
+        "提出了基于POKE的序列蒙特卡洛搜索框架POKE-SMC"
+      ],
+      "methodology": "引入路径似然作为优化目标，通过值估计器预测未来路径似然，并利用蒙特卡洛搜索寻找最优解码路径。",
+      "tags": [
+        "Diffusion LLM",
+        "Inference",
+        "Unmasking Order",
+        "Lookahead Search"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注LLM的推理和解码过程优化，属于推理领域关键问题。",
+      "analyzed_at": "2026-02-04T20:44:01.958782",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03486v1",
+      "title": "DeepDFA: Injecting Temporal Logic in Deep Learning for Sequential Subsymbolic Applications",
+      "abstract": "Integrating logical knowledge into deep neural network training is still a hard challenge, especially for sequential or temporally extended domains involving subsymbolic observations. To address this problem, we propose DeepDFA, a neurosymbolic framework that integrates high-level temporal logic - expressed as Deterministic Finite Automata (DFA) or Moore Machines - into neural architectures. DeepDFA models temporal rules as continuous, differentiable layers, enabling symbolic knowledge injection into subsymbolic domains. We demonstrate how DeepDFA can be used in two key settings: (i) static image sequence classification, and (ii) policy learning in interactive non-Markovian environments. Across extensive experiments, DeepDFA outperforms traditional deep learning models (e.g., LSTMs, GRUs, Transformers) and novel neuro-symbolic systems, achieving state-of-the-art results in temporal knowledge integration. These results highlight the potential of DeepDFA to bridge subsymbolic learning and symbolic reasoning in sequential tasks.",
+      "authors": [
+        "Elena Umili",
+        "Francesco Argenziano",
+        "Roberto Capobianco"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T12:59:47Z",
+      "updated": "2026-02-03T12:59:47Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03486v1",
+      "abs_url": "http://arxiv.org/abs/2602.03486v1",
+      "summary": "DeepDFA通过将时序逻辑注入深度学习，提升序列子符号应用性能。",
+      "key_contributions": [
+        "提出DeepDFA神经符号框架",
+        "将时序逻辑（DFA）建模为可微分层",
+        "在图像序列分类和非马尔可夫环境策略学习中验证有效性"
+      ],
+      "methodology": "DeepDFA将确定性有限自动机集成到神经网络架构中，实现符号知识注入，并利用可微分层进行训练。",
+      "tags": [
+        "神经符号学习",
+        "时序逻辑",
+        "深度学习",
+        "序列建模"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "论文核心在于将逻辑推理融入深度学习，属于LLM reasoning的高级应用。",
+      "analyzed_at": "2026-02-04T20:44:10.201010",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03485v1",
+      "title": "Self-Verification Dilemma: Experience-Driven Suppression of Overused Checking in LLM Reasoning",
+      "abstract": "Large Reasoning Models (LRMs) achieve strong performance by generating long reasoning traces with reflection. Through a large-scale empirical analysis, we find that a substantial fraction of reflective steps consist of self-verification (recheck) that repeatedly confirm intermediate results. These rechecks occur frequently across models and benchmarks, yet the vast majority are confirmatory rather than corrective, rarely identifying errors and altering reasoning outcomes. This reveals a mismatch between how often self-verification is activated and how often it is actually useful. Motivated by this, we propose a novel, experience-driven test-time framework that reduces the overused verification. Our method detects the activation of recheck behavior, consults an offline experience pool of past verification outcomes, and estimates whether a recheck is likely unnecessary via efficient retrieval. When historical experience suggests unnecessary, a suppression signal redirects the model to proceed. Across multiple model and benchmarks, our approach reduces token usage up to 20.3% while maintaining the accuracy, and in some datasets even yields accuracy improvements.",
+      "authors": [
+        "Quanyu Long",
+        "Kai Jie Jiang",
+        "Jianda Chen",
+        "Xu Guo",
+        "Leilei Gan",
+        "Wenya Wang"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T12:58:23Z",
+      "updated": "2026-02-03T12:58:23Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03485v1",
+      "abs_url": "http://arxiv.org/abs/2602.03485v1",
+      "summary": "论文发现LLM推理中过度自验证现象，提出经验驱动框架抑制无效自验证，减少token使用并保持甚至提升准确率。",
+      "key_contributions": [
+        "发现LLM推理中过度自验证问题",
+        "提出经验驱动的自验证抑制框架",
+        "实验证明该方法能减少token使用并维持/提升准确率"
+      ],
+      "methodology": "通过检测LLM的自验证行为，检索历史经验池判断是否需要验证，如果经验表明不必要，则抑制验证。",
+      "tags": [
+        "LLM",
+        "Reasoning",
+        "Self-Verification",
+        "Efficiency",
+        "Experience-Driven"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接研究LLM推理中的自验证问题，是LLM推理领域的核心问题。",
+      "analyzed_at": "2026-02-04T20:44:12.964657",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    }
+  ],
+  "fetch_time": "2026-02-04T20:32:43.098241"
+}

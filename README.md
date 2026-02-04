@@ -2,10 +2,12 @@
 
 每日自动追踪 arXiv 论文，使用 AI 进行分析和分类，生成静态网站展示。
 
+**在线演示**: [https://haoran2099.github.io/Paper_Tracking/](https://haoran2099.github.io/Paper_Tracking/)
+
 ## 特性
 
 - **多领域支持**: 通过 `config.json` 自定义追踪任意研究领域
-- **多 LLM 支持**: Claude / OpenAI / Ollama（本地模型）
+- **多 LLM 支持**: Claude / OpenAI / Gemini / Ollama / MiniMax
 - **自动化部署**: GitHub Actions 每日自动更新 + GitHub Pages 托管
 - **深色主题**: 类似 GitHub Dark 的简约风格
 - **客户端搜索**: 无需后端即可搜索论文
@@ -16,6 +18,9 @@
 
 ```bash
 pip install -r requirements.txt
+
+# 根据使用的 LLM 安装额外依赖
+pip install google-generativeai  # Gemini
 ```
 
 ### 2. 配置
@@ -27,7 +32,7 @@ cp .env.example .env
 # 编辑 .env 设置 API Key
 ```
 
-编辑 `data/config.json` 自定义追踪领域。
+编辑 `data/config.json` 自定义追踪领域和 LLM 提供商。
 
 ### 3. 运行
 
@@ -41,6 +46,16 @@ python -m src.main generate-site
 # 本地预览
 python -m src.main serve
 ```
+
+## 支持的 LLM 提供商
+
+| 提供商 | provider | 模型示例 | 环境变量 |
+|--------|----------|----------|----------|
+| Claude | `claude` | `claude-sonnet-4-20250514` | `ANTHROPIC_API_KEY` |
+| OpenAI | `openai` | `gpt-4o-mini` | `OPENAI_API_KEY` |
+| Gemini | `gemini` | `gemini-2.0-flash` | `GOOGLE_API_KEY` |
+| Ollama | `ollama` | `llama3.2` | - |
+| MiniMax | `minimax` | `abab6.5s-chat` | `MINIMAX_API_KEY` |
 
 ## CLI 命令
 
@@ -74,9 +89,9 @@ python -m src.main serve
     "base_url": ""
   },
   "llm": {
-    "provider": "claude",
-    "model": "claude-sonnet-4-20250514",
-    "api_key_env": "ANTHROPIC_API_KEY"
+    "provider": "gemini",
+    "model": "gemini-2.0-flash",
+    "api_key_env": "GOOGLE_API_KEY"
   },
   "domains": [
     {
@@ -100,7 +115,8 @@ python -m src.main serve
 2. 设置 Repository Secret（根据你选择的 LLM 提供商）:
    - Claude: `ANTHROPIC_API_KEY`
    - OpenAI: `OPENAI_API_KEY`
-3. 启用 GitHub Pages（Source: GitHub Actions）
+   - Gemini: `GOOGLE_API_KEY`
+3. 启用 GitHub Pages（Settings → Pages → Source: GitHub Actions）
 4. 工作流每日 UTC 6:00（北京 14:00）自动运行
 
 ## 项目结构

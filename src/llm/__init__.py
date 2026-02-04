@@ -4,6 +4,8 @@ from .base import BaseAnalyzer
 from .claude_analyzer import ClaudeAnalyzer
 from .openai_analyzer import OpenAIAnalyzer
 from .ollama_analyzer import OllamaAnalyzer
+from .minimax_analyzer import MiniMaxAnalyzer
+from .gemini_analyzer import GeminiAnalyzer
 
 
 def get_analyzer(config) -> BaseAnalyzer:
@@ -16,6 +18,10 @@ def get_analyzer(config) -> BaseAnalyzer:
         return OpenAIAnalyzer(config)
     elif provider == "ollama":
         return OllamaAnalyzer(config)
+    elif provider == "minimax":
+        return MiniMaxAnalyzer(config)
+    elif provider == "gemini":
+        return GeminiAnalyzer(config)
     else:
         raise ValueError(f"Unknown LLM provider: {provider}")
 
@@ -25,5 +31,6 @@ __all__ = [
     "ClaudeAnalyzer",
     "OpenAIAnalyzer",
     "OllamaAnalyzer",
+    "MiniMaxAnalyzer",
     "get_analyzer",
 ]
