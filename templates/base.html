@@ -6,6 +6,7 @@
     <title>{% block title %}{{ site.title }}{% endblock %}</title>
     <meta name="description" content="{{ site.description }}">
     <link rel="stylesheet" href="{{ site.base_url }}/static/css/style.css">
+    <script>window.SITE_BASE_URL = "{{ site.base_url }}";</script>
     {% block head %}{% endblock %}
 </head>
 <body>

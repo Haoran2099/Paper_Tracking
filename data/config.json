@@ -2,7 +2,7 @@
   "site": {
     "title": "Paper Tracker",
     "description": "Daily arXiv paper tracking with AI-powered analysis",
-    "base_url": ""
+    "base_url": "/Paper_Tracking"
   },
   "llm": {
     "provider": "gemini",
