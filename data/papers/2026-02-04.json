@@ -1359,6 +1359,743 @@
       "analyzed_at": "2026-02-04T20:44:12.964657",
       "llm_provider": "gemini",
       "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03837v1",
+      "title": "Accelerating Scientific Research with Gemini: Case Studies and Common Techniques",
+      "abstract": "Recent advances in large language models (LLMs) have opened new avenues for accelerating scientific research. While models are increasingly capable of assisting with routine tasks, their ability to contribute to novel, expert-level mathematical discovery is less understood. We present a collection of case studies demonstrating how researchers have successfully collaborated with advanced AI models, specifically Google's Gemini-based models (in particular Gemini Deep Think and its advanced variants), to solve open problems, refute conjectures, and generate new proofs across diverse areas in theoretical computer science, as well as other areas such as economics, optimization, and physics. Based on these experiences, we extract common techniques for effective human-AI collaboration in theoretical research, such as iterative refinement, problem decomposition, and cross-disciplinary knowledge transfer. While the majority of our results stem from this interactive, conversational methodology, we also highlight specific instances that push beyond standard chat interfaces. These include deploying the model as a rigorous adversarial reviewer to detect subtle flaws in existing proofs, and embedding it within a \"neuro-symbolic\" loop that autonomously writes and executes code to verify complex derivations. Together, these examples highlight the potential of AI not just as a tool for automation, but as a versatile, genuine partner in the creative process of scientific discovery.",
+      "authors": [
+        "David P. Woodruff",
+        "Vincent Cohen-Addad",
+        "Lalit Jain",
+        "Jieming Mao",
+        "Song Zuo",
+        "MohammadHossein Bateni",
+        "Simina Branzei",
+        "Michael P. Brenner",
+        "Lin Chen",
+        "Ying Feng",
+        "Lance Fortnow",
+        "Gang Fu",
+        "Ziyi Guan",
+        "Zahra Hadizadeh",
+        "Mohammad T. Hajiaghayi",
+        "Mahdi JafariRaviz",
+        "Adel Javanmard",
+        "Karthik C. S.",
+        "Ken-ichi Kawarabayashi",
+        "Ravi Kumar",
+        "Silvio Lattanzi",
+        "Euiwoong Lee",
+        "Yi Li",
+        "Ioannis Panageas",
+        "Dimitris Paparas",
+        "Benjamin Przybocki",
+        "Bernardo Subercaseaux",
+        "Ola Svensson",
+        "Shayan Taherijam",
+        "Xuan Wu",
+        "Eylon Yogev",
+        "Morteza Zadimoghaddam",
+        "Samson Zhou",
+        "Vahab Mirrokni"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T18:56:17Z",
+      "updated": "2026-02-03T18:56:17Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03837v1",
+      "abs_url": "http://arxiv.org/abs/2602.03837v1",
+      "summary": "该论文展示了Gemini模型在科学研究中的应用，并总结了人机协作的有效方法。",
+      "key_contributions": [
+        "展示Gemini模型在解决开放性科学问题中的能力",
+        "提取有效人机协作的通用技术",
+        "探索Gemini模型作为严谨评审员和代码执行器的应用"
+      ],
+      "methodology": "通过案例研究，分析研究人员与Gemini模型协作解决科学问题的过程，提取通用技术。",
+      "tags": [
+        "LLM",
+        "科学研究",
+        "人机协作",
+        "Gemini"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "重点在于利用LLM进行科学发现和问题解决，属于LLM Reasoning领域。",
+      "analyzed_at": "2026-02-04T13:01:23.984009",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03814v1",
+      "title": "Conformal Thinking: Risk Control for Reasoning on a Compute Budget",
+      "abstract": "Reasoning Large Language Models (LLMs) enable test-time scaling, with dataset-level accuracy improving as the token budget increases, motivating adaptive reasoning -- spending tokens when they improve reliability and stopping early when additional computation is unlikely to help. However, setting the token budget, as well as the threshold for adaptive reasoning, is a practical challenge that entails a fundamental risk-accuracy trade-off. We re-frame the budget setting problem as risk control, limiting the error rate while minimizing compute. Our framework introduces an upper threshold that stops reasoning when the model is confident (risking incorrect output) and a novel parametric lower threshold that preemptively stops unsolvable instances (risking premature stoppage). Given a target risk and a validation set, we use distribution-free risk control to optimally specify these stopping mechanisms. For scenarios with multiple budget controlling criteria, we incorporate an efficiency loss to select the most computationally efficient exiting mechanism. Empirical results across diverse reasoning tasks and models demonstrate the effectiveness of our risk control approach, demonstrating computational efficiency gains from the lower threshold and ensemble stopping mechanisms while adhering to the user-specified risk target.",
+      "authors": [
+        "Xi Wang",
+        "Anushri Suresh",
+        "Alvin Zhang",
+        "Rishi More",
+        "William Jurayj",
+        "Benjamin Van Durme",
+        "Mehrdad Farajtabar",
+        "Daniel Khashabi",
+        "Eric Nalisnick"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T18:17:22Z",
+      "updated": "2026-02-03T18:17:22Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03814v1",
+      "abs_url": "http://arxiv.org/abs/2602.03814v1",
+      "summary": "提出一种在计算预算下控制LLM推理风险的框架，优化计算效率。",
+      "key_contributions": [
+        "提出基于风险控制的LLM推理预算设定框架",
+        "引入上限和下限阈值来控制推理过程",
+        "利用分布无关的风险控制方法优化阈值",
+        "引入效率损失来选择最高效的退出机制"
+      ],
+      "methodology": "利用验证集和目标风险，通过优化上限和下限阈值，控制推理过程，并采用效率损失选择退出机制。",
+      "tags": [
+        "LLM",
+        "Reasoning",
+        "Risk Control",
+        "Compute Budget",
+        "Adaptive Reasoning"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接研究LLM推理中的计算效率和风险控制，属于核心相关。",
+      "analyzed_at": "2026-02-04T13:01:36.371337",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03776v1",
+      "title": "DiffLOB: Diffusion Models for Counterfactual Generation in Limit Order Books",
+      "abstract": "Modern generative models for limit order books (LOBs) can reproduce realistic market dynamics, but remain fundamentally passive: they either model what typically happens without accounting for hypothetical future market conditions, or they require interaction with another agent to explore alternative outcomes. This limits their usefulness for stress testing, scenario analysis, and decision-making. We propose \\textbf{DiffLOB}, a regime-conditioned \\textbf{Diff}usion model for controllable and counterfactual generation of \\textbf{LOB} trajectories. DiffLOB explicitly conditions the generative process on future market regimes--including trend, volatility, liquidity, and order-flow imbalance, which enables the model to answer counterfactual queries of the form: ``If the future market regime were X instead of Y, how would the limit order book evolve?'' Our systematic evaluation framework for counterfactual LOB generation consists of three criteria: (1) \\textit{Controllable Realism}, measuring how well generated trajectories can reproduce marginal distributions, temporal dependence structure and regime variables; (2) \\textit{Counterfactual validity}, testing whether interventions on future regimes induce consistent changes in the generated LOB dynamics; (3) \\textit{Counterfactual usefulness}, assessing whether synthetic counterfactual trajectories improve downstream prediction of future market regimes.",
+      "authors": [
+        "Zhuohan Wang",
+        "Carmine Ventre"
+      ],
+      "categories": [
+        "q-fin.CP",
+        "cs.AI"
+      ],
+      "primary_category": "q-fin.CP",
+      "published": "2026-02-03T17:34:56Z",
+      "updated": "2026-02-03T17:34:56Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03776v1",
+      "abs_url": "http://arxiv.org/abs/2602.03776v1",
+      "summary": "DiffLOB提出了一种基于扩散模型的条件LOB生成方法，用于可控和反事实的轨迹生成。",
+      "key_contributions": [
+        "提出了DiffLOB模型，用于生成可控和反事实的LOB轨迹。",
+        "引入了基于未来市场状态调节的生成过程。",
+        "设计了一个系统化的反事实LOB生成评估框架。"
+      ],
+      "methodology": "利用扩散模型，通过调节未来市场状态（趋势、波动率等）生成LOB轨迹，并设计评估框架验证。",
+      "tags": [
+        "扩散模型",
+        "限价订单簿",
+        "反事实推理",
+        "金融市场"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 6,
+      "relevance_reason": "涉及到利用生成模型探索不同情景，对agent的决策有参考价值。",
+      "analyzed_at": "2026-02-04T13:01:52.142964",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03775v1",
+      "title": "An Empirical Study of Collective Behaviors and Social Dynamics in Large Language Model Agents",
+      "abstract": "Large Language Models (LLMs) increasingly mediate our social, cultural, and political interactions. While they can simulate some aspects of human behavior and decision-making, it is still underexplored whether repeated interactions with other agents amplify their biases or lead to exclusionary behaviors. To this end, we study Chirper.ai-an LLM-driven social media platform-analyzing 7M posts and interactions among 32K LLM agents over a year. We start with homophily and social influence among LLMs, learning that similar to humans', their social networks exhibit these fundamental phenomena. Next, we study the toxic language of LLMs, its linguistic features, and their interaction patterns, finding that LLMs show different structural patterns in toxic posting than humans. After studying the ideological leaning in LLMs posts, and the polarization in their community, we focus on how to prevent their potential harmful activities. We present a simple yet effective method, called Chain of Social Thought (CoST), that reminds LLM agents to avoid harmful posting.",
+      "authors": [
+        "Farnoosh Hashemi",
+        "Michael W. Macy"
+      ],
+      "categories": [
+        "cs.SI",
+        "cs.AI"
+      ],
+      "primary_category": "cs.SI",
+      "published": "2026-02-03T17:34:32Z",
+      "updated": "2026-02-03T17:34:32Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03775v1",
+      "abs_url": "http://arxiv.org/abs/2602.03775v1",
+      "summary": "研究LLM驱动的社交平台中智能体的行为、偏见和有害活动，并提出CoST方法缓解。",
+      "key_contributions": [
+        "分析LLM智能体在社交平台中的同质性和社会影响",
+        "研究LLM智能体的毒性语言和互动模式",
+        "提出CoST方法降低LLM智能体的有害行为"
+      ],
+      "methodology": "分析Chirper.ai平台7M帖子和32K智能体的互动，采用统计分析和文本分析方法，并设计CoST干预实验。",
+      "tags": [
+        "LLM",
+        "Social Media",
+        "Agent",
+        "Bias",
+        "Toxicity",
+        "CoST"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "核心研究LLM作为智能体在社交环境中的行为模式和潜在危害。",
+      "analyzed_at": "2026-02-04T13:01:57.381781",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03772v1",
+      "title": "UniGeM: Unifying Data Mixing and Selection via Geometric Exploration and Mining",
+      "abstract": "The scaling of Large Language Models (LLMs) is increasingly limited by data quality. Most methods handle data mixing and sample selection separately, which can break the structure in code corpora. We introduce \\textbf{UniGeM}, a framework that unifies mixing and selection by treating data curation as a \\textit{manifold approximation} problem without training proxy models or relying on external reference datasets. UniGeM operates hierarchically: \\textbf{Macro-Exploration} learns mixing weights with stability-based clustering; \\textbf{Micro-Mining} filters high-quality instances by their geometric distribution to ensure logical consistency. Validated by training 8B and 16B MoE models on 100B tokens, UniGeM achieves \\textbf{2.0$\\times$ data efficiency} over a random baseline and further improves overall performance compared to SOTA methods in reasoning-heavy evaluations and multilingual generalization.",
+      "authors": [
+        "Changhao Wang",
+        "Yunfei Yu",
+        "Xinhao Yao",
+        "Jiaolong Yang",
+        "Riccardo Cantoro",
+        "Chaobo Li",
+        "Qing Cui",
+        "Jun Zhou"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T17:32:56Z",
+      "updated": "2026-02-03T17:32:56Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03772v1",
+      "abs_url": "http://arxiv.org/abs/2602.03772v1",
+      "summary": "UniGeM通过几何探索统一数据混合和选择，提高LLM训练的数据效率。",
+      "key_contributions": [
+        "提出UniGeM框架，统一数据混合和选择",
+        "通过几何分布过滤高质量实例，保证逻辑一致性",
+        "无需训练代理模型或依赖外部数据集"
+      ],
+      "methodology": "基于流形近似的数据质量优化，分层进行宏观探索和微观挖掘。",
+      "tags": [
+        "数据混合",
+        "数据选择",
+        "流形学习",
+        "LLM训练"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "提升LLM推理能力的有效数据选择方法，高度相关。",
+      "analyzed_at": "2026-02-04T13:02:07.054670",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03719v1",
+      "title": "Training Multi-Turn Search Agent via Contrastive Dynamic Branch Sampling",
+      "abstract": "Agentic reinforcement learning has enabled large language models to perform complex multi-turn planning and tool use. However, learning in long-horizon settings remains challenging due to sparse, trajectory-level outcome rewards. While prior tree-based methods attempt to mitigate this issue, they often suffer from high variance and computational inefficiency. Through empirical analysis of search agents, We identify a common pattern: performance diverges mainly due to decisions near the tail. Motivated by this observation, we propose Branching Relative Policy Optimization (BranPO), a value-free method that provides step-level contrastive supervision without dense rewards. BranPO truncates trajectories near the tail and resamples alternative continuations to construct contrastive suffixes over shared prefixes, reducing credit ambiguity in long-horizon rollouts. To further boost efficiency and stabilize training, we introduce difficulty-aware branch sampling to adapt branching frequency across tasks, and redundant step masking to suppress uninformative actions. Extensive experiments on various question answering benchmarks demonstrate that BranPO consistently outperforms strong baselines, achieving significant accuracy gains on long-horizon tasks without increasing the overall training budget. Our code is available at \\href{https://github.com/YubaoZhao/BranPO}{code}.",
+      "authors": [
+        "Yubao Zhao",
+        "Weiquan Huang",
+        "Sudong Wang",
+        "Ruochen Zhao",
+        "Chen Chen",
+        "Yao Shu",
+        "Chengwei Qin"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T16:43:09Z",
+      "updated": "2026-02-03T16:43:09Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03719v1",
+      "abs_url": "http://arxiv.org/abs/2602.03719v1",
+      "summary": "BranPO通过对比动态分支抽样优化多轮搜索Agent，提升长程任务性能。",
+      "key_contributions": [
+        "提出了Branching Relative Policy Optimization (BranPO)方法",
+        "引入难度感知分支抽样和冗余步骤屏蔽",
+        "在多种问答benchmark上验证了BranPO的有效性"
+      ],
+      "methodology": "通过截断尾部轨迹并重采样构建对比后缀，在共享前缀上进行对比监督，减少长程rollout的信用分配模糊性。",
+      "tags": [
+        "Agent",
+        "Reinforcement Learning",
+        "Contrastive Learning",
+        "Multi-turn Planning"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注多轮Agent的训练和优化，属于agent研究的关键问题。",
+      "analyzed_at": "2026-02-04T13:02:20.450026",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03681v1",
+      "title": "Neural Attention Search Linear: Towards Adaptive Token-Level Hybrid Attention Models",
+      "abstract": "The quadratic computational complexity of softmax transformers has become a bottleneck in long-context scenarios. In contrast, linear attention model families provide a promising direction towards a more efficient sequential model. These linear attention models compress past KV values into a single hidden state, thereby efficiently reducing complexity during both training and inference. However, their expressivity remains limited by the size of their hidden state. Previous work proposed interleaving softmax and linear attention layers to reduce computational complexity while preserving expressivity. Nevertheless, the efficiency of these models remains bottlenecked by their softmax attention layers. In this paper, we propose Neural Attention Search Linear (NAtS-L), a framework that applies both linear attention and softmax attention operations within the same layer on different tokens. NAtS-L automatically determines whether a token can be handled by a linear attention model, i.e., tokens that have only short-term impact and can be encoded into fixed-size hidden states, or require softmax attention, i.e., tokens that contain information related to long-term retrieval and need to be preserved for future queries. By searching for optimal Gated DeltaNet and softmax attention combinations across tokens, we show that NAtS-L provides a strong yet efficient token-level hybrid architecture.",
+      "authors": [
+        "Difan Deng",
+        "Andreas Bentzen Winje",
+        "Lukas Fehring",
+        "Marius Lindauer"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T16:02:50Z",
+      "updated": "2026-02-03T16:02:50Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03681v1",
+      "abs_url": "http://arxiv.org/abs/2602.03681v1",
+      "summary": "NAtS-L提出了一种token级别的混合注意力机制，自动选择线性或softmax注意力。",
+      "key_contributions": [
+        "提出NAtS-L框架，实现token级别的混合注意力。",
+        "自动搜索最优的Gated DeltaNet和softmax注意力组合。",
+        "在长文本场景下，平衡了效率和表达能力。"
+      ],
+      "methodology": "通过搜索算法，针对不同token动态选择线性注意力（Gated DeltaNet）或softmax注意力，实现混合注意力机制。",
+      "tags": [
+        "Transformer",
+        "线性注意力",
+        "Softmax注意力",
+        "混合注意力",
+        "长文本"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 7,
+      "relevance_reason": "涉及长文本处理和信息压缩，与 memory 和 retrieval 有一定相关性。",
+      "analyzed_at": "2026-02-04T13:02:40.255557",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03647v1",
+      "title": "Search-R2: Enhancing Search-Integrated Reasoning via Actor-Refiner Collaboration",
+      "abstract": "Search-integrated reasoning enables language agents to transcend static parametric knowledge by actively querying external sources. However, training these agents via reinforcement learning is hindered by the multi-scale credit assignment problem: existing methods typically rely on sparse, trajectory-level rewards that fail to distinguish between high-quality reasoning and fortuitous guesses, leading to redundant or misleading search behaviors. To address this, we propose Search-R2, a novel Actor-Refiner collaboration framework that enhances reasoning through targeted intervention, with both components jointly optimized during training. Our approach decomposes the generation process into an Actor, which produces initial reasoning trajectories, and a Meta-Refiner, which selectively diagnoses and repairs flawed steps via a 'cut-and-regenerate' mechanism. To provide fine-grained supervision, we introduce a hybrid reward design that couples outcome correctness with a dense process reward quantifying the information density of retrieved evidence. Theoretically, we formalize the Actor-Refiner interaction as a smoothed mixture policy, proving that selective correction yields strict performance gains over strong baselines. Extensive experiments across various general and multi-hop QA datasets demonstrate that Search-R2 consistently outperforms strong RAG and RL-based baselines across model scales, achieving superior reasoning accuracy with minimal overhead.",
+      "authors": [
+        "Bowei He",
+        "Minda Hu",
+        "Zenan Xu",
+        "Hongru Wang",
+        "Licheng Zong",
+        "Yankai Chen",
+        "Chen Ma",
+        "Xue Liu",
+        "Pluto Zhou",
+        "Irwin King"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T15:32:09Z",
+      "updated": "2026-02-03T15:32:09Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03647v1",
+      "abs_url": "http://arxiv.org/abs/2602.03647v1",
+      "summary": "Search-R2通过Actor-Refiner协作，结合混合奖励，提升了搜索集成推理的性能。",
+      "key_contributions": [
+        "提出Actor-Refiner协作框架，增强搜索集成推理。",
+        "设计混合奖励，提供细粒度监督。",
+        "证明选择性纠正策略的性能优势。"
+      ],
+      "methodology": "将生成过程分解为Actor和Meta-Refiner，Meta-Refiner选择性诊断并修复错误步骤，结合outcome和process reward进行训练。",
+      "tags": [
+        "搜索集成推理",
+        "强化学习",
+        "Actor-Refiner",
+        "奖励设计"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于提升LLM的推理能力，使用了创新的框架和奖励机制。",
+      "analyzed_at": "2026-02-04T13:02:47.296432",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03635v1",
+      "title": "TRE: Encouraging Exploration in the Trust Region",
+      "abstract": "Entropy regularization is a standard technique in reinforcement learning (RL) to enhance exploration, yet it yields negligible effects or even degrades performance in Large Language Models (LLMs). We attribute this failure to the cumulative tail risk inherent to LLMs with massive vocabularies and long generation horizons. In such environments, standard global entropy maximization indiscriminately dilutes probability mass into the vast tail of invalid tokens rather than focusing on plausible candidates, thereby disrupting coherent reasoning. To address this, we propose Trust Region Entropy (TRE), a method that encourages exploration strictly within the model's trust region. Extensive experiments across mathematical reasoning (MATH), combinatorial search (Countdown), and preference alignment (HH) tasks demonstrate that TRE consistently outperforms vanilla PPO, standard entropy regularization, and other exploration baselines. Our code is available at https://github.com/WhyChaos/TRE-Encouraging-Exploration-in-the-Trust-Region.",
+      "authors": [
+        "Chao Huang",
+        "Yujing Lu",
+        "Quangang Li",
+        "Shenghe Wang",
+        "Yan Wang",
+        "Yueyang Zhang",
+        "Long Xia",
+        "Jiashu Zhao",
+        "Zhiyuan Sun",
+        "Daiting Shi",
+        "Tingwen Liu"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T15:21:49Z",
+      "updated": "2026-02-03T15:21:49Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03635v1",
+      "abs_url": "http://arxiv.org/abs/2602.03635v1",
+      "summary": "论文提出了一种Trust Region Entropy（TRE）方法，提升LLM在强化学习中的探索能力。",
+      "key_contributions": [
+        "发现了标准熵正则化在LLM中失效的原因是累积尾部风险",
+        "提出了TRE方法，在模型信任区域内鼓励探索",
+        "实验证明TRE在数学推理、组合搜索和偏好对齐任务中优于其他基线方法"
+      ],
+      "methodology": "提出TRE方法，限制探索范围在模型的信任区域内，避免无效token的影响。使用PPO算法进行训练和评估。",
+      "tags": [
+        "强化学习",
+        "探索",
+        "熵正则化",
+        "LLM",
+        "信任区域"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文解决LLM推理过程中的探索问题，聚焦于提高推理能力。",
+      "analyzed_at": "2026-02-04T13:02:53.101819",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03613v1",
+      "title": "Simulation-Based Inference via Regression Projection and Batched Discrepancies",
+      "abstract": "We analyze a lightweight simulation-based inference method that infers simulator parameters using only a regression-based projection of the observed data. After fitting a surrogate linear regression once, the procedure simulates small batches at the proposed parameter values and assigns kernel weights based on the resulting batch-residual discrepancy, producing a self-normalized pseudo-posterior that is simple, parallelizable, and requires access only to the fitted regression coefficients rather than raw observations. We formalize the construction as an importance-sampling approximation to a population target that averages over simulator randomness, prove consistency as the number of parameter draws grows, and establish stability in estimating the surrogate regression from finite samples. We then characterize the asymptotic concentration as the batch size increases and the bandwidth shrinks, showing that the pseudo-posterior concentrates on an identified set determined by the chosen projection, thereby clarifying when the method yields point versus set identification. Experiments on a tractable nonlinear model and on a cosmological calibration task using the DREAMS simulation suite illustrate the computational advantages of regression-based projections and the identifiability limitations arising from low-information summaries.",
+      "authors": [
+        "Arya Farahi",
+        "Jonah Rose",
+        "Paul Torrey"
+      ],
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "published": "2026-02-03T15:07:40Z",
+      "updated": "2026-02-03T15:07:40Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03613v1",
+      "abs_url": "http://arxiv.org/abs/2602.03613v1",
+      "summary": "提出一种基于回归投影和批量差异的模拟推断方法，加速参数推断并分析其局限性。",
+      "key_contributions": [
+        "提出基于回归投影的轻量级模拟推断方法",
+        "证明该方法的一致性和稳定性",
+        "分析了该方法在点识别和集合识别方面的渐近性质"
+      ],
+      "methodology": "通过回归拟合代理模型，模拟小批量数据，并基于残差计算权重，构建自归一化伪后验。",
+      "tags": [
+        "simulation-based inference",
+        "regression",
+        "importance sampling",
+        "parameter inference"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 6,
+      "relevance_reason": "涉及模型推理和参数估计，有一定的相关性。",
+      "analyzed_at": "2026-02-04T13:03:01.999534",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03560v1",
+      "title": "HySparse: A Hybrid Sparse Attention Architecture with Oracle Token Selection and KV Cache Sharing",
+      "abstract": "This work introduces Hybrid Sparse Attention (HySparse), a new architecture that interleaves each full attention layer with several sparse attention layers. While conceptually simple, HySparse strategically derives each sparse layer's token selection and KV caches directly from the preceding full attention layer. This architecture resolves two fundamental limitations of prior sparse attention methods. First, conventional approaches typically rely on additional proxies to predict token importance, introducing extra complexity and potentially suboptimal performance. In contrast, HySparse uses the full attention layer as a precise oracle to identify important tokens. Second, existing sparse attention designs often reduce computation without saving KV cache. HySparse enables sparse attention layers to reuse the full attention KV cache, thereby reducing both computation and memory. We evaluate HySparse on both 7B dense and 80B MoE models. Across all settings, HySparse consistently outperforms both full attention and hybrid SWA baselines. Notably, in the 80B MoE model with 49 total layers, only 5 layers employ full attention, yet HySparse achieves substantial performance gains while reducing KV cache storage by nearly 10x.",
+      "authors": [
+        "Yizhao Gao",
+        "Jianyu Wei",
+        "Qihao Zhang",
+        "Yu Cheng",
+        "Shimao Chen",
+        "Zhengju Tang",
+        "Zihan Jiang",
+        "Yifan Song",
+        "Hailin Zhang",
+        "Liang Zhao",
+        "Bo Yang",
+        "Gang Wang",
+        "Shijie Cao",
+        "Fuli Luo"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T14:05:57Z",
+      "updated": "2026-02-03T14:05:57Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03560v1",
+      "abs_url": "http://arxiv.org/abs/2602.03560v1",
+      "summary": "HySparse通过全注意力层引导稀疏注意力，有效减少计算和内存开销并提升性能。",
+      "key_contributions": [
+        "提出HySparse架构，交错全注意力和稀疏注意力层",
+        "使用全注意力层作为oracle进行token选择",
+        "稀疏注意力层复用全注意力层的KV cache"
+      ],
+      "methodology": "将全注意力层与稀疏注意力层交错，利用全注意力层指导稀疏注意力层的token选择和KV cache共享。",
+      "tags": [
+        "Sparse Attention",
+        "KV Cache",
+        "Large Language Models",
+        "Efficiency"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 7,
+      "relevance_reason": "降低KV cache内存占用，提升模型效率，与memory相关。",
+      "analyzed_at": "2026-02-04T13:03:17.462458",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03545v1",
+      "title": "Persona Generators: Generating Diverse Synthetic Personas at Scale",
+      "abstract": "Evaluating AI systems that interact with humans requires understanding their behavior across diverse user populations, but collecting representative human data is often expensive or infeasible, particularly for novel technologies or hypothetical future scenarios. Recent work in Generative Agent-Based Modeling has shown that large language models can simulate human-like synthetic personas with high fidelity, accurately reproducing the beliefs and behaviors of specific individuals. However, most approaches require detailed data about target populations and often prioritize density matching (replicating what is most probable) rather than support coverage (spanning what is possible), leaving long-tail behaviors underexplored. We introduce Persona Generators, functions that can produce diverse synthetic populations tailored to arbitrary contexts. We apply an iterative improvement loop based on AlphaEvolve, using large language models as mutation operators to refine our Persona Generator code over hundreds of iterations. The optimization process produces lightweight Persona Generators that can automatically expand small descriptions into populations of diverse synthetic personas that maximize coverage of opinions and preferences along relevant diversity axes. We demonstrate that evolved generators substantially outperform existing baselines across six diversity metrics on held-out contexts, producing populations that span rare trait combinations difficult to achieve in standard LLM outputs.",
+      "authors": [
+        "Davide Paglieri",
+        "Logan Cross",
+        "William A. Cunningham",
+        "Joel Z. Leibo",
+        "Alexander Sasha Vezhnevets"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T13:59:03Z",
+      "updated": "2026-02-03T13:59:03Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03545v1",
+      "abs_url": "http://arxiv.org/abs/2602.03545v1",
+      "summary": "提出Persona Generators，用于生成多样化、大规模的合成角色，提升AI系统评估的覆盖度。",
+      "key_contributions": [
+        "提出 Persona Generators，一种自动生成多样化合成角色的函数。",
+        "使用基于AlphaEvolve的迭代改进循环，优化Persona Generator代码。",
+        "证明了该方法在多样性指标上优于现有基线，并能产生稀有特征组合。"
+      ],
+      "methodology": "使用AlphaEvolve迭代改进循环，利用大型语言模型作为变异算子，优化Persona Generator代码，从而产生多样化角色。",
+      "tags": [
+        "AI Agents",
+        "Generative Models",
+        "Persona Generation",
+        "Large Language Models"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "直接研究AI Agent领域中角色生成与多样性的问题，并提出创新方法。",
+      "analyzed_at": "2026-02-04T13:03:25.511196",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03542v1",
+      "title": "Can Large Language Models Generalize Procedures Across Representations?",
+      "abstract": "Large language models (LLMs) are trained and tested extensively on symbolic representations such as code and graphs, yet real-world user tasks are often specified in natural language. To what extent can LLMs generalize across these representations? Here, we approach this question by studying isomorphic tasks involving procedures represented in code, graphs, and natural language (e.g., scheduling steps in planning). We find that training LLMs with popular post-training methods on graphs or code data alone does not reliably generalize to corresponding natural language tasks, while training solely on natural language can lead to inefficient performance gains. To address this gap, we propose a two-stage data curriculum that first trains on symbolic, then natural language data. The curriculum substantially improves model performance across model families and tasks. Remarkably, a 1.5B Qwen model trained by our method can closely match zero-shot GPT-4o in naturalistic planning. Finally, our analysis suggests that successful cross-representation generalization can be interpreted as a form of generative analogy, which our curriculum effectively encourages.",
+      "authors": [
+        "Fangru Lin",
+        "Valentin Hofmann",
+        "Xingchen Wan",
+        "Weixing Wang",
+        "Zifeng Ding",
+        "Anthony G. Cohn",
+        "Janet B. Pierrehumbert"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-03T13:56:54Z",
+      "updated": "2026-02-03T13:56:54Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03542v1",
+      "abs_url": "http://arxiv.org/abs/2602.03542v1",
+      "summary": "研究LLM在代码、图和自然语言等表示之间的泛化能力，并提出一种两阶段数据课程。",
+      "key_contributions": [
+        "揭示了LLM在不同表示形式之间泛化的局限性",
+        "提出了一种有效的两阶段数据课程训练方法",
+        "证明了该方法显著提升了跨表示的泛化能力"
+      ],
+      "methodology": "通过对比不同训练策略下LLM在同构任务上的表现，验证两阶段数据课程的有效性。",
+      "tags": [
+        "LLM",
+        "Generalization",
+        "Representation Learning",
+        "Data Curriculum",
+        "Planning"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "研究LLM在不同表示形式下的推理和泛化能力，高度相关。",
+      "analyzed_at": "2026-02-04T13:03:27.671297",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03541v1",
+      "title": "Group Selection as a Safeguard Against AI Substitution",
+      "abstract": "Reliance on generative AI can reduce cultural variance and diversity, especially in creative work. This reduction in variance has already led to problems in model performance, including model collapse and hallucination. In this paper, we examine the long-term consequences of AI use for human cultural evolution and the conditions under which widespread AI use may lead to \"cultural collapse\", a process in which reliance on AI-generated content reduces human variation and innovation and slows cumulative cultural evolution. Using an agent-based model and evolutionary game theory, we compare two types of AI use: complement and substitute. AI-complement users seek suggestions and guidance while remaining the main producers of the final output, whereas AI-substitute users provide minimal input, and rely on AI to produce most of the output. We then study how these use strategies compete and spread under evolutionary dynamics. We find that AI-substitute users prevail under individual-level selection despite the stronger reduction in cultural variance. By contrast, AI-complement users can benefit their groups by maintaining the variance needed for exploration, and can therefore be favored under cultural group selection when group boundaries are strong. Overall, our findings shed light on the long-term, population-level effects of AI adoption and inform policy and organizational strategies to mitigate these risks.",
+      "authors": [
+        "Qiankun Zhong",
+        "Thomas F. Eisenmann",
+        "Julian Garcia",
+        "Iyad Rahwan"
+      ],
+      "categories": [
+        "cs.AI",
+        "econ.TH"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T13:56:47Z",
+      "updated": "2026-02-03T13:56:47Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03541v1",
+      "abs_url": "http://arxiv.org/abs/2602.03541v1",
+      "summary": "AI替代使用降低文化多样性，威胁人类文化演进；群体选择可促进AI辅助使用，维持文化创新。",
+      "key_contributions": [
+        "揭示AI使用对文化演进的长期影响",
+        "提出“文化崩溃”概念并分析其成因",
+        "比较AI替代和辅助两种使用策略",
+        "研究群体选择在文化传承中的作用"
+      ],
+      "methodology": "采用Agent-Based模型和演化博弈论，模拟不同AI使用策略的竞争和传播，分析其对文化多样性和演进的影响。",
+      "tags": [
+        "AI替代",
+        "文化演进",
+        "群体选择",
+        "Agent-Based模型"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 7,
+      "relevance_reason": "研究了AI agent的使用策略对群体的影响，涉及agent的关键特性。",
+      "analyzed_at": "2026-02-04T13:03:30.408791",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03537v1",
+      "title": "MatGPTQ: Accurate and Efficient Post-Training Matryoshka Quantization",
+      "abstract": "Matryoshka Quantization (MatQuant) is a recent quantization approach showing that a single integer-quantized model can be served across multiple precisions, by slicing the most significant bits (MSB) at inference time. This enables a single checkpoint to cover a wide range of memory and latency budgets, but renders quantization much more challenging. In particular, the initial MatQuant relies on expensive quantization-aware training (QAT) variants, rather than fast one-shot post training quantization (PTQ), and lacks open-source and kernel support. We address all of these limitations by introducing Post-Training Matryoshka Quantization (MatGPTQ), a new PTQ pipeline that produces a single parent model jointly optimized for multiple target precisions in one-shot, based on a small calibration set. MatGPTQ casts Matryoshka quantization as a multi-precision objective with bit-slicing and cross-bit error compensation, resulting in an algorithm that produces a multi-bit-width, \"sliceable\" model in a single pass. We also incorporate a new budget-aware search for heterogeneous per-layer bit-witdhs and provide efficient kernels that implement slicing and mixed-precision execution. Across standard LLMs and benchmarks, MatGPTQ preserves high-bit accuracy while substantially improving performance at low-bit-witdh settings. Overall, we establish a new state of the art for Matryoshka-style post-training quantization and make single-checkpoint, multi-precision deployment open and practical. Code is available at https://github.com/IST-DASLab/MatGPTQ.",
+      "authors": [
+        "Maximilian Kleinegger",
+        "Elvir Crnčević",
+        "Dan Alistarh"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T13:52:18Z",
+      "updated": "2026-02-03T13:52:18Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03537v1",
+      "abs_url": "http://arxiv.org/abs/2602.03537v1",
+      "summary": "MatGPTQ提出了一种高效的后训练Matryoshka量化方法，实现了单模型多精度部署。",
+      "key_contributions": [
+        "提出MatGPTQ：一种新的后训练Matryoshka量化流程",
+        "引入跨位误差补偿，优化多精度目标",
+        "开发了高效的切片和混合精度执行内核"
+      ],
+      "methodology": "将Matryoshka量化转化为多精度目标，通过位切片和跨位误差补偿实现单次优化，并进行预算感知的异构位宽搜索。",
+      "tags": [
+        "量化",
+        "后训练量化",
+        "模型压缩",
+        "多精度"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 7,
+      "relevance_reason": "涉及模型压缩，可以减小模型体积，从而优化memory",
+      "analyzed_at": "2026-02-04T13:03:32.631196",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03493v1",
+      "title": "Least but not Last: Fine-tuning Intermediate Principal Components for Better Performance-Forgetting Trade-Offs",
+      "abstract": "Low-Rank Adaptation (LoRA) methods have emerged as crucial techniques for adapting large pre-trained models to downstream tasks under computational and memory constraints. However, they face a fundamental challenge in balancing task-specific performance gains against catastrophic forgetting of pre-trained knowledge, where existing methods provide inconsistent recommendations. This paper presents a comprehensive analysis of the performance-forgetting trade-offs inherent in low-rank adaptation using principal components as initialization. Our investigation reveals that fine-tuning intermediate components leads to better balance and show more robustness to high learning rates than first (PiSSA) and last (MiLoRA) components in existing work. Building on these findings, we provide a practical approach for initialization of LoRA that offers superior trade-offs. We demonstrate in a thorough empirical study on a variety of computer vision and NLP tasks that our approach improves accuracy and reduces forgetting, also in continual learning scenarios.",
+      "authors": [
+        "Alessio Quercia",
+        "Arya Bangun",
+        "Ira Assent",
+        "Hanno Scharr"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-03T13:09:29Z",
+      "updated": "2026-02-03T13:09:29Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03493v1",
+      "abs_url": "http://arxiv.org/abs/2602.03493v1",
+      "summary": "通过微调中间主成分，LoRA方法在性能和遗忘之间实现了更好的权衡。",
+      "key_contributions": [
+        "分析了LoRA中性能-遗忘的权衡问题",
+        "提出了一种基于中间主成分的LoRA初始化方法",
+        "经验证明该方法在多个任务上提高了精度并减少了遗忘"
+      ],
+      "methodology": "通过分析主成分初始化LoRA，发现微调中间成分效果更好，并提出了一种更优的初始化方法，并在实验中验证其有效性。",
+      "tags": [
+        "LoRA",
+        "低秩适配",
+        "灾难性遗忘",
+        "微调",
+        "主成分分析",
+        "持续学习"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 6,
+      "relevance_reason": "虽然不是直接memory，但涉及知识的遗忘与保持，具有一定关联。",
+      "analyzed_at": "2026-02-04T13:03:43.468780",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.03491v1",
+      "title": "Decoupling Skeleton and Flesh: Efficient Multimodal Table Reasoning with Disentangled Alignment and Structure-aware Guidance",
+      "abstract": "Reasoning over table images remains challenging for Large Vision-Language Models (LVLMs) due to complex layouts and tightly coupled structure-content information. Existing solutions often depend on expensive supervised training, reinforcement learning, or external tools, limiting efficiency and scalability. This work addresses a key question: how to adapt LVLMs to table reasoning with minimal annotation and no external tools? Specifically, we first introduce DiSCo, a Disentangled Structure-Content alignment framework that explicitly separates structural abstraction from semantic grounding during multimodal alignment, efficiently adapting LVLMs to tables structures. Building on DiSCo, we further present Table-GLS, a Global-to-Local Structure-guided reasoning framework that performs table reasoning via structured exploration and evidence-grounded inference. Extensive experiments across diverse benchmarks demonstrate that our framework efficiently enhances LVLM's table understanding and reasoning capabilities, particularly generalizing to unseen table structures.",
+      "authors": [
+        "Yingjie Zhu",
+        "Xuefeng Bai",
+        "Kehai Chen",
+        "Yang Xiang",
+        "Youcheng Pan",
+        "Xiaoqiang Zhou",
+        "Min Zhang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.CL"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-03T13:08:31Z",
+      "updated": "2026-02-03T13:08:31Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.03491v1",
+      "abs_url": "http://arxiv.org/abs/2602.03491v1",
+      "summary": "提出DisCo和Table-GLS框架，解耦表格结构和内容，提升LVLM在表格推理上的效率和泛化性。",
+      "key_contributions": [
+        "提出DisCo框架，解耦结构和内容。",
+        "提出Table-GLS框架，进行结构引导的推理。",
+        "实验证明框架有效提升LVLM表格理解和推理能力。"
+      ],
+      "methodology": "DiSCo分离结构抽象和语义对齐，Table-GLS进行结构探索和证据推理，利用全局到局部结构引导LVLM进行表格推理。",
+      "tags": [
+        "LVLM",
+        "表格推理",
+        "解耦",
+        "结构引导",
+        "多模态"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于提升LLM在表格推理方面的能力，直接解决推理问题。",
+      "analyzed_at": "2026-02-04T13:03:46.037592",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
     }
   ],
   "fetch_time": "2026-02-04T20:32:43.098241"
