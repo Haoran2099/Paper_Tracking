@@ -17,9 +17,9 @@ class ArxivFetcher:
     def __init__(self, config: Config):
         self.config = config
         self.client = arxiv.Client(
-            page_size=20,      
-            delay_seconds=10.0, 
-            num_retries=5       
+            page_size=20,
+            delay_seconds=15.0,  # Increased from 10.0 to reduce rate limit hits
+            num_retries=5
         )
 
     def _build_query(self, domain: DomainConfig) -> str:
@@ -87,7 +87,7 @@ class ArxivFetcher:
 
         search = arxiv.Search(
             query=query,
-            max_results=max_papers * 2,  # Fetch more to account for filtering
+            max_results=min(max_papers, 40),  # Cap at 40 to avoid rate limiting
             sort_by=arxiv.SortCriterion.SubmittedDate,
             sort_order=arxiv.SortOrder.Descending,
         )
@@ -144,7 +144,7 @@ class ArxivFetcher:
 
             results[domain.output_category] = domain_papers
             print(f"  Found {len(domain_papers)} papers")
-            time.sleep(5)
+            time.sleep(20)  # Increased from 5 to 20 seconds between domain fetches
 
         return results
 
