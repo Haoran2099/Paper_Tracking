@@ -16,7 +16,7 @@ class ArxivFetcher:
     def __init__(self, config: Config):
         self.config = config
         self.client = arxiv.Client(
-            page_size=100,      
+            page_size=20,      
             delay_seconds=10.0, 
             num_retries=5       
         )
@@ -135,6 +135,7 @@ class ArxivFetcher:
 
             results[domain.output_category] = domain_papers
             print(f"  Found {len(domain_papers)} papers")
+            time.sleep(5)
 
         return results
 
