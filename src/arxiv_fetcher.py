@@ -76,7 +76,7 @@ class ArxivFetcher:
         days_back: int | None = None,
         max_papers: int | None = None,
     ) -> Generator[RawPaper, None, None]:
-        """Fetch papers for a single domain."""
+        """Fetch papers for a single domain with strong retry logic for rate limits."""
         if days_back is None:
             days_back = self.config.fetch.days_back
         if max_papers is None:
@@ -87,39 +87,61 @@ class ArxivFetcher:
 
         search = arxiv.Search(
             query=query,
-            max_results=min(max_papers, 40),  # Cap at 40 to avoid rate limiting
+            max_results=min(max_papers, 40),
             sort_by=arxiv.SortCriterion.SubmittedDate,
             sort_order=arxiv.SortOrder.Descending,
         )
 
-        count = 0
-        seen_ids = set()
+        # Exponential backoff retry logic for 429/503 errors
+        max_retries = 3
+        attempt = 0
 
-        try:
-            for result in self.client.results(search):
-                try:
-                    paper = self._result_to_paper(result)
+        while attempt < max_retries:
+            try:
+                count = 0
+                seen_ids = set()
 
-                    if not self._is_within_date_range(paper, days_back):
+                # Try to fetch results
+                for result in self.client.results(search):
+                    try:
+                        paper = self._result_to_paper(result)
+
+                        if not self._is_within_date_range(paper, days_back):
+                            continue
+
+                        if paper.short_id in seen_ids:
+                            continue
+                        seen_ids.add(paper.short_id)
+
+                        yield paper
+                        count += 1
+
+                        if count >= max_papers:
+                            break
+                    except Exception as inner_e:
+                        print(f"  ⚠️ Warning: Error processing a single paper: {inner_e}")
                         continue
 
-                    if paper.short_id in seen_ids:
-                        continue
-                    seen_ids.add(paper.short_id)
+                # Success - exit retry loop
+                return
 
-                    yield paper
-                    count += 1
-
-                    if count >= max_papers:
-                        break
-                except Exception as inner_e:
-                    print(f"  ⚠️ Warning: Error processing a single paper: {inner_e}")
-                    continue
-                    
-        except Exception as e:
-            print(f"  ❌ Error fetching from arXiv for domain '{domain.name}': {e}")
-            print("  ⚠️ Stopping fetch for this domain and continuing...")
-            return
+            except Exception as e:
+                error_str = str(e)
+                # Check if it's a rate limit error
+                if "429" in error_str or "503" in error_str:
+                    attempt += 1
+                    if attempt < max_retries:
+                        wait_time = 60 * attempt  # 60s, 120s, 180s for attempts 1, 2, 3
+                        print(f"  ⚠️ Got rate limit (429/503). Waiting {wait_time} seconds before retry ({attempt}/{max_retries})...")
+                        time.sleep(wait_time)
+                    else:
+                        print(f"  ❌ Failed to fetch domain '{domain.name}' after {max_retries} attempts due to rate limiting.")
+                        return
+                else:
+                    # Not a rate limit error - don't retry
+                    print(f"  ❌ Error fetching from arXiv for domain '{domain.name}': {e}")
+                    print("  ⚠️ Stopping fetch for this domain and continuing...")
+                    return
             
     def fetch_all(
         self,
