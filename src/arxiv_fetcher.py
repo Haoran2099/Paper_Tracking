@@ -1,6 +1,7 @@
 """arXiv paper fetcher module."""
 
 import re
+import time
 from datetime import datetime, timedelta
 from typing import Generator
 
