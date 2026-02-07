@@ -33,6 +33,25 @@
       "categories": ["cs.CV", "cs.CL", "cs.MM", "cs.AI"],
       "keywords": ["multimodal", "vision-language", "VLM", "MLLM", "image-text", "visual question answering", "VQA"],
       "output_category": "multimodal"
+    },
+    {
+      "name": "Agent Tuning & Optimization",
+      "categories": ["cs.AI", "cs.LG", "cs.CL"],
+      "keywords": [
+        "agent tuning",
+        "prompt optimization",
+        "automated design",
+        "neural architecture search",
+        "NAS",
+        "self-improving",
+        "DSPy",
+        "TextGrad",
+        "trajectory optimization",
+        "instruction tuning",
+        "preference optimization",
+        "feedback learning"
+      ],
+      "output_category": "agent_tuning"
     }
   ],
   "fetch": {

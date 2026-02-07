@@ -15,7 +15,11 @@ class ArxivFetcher:
 
     def __init__(self, config: Config):
         self.config = config
-        self.client = arxiv.Client()
+        self.client = arxiv.Client(
+            page_size=20,      
+            delay_seconds=10.0, 
+            num_retries=5       
+        )
 
     def _build_query(self, domain: DomainConfig) -> str:
         """Build arXiv search query from domain configuration."""
@@ -90,24 +94,32 @@ class ArxivFetcher:
         count = 0
         seen_ids = set()
 
-        for result in self.client.results(search):
-            paper = self._result_to_paper(result)
+        try:
+            for result in self.client.results(search):
+                try:
+                    paper = self._result_to_paper(result)
 
-            # Skip if outside date range
-            if not self._is_within_date_range(paper, days_back):
-                continue
+                    if not self._is_within_date_range(paper, days_back):
+                        continue
 
-            # Skip duplicates
-            if paper.short_id in seen_ids:
-                continue
-            seen_ids.add(paper.short_id)
+                    if paper.short_id in seen_ids:
+                        continue
+                    seen_ids.add(paper.short_id)
 
-            yield paper
-            count += 1
+                    yield paper
+                    count += 1
 
-            if count >= max_papers:
-                break
-
+                    if count >= max_papers:
+                        break
+                except Exception as inner_e:
+                    print(f"  ⚠️ Warning: Error processing a single paper: {inner_e}")
+                    continue
+                    
+        except Exception as e:
+            print(f"  ❌ Error fetching from arXiv for domain '{domain.name}': {e}")
+            print("  ⚠️ Stopping fetch for this domain and continuing...")
+            return
+            
     def fetch_all(
         self,
         days_back: int | None = None,
@@ -131,6 +143,7 @@ class ArxivFetcher:
 
             results[domain.output_category] = domain_papers
             print(f"  Found {len(domain_papers)} papers")
+            time.sleep(5)
 
         return results
 
