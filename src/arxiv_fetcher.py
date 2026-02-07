@@ -15,7 +15,11 @@ class ArxivFetcher:
 
     def __init__(self, config: Config):
         self.config = config
-        self.client = arxiv.Client()
+        self.client = arxiv.Client(
+            page_size=100,      
+            delay_seconds=10.0, 
+            num_retries=5       
+        )
 
     def _build_query(self, domain: DomainConfig) -> str:
         """Build arXiv search query from domain configuration."""
