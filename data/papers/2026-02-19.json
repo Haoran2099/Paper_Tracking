@@ -1,0 +1,2576 @@
+{
+  "date": "2026-02-19",
+  "papers": [
+    {
+      "arxiv_id": "2602.16708v1",
+      "title": "Policy Compiler for Secure Agentic Systems",
+      "abstract": "LLM-based agents are increasingly being deployed in contexts requiring complex authorization policies: customer service protocols, approval workflows, data access restrictions, and regulatory compliance. Embedding these policies in prompts provides no enforcement guarantees. We present PCAS, a Policy Compiler for Agentic Systems that provides deterministic policy enforcement.   Enforcing such policies requires tracking information flow across agents, which linear message histories cannot capture. Instead, PCAS models the agentic system state as a dependency graph capturing causal relationships among events such as tool calls, tool results, and messages. Policies are expressed in a Datalog-derived language, as declarative rules that account for transitive information flow and cross-agent provenance. A reference monitor intercepts all actions and blocks violations before execution, providing deterministic enforcement independent of model reasoning.   PCAS takes an existing agent implementation and a policy specification, and compiles them into an instrumented system that is policy-compliant by construction, with no security-specific restructuring required. We evaluate PCAS on three case studies: information flow policies for prompt injection defense, approval workflows in a multi-agent pharmacovigilance system, and organizational policies for customer service. On customer service tasks, PCAS improves policy compliance from 48% to 93% across frontier models, with zero policy violations in instrumented runs.",
+      "authors": [
+        "Nils Palumbo",
+        "Sarthak Choudhary",
+        "Jihye Choi",
+        "Prasad Chalasani",
+        "Mihai Christodorescu",
+        "Somesh Jha"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "primary_category": "cs.CR",
+      "published": "2026-02-18T18:57:12Z",
+      "updated": "2026-02-18T18:57:12Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16708v1",
+      "abs_url": "http://arxiv.org/abs/2602.16708v1",
+      "summary": "PCAS是一个策略编译器，用于确保基于LLM的Agent系统满足复杂的安全策略，提升策略合规性。",
+      "key_contributions": [
+        "提出了PCAS策略编译器，实现确定性的策略执行",
+        "使用依赖图建模Agent系统状态，追踪跨Agent的信息流",
+        "将策略编译为工具化的系统，无需修改原有Agent架构"
+      ],
+      "methodology": "使用Datalog衍生语言声明策略，reference monitor拦截违规操作，将Agent和策略编译为满足策略的系统。",
+      "tags": [
+        "AI Agents",
+        "Policy Enforcement",
+        "Security",
+        "Information Flow"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注Agent系统的策略执行和安全性问题，直接针对Agent领域。",
+      "analyzed_at": "2026-02-19T06:58:50.513104",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16704v1",
+      "title": "Reinforced Fast Weights with Next-Sequence Prediction",
+      "abstract": "Fast weight architectures offer a promising alternative to attention-based transformers for long-context modeling by maintaining constant memory overhead regardless of context length. However, their potential is limited by the next-token prediction (NTP) training paradigm. NTP optimizes single-token predictions and ignores semantic coherence across multiple tokens following a prefix. Consequently, fast weight models, which dynamically update their parameters to store contextual information, learn suboptimal representations that fail to capture long-range dependencies. We introduce REFINE (Reinforced Fast weIghts with Next sEquence prediction), a reinforcement learning framework that trains fast weight models under the next-sequence prediction (NSP) objective. REFINE selects informative token positions based on prediction entropy, generates multi-token rollouts, assigns self-supervised sequence-level rewards, and optimizes the model with group relative policy optimization (GRPO). REFINE is applicable throughout the training lifecycle of pre-trained language models: mid-training, post-training, and test-time training. Our experiments on LaCT-760M and DeltaNet-1.3B demonstrate that REFINE consistently outperforms supervised fine-tuning with NTP across needle-in-a-haystack retrieval, long-context question answering, and diverse tasks in LongBench. REFINE provides an effective and versatile framework for improving long-context modeling in fast weight architectures.",
+      "authors": [
+        "Hee Seung Hwang",
+        "Xindi Wu",
+        "Sanghyuk Chun",
+        "Olga Russakovsky"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T18:53:18Z",
+      "updated": "2026-02-18T18:53:18Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16704v1",
+      "abs_url": "http://arxiv.org/abs/2602.16704v1",
+      "summary": "提出REFINE框架，通过强化学习优化Fast Weight模型，提升长文本建模能力。",
+      "key_contributions": [
+        "提出REFINE框架，使用NSP目标训练Fast Weight模型",
+        "利用强化学习选择信息量大的token位置并生成多token序列",
+        "在LaCT-760M和DeltaNet-1.3B上验证了REFINE的有效性"
+      ],
+      "methodology": "REFINE使用强化学习，基于预测熵选择token，生成多token序列，赋予序列级奖励，并使用GRPO优化模型。",
+      "tags": [
+        "Fast Weight",
+        "Reinforcement Learning",
+        "Long Context Modeling",
+        "Next Sequence Prediction"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 8,
+      "relevance_reason": "论文重点在于提升模型长文本处理能力，直接关系到记忆和上下文建模。",
+      "analyzed_at": "2026-02-19T06:58:52.138524",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16702v1",
+      "title": "Saliency-Aware Multi-Route Thinking: Revisiting Vision-Language Reasoning",
+      "abstract": "Vision-language models (VLMs) aim to reason by jointly leveraging visual and textual modalities. While allocating additional inference-time computation has proven effective for large language models (LLMs), achieving similar scaling in VLMs remains challenging. A key obstacle is that visual inputs are typically provided only once at the start of generation, while textual reasoning (e.g., early visual summaries) is generated autoregressively, causing reasoning to become increasingly text-dominated and allowing early visual grounding errors to accumulate. Moreover, vanilla guidance for visual grounding during inference is often coarse and noisy, making it difficult to steer reasoning over long texts. To address these challenges, we propose \\emph{Saliency-Aware Principle} (SAP) selection. SAP operates on high-level reasoning principles rather than token-level trajectories, which enable stable control over discrete generation under noisy feedback while allowing later reasoning steps to re-consult visual evidence when renewed grounding is required. In addition, SAP supports multi-route inference, enabling parallel exploration of diverse reasoning behaviors. SAP is model-agnostic and data-free, requiring no additional training. Empirical results show that SAP achieves competitive performance, especially in reducing object hallucination, under comparable token-generation budgets while yielding more stable reasoning and lower response latency than CoT-style long sequential reasoning.",
+      "authors": [
+        "Mingjia Shi",
+        "Yinhan He",
+        "Yaochen Zhu",
+        "Jundong Li"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T18:49:56Z",
+      "updated": "2026-02-18T18:49:56Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16702v1",
+      "abs_url": "http://arxiv.org/abs/2602.16702v1",
+      "summary": "提出一种基于显著性感知的多路径推理方法SAP，解决视觉语言模型推理中视觉信息利用不足的问题。",
+      "key_contributions": [
+        "提出显著性感知原则（SAP）用于视觉语言推理",
+        "支持多路径推理，并行探索不同推理行为",
+        "模型无关且数据无关，无需额外训练"
+      ],
+      "methodology": "SAP基于高层次推理原则，利用显著性信息引导视觉信息的重复利用，并支持并行探索多种推理路径。",
+      "tags": [
+        "视觉语言模型",
+        "推理",
+        "显著性感知",
+        "多路径推理"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接解决了视觉语言推理中的视觉信息利用问题，是多模态学习的核心内容。",
+      "analyzed_at": "2026-02-19T06:58:53.601896",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16699v1",
+      "title": "Calibrate-Then-Act: Cost-Aware Exploration in LLM Agents",
+      "abstract": "LLMs are increasingly being used for complex problems which are not necessarily resolved in a single response, but require interacting with an environment to acquire information. In these scenarios, LLMs must reason about inherent cost-uncertainty tradeoffs in when to stop exploring and commit to an answer. For instance, on a programming task, an LLM should test a generated code snippet if it is uncertain about the correctness of that code; the cost of writing a test is nonzero, but typically lower than the cost of making a mistake. In this work, we show that we can induce LLMs to explicitly reason about balancing these cost-uncertainty tradeoffs, then perform more optimal environment exploration. We formalize multiple tasks, including information retrieval and coding, as sequential decision-making problems under uncertainty. Each problem has latent environment state that can be reasoned about via a prior which is passed to the LLM agent. We introduce a framework called Calibrate-Then-Act (CTA), where we feed the LLM this additional context to enable it to act more optimally. This improvement is preserved even under RL training of both the baseline and CTA. Our results on information-seeking QA and on a simplified coding task show that making cost-benefit tradeoffs explicit with CTA can help agents discover more optimal decision-making strategies.",
+      "authors": [
+        "Wenxuan Ding",
+        "Nicholas Tomlin",
+        "Greg Durrett"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T18:46:14Z",
+      "updated": "2026-02-18T18:46:14Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16699v1",
+      "abs_url": "http://arxiv.org/abs/2602.16699v1",
+      "summary": "提出Calibrate-Then-Act框架，使LLM Agent在环境探索中显式考虑成本-不确定性权衡，提升决策优化。",
+      "key_contributions": [
+        "提出Calibrate-Then-Act (CTA) 框架",
+        "形式化信息检索和编码任务为不确定性下的序列决策问题",
+        "证明CTA能帮助Agent发现更优的决策策略"
+      ],
+      "methodology": "通过引入先验信息到LLM Agent中，使其在行动前显式校准成本-不确定性，实现更优的环境探索。",
+      "tags": [
+        "LLM Agents",
+        "Cost-Awareness",
+        "Exploration",
+        "Decision-Making"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注LLM Agent在环境交互中的成本意识和探索策略，属于关键研究问题。",
+      "analyzed_at": "2026-02-19T06:58:55.506036",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16698v1",
+      "title": "Causality is Key for Interpretability Claims to Generalise",
+      "abstract": "Interpretability research on large language models (LLMs) has yielded important insights into model behaviour, yet recurring pitfalls persist: findings that do not generalise, and causal interpretations that outrun the evidence. Our position is that causal inference specifies what constitutes a valid mapping from model activations to invariant high-level structures, the data or assumptions needed to achieve it, and the inferences it can support. Specifically, Pearl's causal hierarchy clarifies what an interpretability study can justify. Observations establish associations between model behaviour and internal components. Interventions (e.g., ablations or activation patching) support claims how these edits affect a behavioural metric (\\eg, average change in token probabilities) over a set of prompts. However, counterfactual claims -- i.e., asking what the model output would have been for the same prompt under an unobserved intervention -- remain largely unverifiable without controlled supervision. We show how causal representation learning (CRL) operationalises this hierarchy, specifying which variables are recoverable from activations and under what assumptions. Together, these motivate a diagnostic framework that helps practitioners select methods and evaluations matching claims to evidence such that findings generalise.",
+      "authors": [
+        "Shruti Joshi",
+        "Aaron Mueller",
+        "David Klindt",
+        "Wieland Brendel",
+        "Patrik Reizinger",
+        "Dhanya Sridhar"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T18:45:04Z",
+      "updated": "2026-02-18T18:45:04Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16698v1",
+      "abs_url": "http://arxiv.org/abs/2602.16698v1",
+      "summary": "论文强调因果关系在LLM可解释性研究中的重要性，并提出诊断框架以提升研究结果的泛化能力。",
+      "key_contributions": [
+        "强调因果推断在LLM可解释性研究中的作用",
+        "提出基于Pearl因果层次的LLM可解释性评估框架",
+        "使用因果表示学习(CRL)操作化因果层次",
+        "提出诊断框架以提高LLM可解释性研究结果的泛化能力"
+      ],
+      "methodology": "论文基于Pearl因果层次，分析了LLM可解释性研究中的观察、干预和反事实推断，并结合因果表示学习提出诊断框架。",
+      "tags": [
+        "LLM",
+        "Interpretability",
+        "Causality",
+        "Causal Inference",
+        "Representation Learning"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "论文深入探讨LLM可解释性问题，强调因果关系的重要性，与LLM推理紧密相关。",
+      "analyzed_at": "2026-02-19T06:58:57.343018",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16690v1",
+      "title": "Synthetic-Powered Multiple Testing with FDR Control",
+      "abstract": "Multiple hypothesis testing with false discovery rate (FDR) control is a fundamental problem in statistical inference, with broad applications in genomics, drug screening, and outlier detection. In many such settings, researchers may have access not only to real experimental observations but also to auxiliary or synthetic data -- from past, related experiments or generated by generative models -- that can provide additional evidence about the hypotheses of interest. We introduce SynthBH, a synthetic-powered multiple testing procedure that safely leverages such synthetic data. We prove that SynthBH guarantees finite-sample, distribution-free FDR control under a mild PRDS-type positive dependence condition, without requiring the pooled-data p-values to be valid under the null. The proposed method adapts to the (unknown) quality of the synthetic data: it enhances the sample efficiency and may boost the power when synthetic data are of high quality, while controlling the FDR at a user-specified level regardless of their quality. We demonstrate the empirical performance of SynthBH on tabular outlier detection benchmarks and on genomic analyses of drug-cancer sensitivity associations, and further study its properties through controlled experiments on simulated data.",
+      "authors": [
+        "Yonghoon Lee",
+        "Meshi Bashari",
+        "Edgar Dobriban",
+        "Yaniv Romano"
+      ],
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "published": "2026-02-18T18:36:24Z",
+      "updated": "2026-02-18T18:36:24Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16690v1",
+      "abs_url": "http://arxiv.org/abs/2602.16690v1",
+      "summary": "SynthBH方法利用合成数据提升FDR控制的多重假设检验效率。",
+      "key_contributions": [
+        "提出SynthBH方法，融合真实和合成数据进行多重假设检验",
+        "证明了在PRDS条件下SynthBH的FDR控制",
+        "SynthBH能适应不同质量的合成数据"
+      ],
+      "methodology": "提出SynthBH，一种基于合成数据的多重假设检验过程，利用真实和合成数据的p值进行加权。",
+      "tags": [
+        "多重假设检验",
+        "FDR控制",
+        "合成数据",
+        "统计推断"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 6,
+      "relevance_reason": "涉及统计推断和决策，与reasoning有一定的关联性。",
+      "analyzed_at": "2026-02-19T06:58:58.965256",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16689v1",
+      "title": "Are Object-Centric Representations Better At Compositional Generalization?",
+      "abstract": "Compositional generalization, the ability to reason about novel combinations of familiar concepts, is fundamental to human cognition and a critical challenge for machine learning. Object-centric (OC) representations, which encode a scene as a set of objects, are often argued to support such generalization, but systematic evidence in visually rich settings is limited. We introduce a Visual Question Answering benchmark across three controlled visual worlds (CLEVRTex, Super-CLEVR, and MOVi-C) to measure how well vision encoders, with and without object-centric biases, generalize to unseen combinations of object properties. To ensure a fair and comprehensive comparison, we carefully account for training data diversity, sample size, representation size, downstream model capacity, and compute. We use DINOv2 and SigLIP2, two widely used vision encoders, as the foundation models and their OC counterparts. Our key findings reveal that (1) OC approaches are superior in harder compositional generalization settings; (2) original dense representations surpass OC only on easier settings and typically require substantially more downstream compute; and (3) OC models are more sample efficient, achieving stronger generalization with fewer images, whereas dense encoders catch up or surpass them only with sufficient data and diversity. Overall, object-centric representations offer stronger compositional generalization when any one of dataset size, training data diversity, or downstream compute is constrained.",
+      "authors": [
+        "Ferdinand Kapl",
+        "Amir Mohammad Karimi Mamaghan",
+        "Maximilian Seitzer",
+        "Karl Henrik Johansson",
+        "Carsten Marr",
+        "Stefan Bauer",
+        "Andrea Dittadi"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T18:34:07Z",
+      "updated": "2026-02-18T18:34:07Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16689v1",
+      "abs_url": "http://arxiv.org/abs/2602.16689v1",
+      "summary": "研究表明，在组合泛化任务中，当数据受限时，面向对象的表征优于密集表征。",
+      "key_contributions": [
+        "提出了新的视觉问答基准测试，用于评估组合泛化能力",
+        "比较了有无对象中心偏置的视觉编码器的性能",
+        "揭示了对象中心表征在组合泛化方面的优势"
+      ],
+      "methodology": "在CLEVRTex、Super-CLEVR和MOVi-C数据集上，使用DINOv2和SigLIP2及其对象中心版本进行VQA实验，评估组合泛化能力。",
+      "tags": [
+        "组合泛化",
+        "对象中心表征",
+        "视觉问答",
+        "深度学习"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注多模态学习中的视觉问答和表征泛化能力。",
+      "analyzed_at": "2026-02-19T06:59:00.837845",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16684v1",
+      "title": "Retrieval-Augmented Foundation Models for Matched Molecular Pair Transformations to Recapitulate Medicinal Chemistry Intuition",
+      "abstract": "Matched molecular pairs (MMPs) capture the local chemical edits that medicinal chemists routinely use to design analogs, but existing ML approaches either operate at the whole-molecule level with limited edit controllability or learn MMP-style edits from restricted settings and small models. We propose a variable-to-variable formulation of analog generation and train a foundation model on large-scale MMP transformations (MMPTs) to generate diverse variables conditioned on an input variable. To enable practical control, we develop prompting mechanisms that let the users specify preferred transformation patterns during generation. We further introduce MMPT-RAG, a retrieval-augmented framework that uses external reference analogs as contextual guidance to steer generation and generalize from project-specific series. Experiments on general chemical corpora and patent-specific datasets demonstrate improved diversity, novelty, and controllability, and show that our method recovers realistic analog structures in practical discovery scenarios.",
+      "authors": [
+        "Bo Pan",
+        "Peter Zhiping Zhang",
+        "Hao-Wei Pang",
+        "Alex Zhu",
+        "Xiang Yu",
+        "Liying Zhang",
+        "Liang Zhao"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T18:27:21Z",
+      "updated": "2026-02-18T18:27:21Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16684v1",
+      "abs_url": "http://arxiv.org/abs/2602.16684v1",
+      "summary": "该论文提出了一种基于检索增强的基础模型，用于药物化学中匹配分子对转化，提升了药物设计的效率和可控性。",
+      "key_contributions": [
+        "提出基于大规模 MMPT 的基础模型",
+        "引入可控的提示机制",
+        "开发 MMPT-RAG 检索增强框架"
+      ],
+      "methodology": "使用变量到变量的生成方法，在大规模 MMPT 数据上训练基础模型，并通过 RAG 框架引入外部参考。",
+      "tags": [
+        "药物化学",
+        "分子设计",
+        "生成模型",
+        "检索增强",
+        "MMP"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 8,
+      "relevance_reason": "利用RAG框架进行分子结构生成，属于检索增强应用的重要方向。",
+      "analyzed_at": "2026-02-19T06:59:02.608871",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16682v1",
+      "title": "Learning Situated Awareness in the Real World",
+      "abstract": "A core aspect of human perception is situated awareness, the ability to relate ourselves to the surrounding physical environment and reason over possible actions in context. However, most existing benchmarks for multimodal foundation models (MFMs) emphasize environment-centric spatial relations (relations among objects in a scene), while largely overlooking observer-centric relationships that require reasoning relative to agent's viewpoint, pose, and motion. To bridge this gap, we introduce SAW-Bench (Situated Awareness in the Real World), a novel benchmark for evaluating egocentric situated awareness using real-world videos. SAW-Bench comprises 786 self-recorded videos captured with Ray-Ban Meta (Gen 2) smart glasses spanning diverse indoor and outdoor environments, and over 2,071 human-annotated question-answer pairs. It probes a model's observer-centric understanding with six different awareness tasks. Our comprehensive evaluation reveals a human-model performance gap of 37.66%, even with the best-performing MFM, Gemini 3 Flash. Beyond this gap, our in-depth analysis uncovers several notable findings; for example, while models can exploit partial geometric cues in egocentric videos, they often fail to infer a coherent camera geometry, leading to systematic spatial reasoning errors. We position SAW-Bench as a benchmark for situated spatial intelligence, moving beyond passive observation to understanding physically grounded, observer-centric dynamics.",
+      "authors": [
+        "Chuhan Li",
+        "Ruilin Han",
+        "Joy Hsu",
+        "Yongyuan Liang",
+        "Rajiv Dhawan",
+        "Jiajun Wu",
+        "Ming-Hsuan Yang",
+        "Xin Eric Wang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T18:22:52Z",
+      "updated": "2026-02-18T18:22:52Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16682v1",
+      "abs_url": "http://arxiv.org/abs/2602.16682v1",
+      "summary": "提出了SAW-Bench，一个评估模型在真实世界视频中具身感知能力的基准。",
+      "key_contributions": [
+        "构建了真实世界具身感知的视频数据集SAW-Bench",
+        "定义了六种具身感知任务",
+        "评估了现有MFM在SAW-Bench上的性能并分析了其局限性"
+      ],
+      "methodology": "通过Ray-Ban Meta眼镜收集第一人称视角视频，人工标注问答对，设计评估指标。",
+      "tags": [
+        "具身感知",
+        "第一人称视角视频",
+        "多模态学习",
+        "基准测试"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注多模态学习中具身感知问题，并构建了相关数据集。",
+      "analyzed_at": "2026-02-19T06:59:04.281625",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16671v1",
+      "title": "SPARC: Scenario Planning and Reasoning for Automated C Unit Test Generation",
+      "abstract": "Automated unit test generation for C remains a formidable challenge due to the semantic gap between high-level program intent and the rigid syntactic constraints of pointer arithmetic and manual memory management. While Large Language Models (LLMs) exhibit strong generative capabilities, direct intent-to-code synthesis frequently suffers from the leap-to-code failure mode, where models prematurely emit code without grounding in program structure, constraints, and semantics. This will result in non-compilable tests, hallucinated function signatures, low branch coverage, and semantically irrelevant assertions that cannot properly capture bugs. We introduce SPARC, a neuro-symbolic, scenario-based framework that bridges this gap through four stages: (1) Control Flow Graph (CFG) analysis, (2) an Operation Map that grounds LLM reasoning in validated utility helpers, (3) Path-targeted test synthesis, and (4) an iterative, self-correction validation loop using compiler and runtime feedback. We evaluate SPARC on 59 real-world and algorithmic subjects, where it outperforms the vanilla prompt generation baseline by 31.36% in line coverage, 26.01% in branch coverage, and 20.78% in mutation score, matching or exceeding the symbolic execution tool KLEE on complex subjects. SPARC retains 94.3% of tests through iterative repair and produces code with significantly higher developer-rated readability and maintainability. By aligning LLM reasoning with program structure, SPARC provides a scalable path for industrial-grade testing of legacy C codebases.",
+      "authors": [
+        "Jaid Monwar Chowdhury",
+        "Chi-An Fu",
+        "Reyhaneh Jabbarvand"
+      ],
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "primary_category": "cs.SE",
+      "published": "2026-02-18T18:09:03Z",
+      "updated": "2026-02-18T18:09:03Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16671v1",
+      "abs_url": "http://arxiv.org/abs/2602.16671v1",
+      "summary": "SPARC通过神经符号方法提升LLM在C语言单元测试生成中的性能。",
+      "key_contributions": [
+        "提出SPARC框架，结合CFG分析、操作映射、路径目标测试合成和自纠正验证循环。",
+        "SPARC在真实和算法测试用例上优于prompt生成baseline和KLEE。",
+        "SPARC生成的测试代码具有更高的可读性和可维护性。"
+      ],
+      "methodology": "SPARC利用LLM进行测试用例生成，并通过神经符号技术（CFG分析，操作映射）和迭代反馈循环来改进测试质量。",
+      "tags": [
+        "LLM",
+        "Unit Test Generation",
+        "C Language",
+        "Neuro-Symbolic"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "论文核心在于利用LLM进行C语言单元测试生成，涉及程序理解和逻辑推理。",
+      "analyzed_at": "2026-02-19T06:59:06.081322",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16666v1",
+      "title": "Towards a Science of AI Agent Reliability",
+      "abstract": "AI agents are increasingly deployed to execute important tasks. While rising accuracy scores on standard benchmarks suggest rapid progress, many agents still continue to fail in practice. This discrepancy highlights a fundamental limitation of current evaluations: compressing agent behavior into a single success metric obscures critical operational flaws. Notably, it ignores whether agents behave consistently across runs, withstand perturbations, fail predictably, or have bounded error severity. Grounded in safety-critical engineering, we provide a holistic performance profile by proposing twelve concrete metrics that decompose agent reliability along four key dimensions: consistency, robustness, predictability, and safety. Evaluating 14 agentic models across two complementary benchmarks, we find that recent capability gains have only yielded small improvements in reliability. By exposing these persistent limitations, our metrics complement traditional evaluations while offering tools for reasoning about how agents perform, degrade, and fail.",
+      "authors": [
+        "Stephan Rabanser",
+        "Sayash Kapoor",
+        "Peter Kirgis",
+        "Kangheng Liu",
+        "Saiteja Utpala",
+        "Arvind Narayanan"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CY",
+        "cs.LG"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T18:05:44Z",
+      "updated": "2026-02-18T18:05:44Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16666v1",
+      "abs_url": "http://arxiv.org/abs/2602.16666v1",
+      "summary": "论文提出12个指标，从一致性、鲁棒性、可预测性、安全性四个维度评估AI Agent的可靠性。",
+      "key_contributions": [
+        "提出了12个用于评估AI Agent可靠性的新指标",
+        "从四个维度分解Agent的可靠性：一致性、鲁棒性、可预测性和安全性",
+        "评估了14个Agent模型，揭示了现有Agent的可靠性瓶颈"
+      ],
+      "methodology": "定义了12个可靠性指标，并在两个benchmark上评估了14个agent模型，分析了它们的性能和局限性。",
+      "tags": [
+        "AI Agent",
+        "Reliability",
+        "Evaluation",
+        "Metrics"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接关注AI Agent的可靠性问题，并提出了具体的评估方法和指标。",
+      "analyzed_at": "2026-02-19T06:59:07.716824",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16653v1",
+      "title": "Agent Skill Framework: Perspectives on the Potential of Small Language Models in Industrial Environments",
+      "abstract": "Agent Skill framework, now widely and officially supported by major players such as GitHub Copilot, LangChain, and OpenAI, performs especially well with proprietary models by improving context engineering, reducing hallucinations, and boosting task accuracy. Based on these observations, an investigation is conducted to determine whether the Agent Skill paradigm provides similar benefits to small language models (SLMs). This question matters in industrial scenarios where continuous reliance on public APIs is infeasible due to data-security and budget constraints requirements, and where SLMs often show limited generalization in highly customized scenarios. This work introduces a formal mathematical definition of the Agent Skill process, followed by a systematic evaluation of language models of varying sizes across multiple use cases. The evaluation encompasses two open-source tasks and a real-world insurance claims data set. The results show that tiny models struggle with reliable skill selection, while moderately sized SLMs (approximately 12B - 30B) parameters) benefit substantially from the Agent Skill approach. Moreover, code-specialized variants at around 80B parameters achieve performance comparable to closed-source baselines while improving GPU efficiency. Collectively, these findings provide a comprehensive and nuanced characterization of the capabilities and constraints of the framework, while providing actionable insights for the effective deployment of Agent Skills in SLM-centered environments.",
+      "authors": [
+        "Yangjie Xu",
+        "Lujun Li",
+        "Lama Sleem",
+        "Niccolo Gentile",
+        "Yewei Song",
+        "Yiqun Wang",
+        "Siming Ji",
+        "Wenbo Wu",
+        "Radu State"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T17:52:17Z",
+      "updated": "2026-02-18T17:52:17Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16653v1",
+      "abs_url": "http://arxiv.org/abs/2602.16653v1",
+      "summary": "研究Agent Skill框架对小语言模型的性能提升，尤其在工业场景的应用潜力。",
+      "key_contributions": [
+        "形式化定义Agent Skill过程",
+        "系统评估不同规模语言模型在多个用例上的性能",
+        "揭示Agent Skill在SLM环境中的能力和约束"
+      ],
+      "methodology": "通过数学定义Agent Skill流程，并在开源任务和真实数据集上评估不同规模语言模型的表现。",
+      "tags": [
+        "Agent Skill",
+        "Small Language Models",
+        "Industrial Applications"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心内容为agent框架在小语言模型中的应用。",
+      "analyzed_at": "2026-02-19T06:59:09.227886",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16650v1",
+      "title": "Retrieval Augmented Generation of Literature-derived Polymer Knowledge: The Example of a Biodegradable Polymer Expert System",
+      "abstract": "Polymer literature contains a large and growing body of experimental knowledge, yet much of it is buried in unstructured text and inconsistent terminology, making systematic retrieval and reasoning difficult. Existing tools typically extract narrow, study-specific facts in isolation, failing to preserve the cross-study context required to answer broader scientific questions. Retrieval-augmented generation (RAG) offers a promising way to overcome this limitation by combining large language models (LLMs) with external retrieval, but its effectiveness depends strongly on how domain knowledge is represented. In this work, we develop two retrieval pipelines: a dense semantic vector-based approach (VectorRAG) and a graph-based approach (GraphRAG). Using over 1,000 polyhydroxyalkanoate (PHA) papers, we construct context-preserving paragraph embeddings and a canonicalized structured knowledge graph supporting entity disambiguation and multi-hop reasoning. We evaluate these pipelines through standard retrieval metrics, comparisons with general state-of-the-art systems such as GPT and Gemini, and qualitative validation by a domain chemist. The results show that GraphRAG achieves higher precision and interpretability, while VectorRAG provides broader recall, highlighting complementary trade-offs. Expert validation further confirms that the tailored pipelines, particularly GraphRAG, produce well-grounded, citation-reliable responses with strong domain relevance. By grounding every statement in evidence, these systems enable researchers to navigate the literature, compare findings across studies, and uncover patterns that are difficult to extract manually. More broadly, this work establishes a practical framework for building materials science assistants using curated corpora and retrieval design, reducing reliance on proprietary models while enabling trustworthy literature analysis at scale.",
+      "authors": [
+        "Sonakshi Gupta",
+        "Akhlak Mahmood",
+        "Wei Xiong",
+        "Rampi Ramprasad"
+      ],
+      "categories": [
+        "cs.CE",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CE",
+      "published": "2026-02-18T17:46:09Z",
+      "updated": "2026-02-18T17:46:09Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16650v1",
+      "abs_url": "http://arxiv.org/abs/2602.16650v1",
+      "summary": "论文提出两种检索增强生成方法，用于从聚合物文献中提取知识，并构建可信赖的材料科学助手。",
+      "key_contributions": [
+        "开发了两种检索流水线：VectorRAG和GraphRAG",
+        "构建了PHA文献的上下文保留段落嵌入和规范化知识图谱",
+        "验证了GraphRAG在精度和可解释性方面更优，VectorRAG在召回率方面更优"
+      ],
+      "methodology": "构建VectorRAG和GraphRAG两种检索流水线，结合大型语言模型，通过检索聚合物文献生成知识，并由领域专家进行验证。",
+      "tags": [
+        "RAG",
+        "知识图谱",
+        "聚合物",
+        "材料科学",
+        "检索增强生成"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注检索增强生成在特定领域的应用，是RAG领域的重要研究。",
+      "analyzed_at": "2026-02-19T06:59:11.351648",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16640v1",
+      "title": "Quecto-V1: Empirical Analysis of 8-bit Quantized Small Language Models for On-Device Legal Retrieval",
+      "abstract": "The rapid proliferation of Large Language Models (LLMs) has revolutionized Natural Language Processing (NLP) but has simultaneously created a \"resource divide.\" State-of-the-art legal intelligence systems typically rely on massive parameter counts (7B+) and cloud-based inference, rendering them inaccessible to practitioners in resource-constrained environments and posing significant data sovereignty risks. This paper introduces Quecto-V1, a domain-specific Small Language Model (SLM) engineered to democratize access to Indian legal intelligence. Built upon a custom configuration of the GPT-2 architecture (124 million parameters), Quecto-V1 was trained from scratch exclusively on a corpus of Indian statutes, including the Indian Penal Code (IPC), the Code of Criminal Procedure (CrPC), and the Constitution of India. Unlike generalist models, which prioritize broad world knowledge, our approach maximizes \"lexical density\" within the legal domain. Furthermore, we address the deployment bottleneck by applying post-training 8-bit quantization (GGUF format), compressing the model to a memory footprint of under 150 MB. Our empirical analysis demonstrates that Quecto-V1 achieves high fidelity in retrieving statutory definitions and penal provisions, outperforming general-purpose SLMs in domain-specific exact match tasks while running entirely offline on consumer-grade CPUs. We further present an ablation study showing that 8-bit quantization yields a 74% reduction in model size with less than 3.5% degradation in retrieval accuracy compared to full-precision baselines. These findings suggest that for specialized, high-stakes domains like law, domain-specific training coupled with aggressive quantization offers a viable, privacy-preserving alternative to monolithic cloud models.",
+      "authors": [
+        "Subrit Dikshit"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T17:29:43Z",
+      "updated": "2026-02-18T17:29:43Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16640v1",
+      "abs_url": "http://arxiv.org/abs/2602.16640v1",
+      "summary": "Quecto-V1是一个针对印度法律领域，使用8比特量化的专用小型语言模型，实现了高效的本地部署。",
+      "key_contributions": [
+        "设计并训练了针对印度法律领域的专用小型语言模型 Quecto-V1",
+        "采用 8-bit 量化，将模型大小压缩到 150MB 以下，便于本地部署",
+        "证明了在特定领域，量化后的专用模型可以优于通用模型"
+      ],
+      "methodology": "基于GPT-2架构，使用印度法律语料库从头开始训练，并采用后训练8比特量化(GGUF格式)进行模型压缩。",
+      "tags": [
+        "小型语言模型",
+        "领域专用模型",
+        "量化",
+        "法律检索",
+        "本地部署"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 7,
+      "relevance_reason": "模型用于法律信息的检索，与RAG有一定的关联性。",
+      "analyzed_at": "2026-02-19T06:59:13.384231",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16629v1",
+      "title": "Almost Sure Convergence of Differential Temporal Difference Learning for Average Reward Markov Decision Processes",
+      "abstract": "The average reward is a fundamental performance metric in reinforcement learning (RL) focusing on the long-run performance of an agent. Differential temporal difference (TD) learning algorithms are a major advance for average reward RL as they provide an efficient online method to learn the value functions associated with the average reward in both on-policy and off-policy settings. However, existing convergence guarantees require a local clock in learning rates tied to state visit counts, which practitioners do not use and does not extend beyond tabular settings. We address this limitation by proving the almost sure convergence of on-policy $n$-step differential TD for any $n$ using standard diminishing learning rates without a local clock. We then derive three sufficient conditions under which off-policy $n$-step differential TD also converges without a local clock. These results strengthen the theoretical foundations of differential TD and bring its convergence analysis closer to practical implementations.",
+      "authors": [
+        "Ethan Blaser",
+        "Jiuqi Wang",
+        "Shangtong Zhang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T17:24:27Z",
+      "updated": "2026-02-18T17:24:27Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16629v1",
+      "abs_url": "http://arxiv.org/abs/2602.16629v1",
+      "summary": "证明了平均奖励MDP中微分TD学习在标准学习率下的几乎必然收敛性。",
+      "key_contributions": [
+        "证明了on-policy n步微分TD在标准学习率下的几乎必然收敛性",
+        "推导了off-policy n步微分TD在无局部时钟下的收敛的三个充分条件",
+        "使微分TD的收敛性分析更接近实际应用"
+      ],
+      "methodology": "使用随机逼近理论和鞅理论，分析了微分TD学习算法的收敛性。",
+      "tags": [
+        "强化学习",
+        "时间差分学习",
+        "平均奖励",
+        "收敛性分析"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 7,
+      "relevance_reason": "强化学习是构建智能体的重要方法，与agent相关性高。",
+      "analyzed_at": "2026-02-19T06:59:15.047096",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16612v1",
+      "title": "Causal and Compositional Abstraction",
+      "abstract": "Abstracting from a low level to a more explanatory high level of description, and ideally while preserving causal structure, is fundamental to scientific practice, to causal inference problems, and to robust, efficient and interpretable AI. We present a general account of abstractions between low and high level models as natural transformations, focusing on the case of causal models. This provides a new formalisation of causal abstraction, unifying several notions in the literature, including constructive causal abstraction, Q-$τ$ consistency, abstractions based on interchange interventions, and `distributed' causal abstractions. Our approach is formalised in terms of category theory, and uses the general notion of a compositional model with a given set of queries and semantics in a monoidal, cd- or Markov category; causal models and their queries such as interventions being special cases. We identify two basic notions of abstraction: downward abstractions mapping queries from high to low level; and upward abstractions, mapping concrete queries such as Do-interventions from low to high. Although usually presented as the latter, we show how common causal abstractions may, more fundamentally, be understood in terms of the former. Our approach also leads us to consider a new stronger notion of `component-level' abstraction, applying to the individual components of a model. In particular, this yields a novel, strengthened form of constructive causal abstraction at the mechanism-level, for which we prove characterisation results. Finally, we show that abstraction can be generalised to further compositional models, including those with a quantum semantics implemented by quantum circuits, and we take first steps in exploring abstractions between quantum compositional circuit models and high-level classical causal models as a means to explainable quantum AI.",
+      "authors": [
+        "Robin Lorenz",
+        "Sean Tull"
+      ],
+      "categories": [
+        "cs.LO",
+        "cs.AI",
+        "math.CT",
+        "quant-ph"
+      ],
+      "primary_category": "cs.LO",
+      "published": "2026-02-18T17:06:09Z",
+      "updated": "2026-02-18T17:06:09Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16612v1",
+      "abs_url": "http://arxiv.org/abs/2602.16612v1",
+      "summary": "论文提出了基于范畴论的因果抽象通用框架，统一了多种因果抽象概念，并拓展到量子模型。",
+      "key_contributions": [
+        "提出了基于自然变换的因果抽象通用框架",
+        "统一了多种现有的因果抽象概念",
+        "引入了更强的组件级抽象概念",
+        "将抽象推广到量子模型，探索可解释量子AI"
+      ],
+      "methodology": "使用范畴论形式化因果模型及其查询，定义上下向抽象，并研究组件级别的抽象性质。",
+      "tags": [
+        "因果推断",
+        "抽象",
+        "范畴论",
+        "量子AI",
+        "可解释性"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "论文核心在于构建因果模型并进行抽象，属于reasoning范畴，且方法论较为通用。",
+      "analyzed_at": "2026-02-19T06:59:16.874491",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16610v1",
+      "title": "Who can we trust? LLM-as-a-jury for Comparative Assessment",
+      "abstract": "Large language models (LLMs) are increasingly applied as automatic evaluators for natural language generation assessment often using pairwise comparative judgements. Existing approaches typically rely on single judges or aggregate multiple judges assuming equal reliability. In practice, LLM judges vary substantially in performance across tasks and aspects, and their judgment probabilities may be biased and inconsistent. Furthermore, human-labelled supervision for judge calibration may be unavailable. We first empirically demonstrate that inconsistencies in LLM comparison probabilities exist and show that it limits the effectiveness of direct probability-based ranking. To address this, we study the LLM-as-a-jury setting and propose BT-sigma, a judge-aware extension of the Bradley-Terry model that introduces a discriminator parameter for each judge to jointly infer item rankings and judge reliability from pairwise comparisons alone. Experiments on benchmark NLG evaluation datasets show that BT-sigma consistently outperforms averaging-based aggregation methods, and that the learned discriminator strongly correlates with independent measures of the cycle consistency of LLM judgments. Further analysis reveals that BT-sigma can be interpreted as an unsupervised calibration mechanism that improves aggregation by modelling judge reliability.",
+      "authors": [
+        "Mengjie Qian",
+        "Guangzhi Sun",
+        "Mark J. F. Gales",
+        "Kate M. Knill"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T17:04:02Z",
+      "updated": "2026-02-18T17:04:02Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16610v1",
+      "abs_url": "http://arxiv.org/abs/2602.16610v1",
+      "summary": "该论文提出BT-sigma模型，通过判断LLM判决可靠性，提升LLM评估NLG质量的准确性。",
+      "key_contributions": [
+        "提出BT-sigma模型，用于评估LLM判决可靠性",
+        "验证了LLM判决存在不一致性，影响ranking效果",
+        "证明BT-sigma优于平均聚合方法"
+      ],
+      "methodology": "提出BT-sigma模型，是Bradley-Terry模型的扩展，为每个judge引入discriminator参数，联合推断item ranking和judge可靠性。",
+      "tags": [
+        "LLM",
+        "NLG evaluation",
+        "pairwise comparison",
+        "judge reliability"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "涉及LLM作为评估器，并需要进行推理判断优劣，属于reasoning相关。",
+      "analyzed_at": "2026-02-19T06:59:18.803744",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16596v1",
+      "title": "Sequential Membership Inference Attacks",
+      "abstract": "Modern AI models are not static. They go through multiple updates in their lifecycles. Thus, exploiting the model dynamics to create stronger Membership Inference (MI) attacks and tighter privacy audits are timely questions. Though the literature empirically shows that using a sequence of model updates can increase the power of MI attacks, rigorous analysis of the `optimal' MI attacks is limited to static models with infinite samples. Hence, we develop an `optimal' MI attack, SeMI*, that uses the sequence of model updates to identify the presence of a target inserted at a certain update step. For the empirical mean computation, we derive the optimal power of SeMI*, while accessing a finite number of samples with or without privacy. Our results retrieve the existing asymptotic analysis. We observe that having access to the model sequence avoids the dilution of MI signals unlike the existing attacks on the final model, where the MI signal vanishes as training data accumulates. Furthermore, an adversary can use SeMI* to tune both the insertion time and the canary to yield tighter privacy audits. Finally, we conduct experiments across data distributions and models trained or fine-tuned with DP-SGD demonstrating that practical variants of SeMI* lead to tighter privacy audits than the baselines.",
+      "authors": [
+        "Thomas Michel",
+        "Debabrota Basu",
+        "Emilie Kaufmann"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CR",
+        "math.ST",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T16:51:13Z",
+      "updated": "2026-02-18T16:51:13Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16596v1",
+      "abs_url": "http://arxiv.org/abs/2602.16596v1",
+      "summary": "提出了一种利用模型更新序列进行更强的成员推理攻击的方法SeMI*。",
+      "key_contributions": [
+        "提出了最优的序列成员推理攻击SeMI*",
+        "推导了SeMI*的理论最优功率",
+        "实验验证了SeMI*在隐私审计方面的有效性"
+      ],
+      "methodology": "通过分析模型更新序列，设计最优的成员推理攻击，并进行理论推导和实验验证。",
+      "tags": [
+        "Membership Inference",
+        "Privacy",
+        "Model Update",
+        "Adversarial Attack"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "成员推理攻击涉及推理训练数据是否属于目标数据集。",
+      "analyzed_at": "2026-02-19T06:59:20.434717",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16590v1",
+      "title": "A Contrastive Learning Framework Empowered by Attention-based Feature Adaptation for Street-View Image Classification",
+      "abstract": "Street-view image attribute classification is a vital downstream task of image classification, enabling applications such as autonomous driving, urban analytics, and high-definition map construction. It remains computationally demanding whether training from scratch, initialising from pre-trained weights, or fine-tuning large models. Although pre-trained vision-language models such as CLIP offer rich image representations, existing adaptation or fine-tuning methods often rely on their global image embeddings, limiting their ability to capture fine-grained, localised attributes essential in complex, cluttered street scenes. To address this, we propose CLIP-MHAdapter, a variant of the current lightweight CLIP adaptation paradigm that appends a bottleneck MLP equipped with multi-head self-attention operating on patch tokens to model inter-patch dependencies. With approximately 1.4 million trainable parameters, CLIP-MHAdapter achieves superior or competitive accuracy across eight attribute classification tasks on the Global StreetScapes dataset, attaining new state-of-the-art results while maintaining low computational cost. The code is available at https://github.com/SpaceTimeLab/CLIP-MHAdapter.",
+      "authors": [
+        "Qi You",
+        "Yitai Cheng",
+        "Zichao Zeng",
+        "James Haworth"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T16:41:32Z",
+      "updated": "2026-02-18T16:41:32Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16590v1",
+      "abs_url": "http://arxiv.org/abs/2602.16590v1",
+      "summary": "提出CLIP-MHAdapter，一种基于注意力机制的CLIP轻量级适配方法，用于街景图像属性分类。",
+      "key_contributions": [
+        "提出CLIP-MHAdapter模型",
+        "在Global StreetScapes数据集上取得SOTA结果",
+        "低计算成本，高性能"
+      ],
+      "methodology": "在CLIP基础上，附加一个带多头自注意力的瓶颈MLP，用于建模patch间的依赖关系。",
+      "tags": [
+        "街景图像分类",
+        "CLIP",
+        "注意力机制",
+        "轻量级模型"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 8,
+      "relevance_reason": "论文使用CLIP进行视觉任务，属于视觉语言多模态学习的范畴。",
+      "analyzed_at": "2026-02-19T06:59:21.905258",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16585v1",
+      "title": "DataJoint 2.0: A Computational Substrate for Agentic Scientific Workflows",
+      "abstract": "Operational rigor determines whether human-agent collaboration succeeds or fails. Scientific data pipelines need the equivalent of DevOps -- SciOps -- yet common approaches fragment provenance across disconnected systems without transactional guarantees. DataJoint 2.0 addresses this gap through the relational workflow model: tables represent workflow steps, rows represent artifacts, foreign keys prescribe execution order. The schema specifies not only what data exists but how it is derived -- a single formal system where data structure, computational dependencies, and integrity constraints are all queryable, enforceable, and machine-readable. Four technical innovations extend this foundation: object-augmented schemas integrating relational metadata with scalable object storage, semantic matching using attribute lineage to prevent erroneous joins, an extensible type system for domain-specific formats, and distributed job coordination designed for composability with external orchestration. By unifying data structure, data, and computational transformations, DataJoint creates a substrate for SciOps where agents can participate in scientific workflows without risking data corruption.",
+      "authors": [
+        "Dimitri Yatsenko",
+        "Thinh T. Nguyen"
+      ],
+      "categories": [
+        "cs.DB",
+        "cs.AI"
+      ],
+      "primary_category": "cs.DB",
+      "published": "2026-02-18T16:35:47Z",
+      "updated": "2026-02-18T16:35:47Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16585v1",
+      "abs_url": "http://arxiv.org/abs/2602.16585v1",
+      "summary": "DataJoint 2.0构建了一个用于科学工作流的计算基础，实现可查询、可执行和机器可读的SciOps。",
+      "key_contributions": [
+        "关系工作流模型",
+        "对象增强模式",
+        "语义匹配",
+        "可扩展类型系统"
+      ],
+      "methodology": "通过关系型数据库和扩展技术，统一数据结构、数据和计算转换，实现可控的科学工作流。",
+      "tags": [
+        "SciOps",
+        "数据管道",
+        "工作流管理",
+        "数据一致性"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 7,
+      "relevance_reason": "为agent提供可靠数据基础，但主要侧重数据管理而非agent本身。",
+      "analyzed_at": "2026-02-19T06:59:23.561271",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16570v1",
+      "title": "Steering diffusion models with quadratic rewards: a fine-grained analysis",
+      "abstract": "Inference-time algorithms are an emerging paradigm in which pre-trained models are used as subroutines to solve downstream tasks. Such algorithms have been proposed for tasks ranging from inverse problems and guided image generation to reasoning. However, the methods currently deployed in practice are heuristics with a variety of failure modes -- and we have very little understanding of when these heuristics can be efficiently improved.   In this paper, we consider the task of sampling from a reward-tilted diffusion model -- that is, sampling from $p^{\\star}(x) \\propto p(x) \\exp(r(x))$ -- given a reward function $r$ and pre-trained diffusion oracle for $p$. We provide a fine-grained analysis of the computational tractability of this task for quadratic rewards $r(x) = x^\\top A x + b^\\top x$. We show that linear-reward tilts are always efficiently sampleable -- a simple result that seems to have gone unnoticed in the literature. We use this as a building block, along with a conceptually new ingredient -- the Hubbard-Stratonovich transform -- to provide an efficient algorithm for sampling from low-rank positive-definite quadratic tilts, i.e. $r(x) = x^\\top A x$ where $A$ is positive-definite and of rank $O(1)$. For negative-definite tilts, i.e. $r(x) = - x^\\top A x$ where $A$ is positive-definite, we prove that the problem is intractable even if $A$ is of rank 1 (albeit with exponentially-large entries).",
+      "authors": [
+        "Ankur Moitra",
+        "Andrej Risteski",
+        "Dhruv Rohatgi"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.DS"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T16:11:17Z",
+      "updated": "2026-02-18T16:11:17Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16570v1",
+      "abs_url": "http://arxiv.org/abs/2602.16570v1",
+      "summary": "研究了扩散模型在二次奖励函数下的采样问题，并分析了其计算复杂性。",
+      "key_contributions": [
+        "证明了线性奖励倾斜始终可以有效采样",
+        "提出了使用Hubbard-Stratonovich变换的低秩正定二次倾斜的有效采样算法",
+        "证明了负定二次倾斜问题即使在秩为1的情况下也是难解的"
+      ],
+      "methodology": "理论分析，结合Hubbard-Stratonovich变换，研究了不同类型二次奖励函数下的采样算法和计算复杂性。",
+      "tags": [
+        "diffusion models",
+        "sampling",
+        "reward function",
+        "computational complexity"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "研究了扩散模型的推理和采样，与LLM推理具有一定的相关性。",
+      "analyzed_at": "2026-02-19T06:59:25.384976",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16564v1",
+      "title": "A Scalable Approach to Solving Simulation-Based Network Security Games",
+      "abstract": "We introduce MetaDOAR, a lightweight meta-controller that augments the Double Oracle / PSRO paradigm with a learned, partition-aware filtering layer and Q-value caching to enable scalable multi-agent reinforcement learning on very large cyber-network environments. MetaDOAR learns a compact state projection from per node structural embeddings to rapidly score and select a small subset of devices (a top-k partition) on which a conventional low-level actor performs focused beam search utilizing a critic agent. Selected candidate actions are evaluated with batched critic forwards and stored in an LRU cache keyed by a quantized state projection and local action identifiers, dramatically reducing redundant critic computation while preserving decision quality via conservative k-hop cache invalidation. Empirically, MetaDOAR attains higher player payoffs than SOTA baselines on large network topologies, without significant scaling issues in terms of memory usage or training time. This contribution provide a practical, theoretically motivated path to efficient hierarchical policy learning for large-scale networked decision problems.",
+      "authors": [
+        "Michael Lanier",
+        "Yevgeniy Vorobeychik"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T16:07:01Z",
+      "updated": "2026-02-18T16:07:01Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16564v1",
+      "abs_url": "http://arxiv.org/abs/2602.16564v1",
+      "summary": "MetaDOAR通过分层学习和缓存优化，提升了大规模网络安全博弈中的多智能体强化学习性能。",
+      "key_contributions": [
+        "提出了MetaDOAR框架，结合双重预言机/PSRO范式。",
+        "引入了基于学习的、分区感知的过滤层，减少搜索空间。",
+        "利用Q值缓存，减少冗余计算，提高决策质量。"
+      ],
+      "methodology": "使用结构化嵌入学习紧凑的状态表示，结合束搜索和评论家网络，通过LRU缓存提高效率。",
+      "tags": [
+        "多智能体强化学习",
+        "网络安全",
+        "分层策略学习",
+        "缓存优化"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "论文专注于多智能体系统，并应用于网络安全领域，与Agent相关。",
+      "analyzed_at": "2026-02-19T06:59:27.270944",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16554v1",
+      "title": "MerLean: An Agentic Framework for Autoformalization in Quantum Computation",
+      "abstract": "We introduce MerLean, a fully automated agentic framework for autoformalization in quantum computation. MerLean extracts mathematical statements from \\LaTeX{} source files, formalizes them into verified Lean~4 code built on Mathlib, and translates the result back into human-readable \\LaTeX{} for semantic review. We evaluate MerLean on three theoretical quantum computing papers producing 2,050 Lean declarations from 114 statements in total. MerLean achieves end-to-end formalization on all three papers, reducing the verification burden to only the newly introduced definitions and axioms. Our results demonstrate that agentic autoformalization can scale to frontier research, offering both a practical tool for machine-verified peer review and a scalable engine for mining high-quality synthetic data to train future reasoning models. Our approach can also be generalized to any other rigorous research in mathematics and theoretical physics.",
+      "authors": [
+        "Yuanjie Ren",
+        "Jinzheng Li",
+        "Yidi Qi"
+      ],
+      "categories": [
+        "cs.LO",
+        "cs.AI",
+        "cs.ET",
+        "quant-ph"
+      ],
+      "primary_category": "cs.LO",
+      "published": "2026-02-18T15:54:32Z",
+      "updated": "2026-02-18T15:54:32Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16554v1",
+      "abs_url": "http://arxiv.org/abs/2602.16554v1",
+      "summary": "MerLean是一个用于量子计算自动形式化的Agentic框架，可将论文转化为Lean代码。",
+      "key_contributions": [
+        "提出MerLean框架，实现量子计算论文的自动形式化",
+        "将数学公式转换为可验证的Lean代码并翻译回LaTeX",
+        "验证了该方法在三个量子计算论文上的有效性"
+      ],
+      "methodology": "使用Agentic框架从LaTeX文件中提取数学公式，将其形式化为Lean代码，再翻译回LaTeX。",
+      "tags": [
+        "Autoformalization",
+        "Quantum Computation",
+        "Lean",
+        "Agentic Framework"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "该框架使用agent进行自动化任务，高度相关。",
+      "analyzed_at": "2026-02-19T06:59:28.823379",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16545v1",
+      "title": "Let's Split Up: Zero-Shot Classifier Edits for Fine-Grained Video Understanding",
+      "abstract": "Video recognition models are typically trained on fixed taxonomies which are often too coarse, collapsing distinctions in object, manner or outcome under a single label. As tasks and definitions evolve, such models cannot accommodate emerging distinctions and collecting new annotations and retraining to accommodate such changes is costly. To address these challenges, we introduce category splitting, a new task where an existing classifier is edited to refine a coarse category into finer subcategories, while preserving accuracy elsewhere. We propose a zero-shot editing method that leverages the latent compositional structure of video classifiers to expose fine-grained distinctions without additional data. We further show that low-shot fine-tuning, while simple, is highly effective and benefits from our zero-shot initialization. Experiments on our new video benchmarks for category splitting demonstrate that our method substantially outperforms vision-language baselines, improving accuracy on the newly split categories without sacrificing performance on the rest. Project page: https://kaitingliu.github.io/Category-Splitting/.",
+      "authors": [
+        "Kaiting Liu",
+        "Hazel Doughty"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T15:46:36Z",
+      "updated": "2026-02-18T15:46:36Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16545v1",
+      "abs_url": "http://arxiv.org/abs/2602.16545v1",
+      "summary": "提出视频分类拆分任务，无需额外数据即可将粗粒度类别拆分为细粒度子类别，提升视频理解精度。",
+      "key_contributions": [
+        "提出类别拆分任务，用于细粒度视频理解。",
+        "提出零样本拆分方法，利用视频分类器的潜在组合结构。",
+        "构建新的视频类别拆分基准测试集。"
+      ],
+      "methodology": "利用视频分类器的潜在组合结构，通过零样本编辑实现类别拆分，并使用少量样本微调进一步提升性能。",
+      "tags": [
+        "视频理解",
+        "零样本学习",
+        "类别拆分",
+        "细粒度分类"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 7,
+      "relevance_reason": "涉及视频和语言的交叉，以及分类器的编辑，与多模态学习相关。",
+      "analyzed_at": "2026-02-19T06:59:30.953463",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16523v1",
+      "title": "Reinforcement Learning for Parameterized Quantum State Preparation: A Comparative Study",
+      "abstract": "We extend directed quantum circuit synthesis (DQCS) with reinforcement learning from purely discrete gate selection to parameterized quantum state preparation with continuous single-qubit rotations \\(R_x\\), \\(R_y\\), and \\(R_z\\). We compare two training regimes: a one-stage agent that jointly selects the gate type, the affected qubit(s), and the rotation angle; and a two-stage variant that first proposes a discrete circuit and subsequently optimizes the rotation angles with Adam using parameter-shift gradients. Using Gymnasium and PennyLane, we evaluate Proximal Policy Optimization (PPO) and Advantage Actor--Critic (A2C) on systems comprising two to ten qubits and on targets of increasing complexity with \\(λ\\) ranging from one to five. Whereas A2C does not learn effective policies in this setting, PPO succeeds under stable hyperparameters (one-stage: learning rate approximately \\(5\\times10^{-4}\\) with a self-fidelity-error threshold of 0.01; two-stage: learning rate approximately \\(10^{-4}\\)). Both approaches reliably reconstruct computational basis states (between 83\\% and 99\\% success) and Bell states (between 61\\% and 77\\% success). However, scalability saturates for \\(λ\\) of approximately three to four and does not extend to ten-qubit targets even at \\(λ=2\\). The two-stage method offers only marginal accuracy gains while requiring around three times the runtime. For practicality under a fixed compute budget, we therefore recommend the one-stage PPO policy, provide explicit synthesized circuits, and contrast with a classical variational baseline to outline avenues for improved scalability.",
+      "authors": [
+        "Gerhard Stenzel",
+        "Isabella Debelic",
+        "Michael Kölle",
+        "Tobias Rohe",
+        "Leo Sünkel",
+        "Julian Hager",
+        "Claudia Linnhoff-Popien"
+      ],
+      "categories": [
+        "cs.LG",
+        "quant-ph"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T15:10:43Z",
+      "updated": "2026-02-18T15:10:43Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16523v1",
+      "abs_url": "http://arxiv.org/abs/2602.16523v1",
+      "summary": "论文研究了强化学习在参数化量子态制备中的应用，比较了不同策略和算法的性能。",
+      "key_contributions": [
+        "扩展DQCS到参数化量子态制备",
+        "比较了单阶段和双阶段训练方法",
+        "评估了PPO和A2C算法在量子态制备中的性能"
+      ],
+      "methodology": "使用Gymnasium和PennyLane，通过强化学习（PPO和A2C）训练智能体生成量子电路，并使用参数平移梯度优化旋转角度。",
+      "tags": [
+        "强化学习",
+        "量子计算",
+        "量子态制备",
+        "Proximal Policy Optimization",
+        "Advantage Actor-Critic"
+      ],
+      "assigned_category": "agent_tuning",
+      "relevance_score": 6,
+      "relevance_reason": "该研究使用强化学习算法优化量子电路参数，与Agent Tuning & Optimization有一定相关性。",
+      "analyzed_at": "2026-02-19T06:59:32.863723",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16520v1",
+      "title": "Recursive language models for jailbreak detection: a procedural defense for tool-augmented agents",
+      "abstract": "Jailbreak prompts are a practical and evolving threat to large language models (LLMs), particularly in agentic systems that execute tools over untrusted content. Many attacks exploit long-context hiding, semantic camouflage, and lightweight obfuscations that can evade single-pass guardrails. We present RLM-JB, an end-to-end jailbreak detection framework built on Recursive Language Models (RLMs), in which a root model orchestrates a bounded analysis program that transforms the input, queries worker models over covered segments, and aggregates evidence into an auditable decision. RLM-JB treats detection as a procedure rather than a one-shot classification: it normalizes and de-obfuscates suspicious inputs, chunks text to reduce context dilution and guarantee coverage, performs parallel chunk screening, and composes cross-chunk signals to recover split-payload attacks. On AutoDAN-style adversarial inputs, RLM-JB achieves high detection effectiveness across three LLM backends (ASR/Recall 92.5-98.0%) while maintaining very high precision (98.99-100%) and low false positive rates (0.0-2.0%), highlighting a practical sensitivity-specificity trade-off as the screening backend changes.",
+      "authors": [
+        "Doron Shavit"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CR",
+      "published": "2026-02-18T15:07:09Z",
+      "updated": "2026-02-18T15:07:09Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16520v1",
+      "abs_url": "http://arxiv.org/abs/2602.16520v1",
+      "summary": "RLM-JB是一种基于递归语言模型的端到端Jailbreak检测框架，有效防御工具增强型Agent的攻击。",
+      "key_contributions": [
+        "提出RLM-JB框架，用于检测LLM的Jailbreak攻击",
+        "利用递归语言模型进行输入分析和处理",
+        "在多个LLM后端上验证了框架的有效性"
+      ],
+      "methodology": "构建递归语言模型，将检测视为一个程序，通过输入转换、分块、并行筛选和信号组合来检测攻击。",
+      "tags": [
+        "Jailbreak Detection",
+        "Recursive Language Models",
+        "Agent Security",
+        "LLM Security"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "该论文直接解决了agent使用工具时面临的Jailbreak安全问题，高度相关。",
+      "analyzed_at": "2026-02-19T06:59:34.792837",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16516v1",
+      "title": "Supercharging Agenda Setting Research: The ParlaCAP Dataset of 28 European Parliaments and a Scalable Multilingual LLM-Based Classification",
+      "abstract": "This paper introduces ParlaCAP, a large-scale dataset for analyzing parliamentary agenda setting across Europe, and proposes a cost-effective method for building domain-specific policy topic classifiers. Applying the Comparative Agendas Project (CAP) schema to the multilingual ParlaMint corpus of over 8 million speeches from 28 parliaments of European countries and autonomous regions, we follow a teacher-student framework in which a high-performing large language model (LLM) annotates in-domain training data and a multilingual encoder model is fine-tuned on these annotations for scalable data annotation. We show that this approach produces a classifier tailored to the target domain. Agreement between the LLM and human annotators is comparable to inter-annotator agreement among humans, and the resulting model outperforms existing CAP classifiers trained on manually-annotated but out-of-domain data. In addition to the CAP annotations, the ParlaCAP dataset offers rich speaker and party metadata, as well as sentiment predictions coming from the ParlaSent multilingual transformer model, enabling comparative research on political attention and representation across countries. We illustrate the analytical potential of the dataset with three use cases, examining the distribution of parliamentary attention across policy topics, sentiment patterns in parliamentary speech, and gender differences in policy attention.",
+      "authors": [
+        "Taja Kuzman Pungeršek",
+        "Peter Rupnik",
+        "Daniela Širinić",
+        "Nikola Ljubešić"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T15:04:30Z",
+      "updated": "2026-02-18T15:04:30Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16516v1",
+      "abs_url": "http://arxiv.org/abs/2602.16516v1",
+      "summary": "ParlaCAP数据集用于分析欧洲议会政治议程，提出了一种低成本的领域特定主题分类方法。",
+      "key_contributions": [
+        "创建大规模议会语料库ParlaCAP",
+        "提出基于LLM的领域特定政策主题分类方法",
+        "验证了该方法在议会数据上的有效性"
+      ],
+      "methodology": "采用Teacher-Student框架，利用高性能LLM标注数据，微调多语言编码模型，实现可扩展的数据标注。",
+      "tags": [
+        "议会研究",
+        "政治议程",
+        "多语言处理",
+        "LLM"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 7,
+      "relevance_reason": "LLM用于分类和标注，涉及一定的推理能力和知识应用。",
+      "analyzed_at": "2026-02-19T06:59:36.358807",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16512v1",
+      "title": "Framework of Thoughts: A Foundation Framework for Dynamic and Optimized Reasoning based on Chains, Trees, and Graphs",
+      "abstract": "Prompting schemes such as Chain of Thought, Tree of Thoughts, and Graph of Thoughts can significantly enhance the reasoning capabilities of large language models. However, most existing schemes require users to define static, problem-specific reasoning structures that lack adaptability to dynamic or unseen problem types. Additionally, these schemes are often under-optimized in terms of hyperparameters, prompts, runtime, and prompting cost. To address these limitations, we introduce Framework of Thoughts (FoT)--a general-purpose foundation framework for building and optimizing dynamic reasoning schemes. FoT comes with built-in features for hyperparameter tuning, prompt optimization, parallel execution, and intelligent caching, unlocking the latent performance potential of reasoning schemes. We demonstrate FoT's capabilities by implementing three popular schemes--Tree of Thoughts, Graph of Thoughts, and ProbTree--within FoT. We empirically show that FoT enables significantly faster execution, reduces costs, and achieves better task scores through optimization. We release our codebase to facilitate the development of future dynamic and efficient reasoning schemes.",
+      "authors": [
+        "Felix Fricke",
+        "Simon Malberg",
+        "Georg Groh"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T14:58:25Z",
+      "updated": "2026-02-18T14:58:25Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16512v1",
+      "abs_url": "http://arxiv.org/abs/2602.16512v1",
+      "summary": "FoT框架通过动态优化链、树、图推理，提升大语言模型的效率和效果。",
+      "key_contributions": [
+        "提出了通用动态推理框架FoT",
+        "实现了超参数调优、Prompt优化等功能",
+        "实验证明FoT能显著提升推理速度、降低成本、提高任务得分"
+      ],
+      "methodology": "构建通用框架FoT，内置超参数调优、并行执行等模块，优化现有推理方法，并通过实验验证其有效性。",
+      "tags": [
+        "LLM",
+        "reasoning",
+        "optimization",
+        "framework"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于优化LLM的推理能力，属于该领域关键问题研究。",
+      "analyzed_at": "2026-02-19T06:59:38.235246",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16507v1",
+      "title": "Small molecule retrieval from tandem mass spectrometry: what are we optimizing for?",
+      "abstract": "One of the central challenges in the computational analysis of liquid chromatography-tandem mass spectrometry (LC-MS/MS) data is to identify the compounds underlying the output spectra. In recent years, this problem is increasingly tackled using deep learning methods. A common strategy involves predicting a molecular fingerprint vector from an input mass spectrum, which is then used to search for matches in a chemical compound database. While various loss functions are employed in training these predictive models, their impact on model performance remains poorly understood. In this study, we investigate commonly used loss functions, deriving novel regret bounds that characterize when Bayes-optimal decisions for these objectives must diverge. Our results reveal a fundamental trade-off between the two objectives of (1) fingerprint similarity and (2) molecular retrieval. Optimizing for more accurate fingerprint predictions typically worsens retrieval results, and vice versa. Our theoretical analysis shows this trade-off depends on the similarity structure of candidate sets, providing guidance for loss function and fingerprint selection.",
+      "authors": [
+        "Gaetan De Waele",
+        "Marek Wydmuch",
+        "Krzysztof Dembczyński",
+        "Wojciech Kotłowski",
+        "Willem Waegeman"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T14:48:08Z",
+      "updated": "2026-02-18T14:48:08Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16507v1",
+      "abs_url": "http://arxiv.org/abs/2602.16507v1",
+      "summary": "该论文研究了深度学习在LC-MS/MS数据分析中使用的损失函数对分子指纹预测和分子检索的影响，揭示了两者之间的权衡。",
+      "key_contributions": [
+        "揭示了指纹相似性和分子检索之间的根本权衡",
+        "推导了新的后悔界限，表征了贝叶斯最优决策的差异",
+        "提供了损失函数和指纹选择的指导"
+      ],
+      "methodology": "理论分析和数学推导，研究了常用损失函数对模型性能的影响，并基于相似性结构进行指导。",
+      "tags": [
+        "质谱",
+        "代谢组学",
+        "深度学习",
+        "分子指纹",
+        "损失函数"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 6,
+      "relevance_reason": "涉及深度学习模型训练中的优化目标，与推理决策相关。",
+      "analyzed_at": "2026-02-19T06:59:39.981483",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16503v1",
+      "title": "Interpretability-by-Design with Accurate Locally Additive Models and Conditional Feature Effects",
+      "abstract": "Generalized additive models (GAMs) offer interpretability through independent univariate feature effects but underfit when interactions are present in data. GA$^2$Ms add selected pairwise interactions which improves accuracy, but sacrifices interpretability and limits model auditing. We propose \\emph{Conditionally Additive Local Models} (CALMs), a new model class, that balances the interpretability of GAMs with the accuracy of GA$^2$Ms. CALMs allow multiple univariate shape functions per feature, each active in different regions of the input space. These regions are defined independently for each feature as simple logical conditions (thresholds) on the features it interacts with. As a result, effects remain locally additive while varying across subregions to capture interactions. We further propose a principled distillation-based training pipeline that identifies homogeneous regions with limited interactions and fits interpretable shape functions via region-aware backfitting. Experiments on diverse classification and regression tasks show that CALMs consistently outperform GAMs and achieve accuracy comparable with GA$^2$Ms. Overall, CALMs offer a compelling trade-off between predictive accuracy and interpretability.",
+      "authors": [
+        "Vasilis Gkolemis",
+        "Loukas Kavouras",
+        "Dimitrios Kyriakopoulos",
+        "Konstantinos Tsopelas",
+        "Dimitrios Rontogiannis",
+        "Giuseppe Casalicchio",
+        "Theodore Dalamagas",
+        "Christos Diou"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T14:45:33Z",
+      "updated": "2026-02-18T14:45:33Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16503v1",
+      "abs_url": "http://arxiv.org/abs/2602.16503v1",
+      "summary": "CALMs通过条件加性局部模型，在GAMs和GA^2Ms之间取得了预测精度和可解释性的平衡。",
+      "key_contributions": [
+        "提出了Conditionally Additive Local Models (CALMs)模型",
+        "设计了基于知识蒸馏的训练流程，用于识别同质区域并拟合可解释的形状函数",
+        "在多个任务上验证了CALMs的有效性"
+      ],
+      "methodology": "通过为每个特征定义多个单变量形状函数，这些函数在输入空间的不同区域（由逻辑条件定义）激活，实现局部可加性。",
+      "tags": [
+        "可解释性",
+        "广义加性模型",
+        "模型蒸馏"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 6,
+      "relevance_reason": "该论文致力于提高模型的推理可解释性，与推理领域有一定关系。",
+      "analyzed_at": "2026-02-19T06:59:41.928771",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16502v1",
+      "title": "DressWild: Feed-Forward Pose-Agnostic Garment Sewing Pattern Generation from In-the-Wild Images",
+      "abstract": "Recent advances in garment pattern generation have shown promising progress. However, existing feed-forward methods struggle with diverse poses and viewpoints, while optimization-based approaches are computationally expensive and difficult to scale. This paper focuses on sewing pattern generation for garment modeling and fabrication applications that demand editable, separable, and simulation-ready garments. We propose DressWild, a novel feed-forward pipeline that reconstructs physics-consistent 2D sewing patterns and the corresponding 3D garments from a single in-the-wild image. Given an input image, our method leverages vision-language models (VLMs) to normalize pose variations at the image level, then extract pose-aware, 3D-informed garment features. These features are fused through a transformer-based encoder and subsequently used to predict sewing pattern parameters, which can be directly applied to physical simulation, texture synthesis, and multi-layer virtual try-on. Extensive experiments demonstrate that our approach robustly recovers diverse sewing patterns and the corresponding 3D garments from in-the-wild images without requiring multi-view inputs or iterative optimization, offering an efficient and scalable solution for realistic garment simulation and animation.",
+      "authors": [
+        "Zeng Tao",
+        "Ying Jiang",
+        "Yunuo Chen",
+        "Tianyi Xie",
+        "Huamin Wang",
+        "Yingnian Wu",
+        "Yin Yang",
+        "Abishek Sampath Kumar",
+        "Kenji Tashiro",
+        "Chenfanfu Jiang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T14:45:15Z",
+      "updated": "2026-02-18T14:45:15Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16502v1",
+      "abs_url": "http://arxiv.org/abs/2602.16502v1",
+      "summary": "DressWild提出了一种从单张自然图像生成服装缝纫图案和3D模型的feed-forward方法。",
+      "key_contributions": [
+        "提出DressWild，一个高效的服装图案生成pipeline",
+        "利用视觉语言模型（VLMs）解决姿势变化问题",
+        "实现了从单张图像生成可用于物理仿真的服装图案"
+      ],
+      "methodology": "利用VLM进行姿势归一化，提取姿势感知和3D信息服装特征，通过Transformer预测缝纫图案参数。",
+      "tags": [
+        "服装建模",
+        "缝纫图案生成",
+        "视觉语言模型",
+        "3D重建"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 8,
+      "relevance_reason": "论文利用VLM进行图像处理，属于multimodal learning的重要应用。",
+      "analyzed_at": "2026-02-19T06:59:43.509197",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16498v1",
+      "title": "Fast and Scalable Analytical Diffusion",
+      "abstract": "Analytical diffusion models offer a mathematically transparent path to generative modeling by formulating the denoising score as an empirical-Bayes posterior mean. However, this interpretability comes at a prohibitive cost: the standard formulation necessitates a full-dataset scan at every timestep, scaling linearly with dataset size. In this work, we present the first systematic study addressing this scalability bottleneck. We challenge the prevailing assumption that the entire training data is necessary, uncovering the phenomenon of Posterior Progressive Concentration: the effective golden support of the denoising score is not static but shrinks asymptotically from the global manifold to a local neighborhood as the signal-to-noise ratio increases. Capitalizing on this, we propose Dynamic Time-Aware Golden Subset Diffusion (GoldDiff), a training-free framework that decouples inference complexity from dataset size. Instead of static retrieval, GoldDiff uses a coarse-to-fine mechanism to dynamically pinpoint the ''Golden Subset'' for inference. Theoretically, we derive rigorous bounds guaranteeing that our sparse approximation converges to the exact score. Empirically, GoldDiff achieves a $\\bf 71 \\times$ speedup on AFHQ while matching or achieving even better performance than full-scan baselines. Most notably, we demonstrate the first successful scaling of analytical diffusion to ImageNet-1K, unlocking a scalable, training-free paradigm for large-scale generative modeling.",
+      "authors": [
+        "Xinyi Shang",
+        "Peng Sun",
+        "Jingyu Lin",
+        "Zhiqiang Shen"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T14:41:09Z",
+      "updated": "2026-02-18T14:41:09Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16498v1",
+      "abs_url": "http://arxiv.org/abs/2602.16498v1",
+      "summary": "提出了一种高效的Analytical Diffusion模型GoldDiff，通过动态选择“Golden Subset”加速推理，显著提升了模型的可扩展性。",
+      "key_contributions": [
+        "发现后验渐进集中现象",
+        "提出Dynamic Time-Aware Golden Subset Diffusion (GoldDiff)框架",
+        "实现了Analytical Diffusion模型在ImageNet-1K上的成功扩展"
+      ],
+      "methodology": "利用信号噪声比提高时，有效支持集从全局流形收缩到局部邻域的特性，动态选择关键数据子集进行推理。",
+      "tags": [
+        "Analytical Diffusion",
+        "生成模型",
+        "可扩展性",
+        "Golden Subset"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 7,
+      "relevance_reason": "涉及到生成模型，虽然不是直接的多模态，但可以应用于多模态数据生成。",
+      "analyzed_at": "2026-02-19T06:59:45.316382",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16493v1",
+      "title": "MMA: Multimodal Memory Agent",
+      "abstract": "Long-horizon multimodal agents depend on external memory; however, similarity-based retrieval often surfaces stale, low-credibility, or conflicting items, which can trigger overconfident errors. We propose Multimodal Memory Agent (MMA), which assigns each retrieved memory item a dynamic reliability score by combining source credibility, temporal decay, and conflict-aware network consensus, and uses this signal to reweight evidence and abstain when support is insufficient. We also introduce MMA-Bench, a programmatically generated benchmark for belief dynamics with controlled speaker reliability and structured text-vision contradictions. Using this framework, we uncover the \"Visual Placebo Effect\", revealing how RAG-based agents inherit latent visual biases from foundation models. On FEVER, MMA matches baseline accuracy while reducing variance by 35.2% and improving selective utility; on LoCoMo, a safety-oriented configuration improves actionable accuracy and reduces wrong answers; on MMA-Bench, MMA reaches 41.18% Type-B accuracy in Vision mode, while the baseline collapses to 0.0% under the same protocol. Code: https://github.com/AIGeeksGroup/MMA.",
+      "authors": [
+        "Yihao Lu",
+        "Wanru Cheng",
+        "Zeyu Zhang",
+        "Hao Tang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T14:30:35Z",
+      "updated": "2026-02-18T14:30:35Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16493v1",
+      "abs_url": "http://arxiv.org/abs/2602.16493v1",
+      "summary": "MMA通过动态评估检索到的记忆可靠性，提升多模态Agent在复杂环境中的表现。",
+      "key_contributions": [
+        "提出Multimodal Memory Agent (MMA)模型",
+        "引入动态可靠性评分机制",
+        "构建MMA-Bench基准测试"
+      ],
+      "methodology": "为检索到的记忆项分配动态可靠性分数，结合来源可靠性、时间衰减和冲突感知网络共识。",
+      "tags": [
+        "multimodal",
+        "agent",
+        "memory",
+        "RAG",
+        "reliability"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注多模态Agent的记忆检索和可靠性问题，与Memory & RAG类别直接相关。",
+      "analyzed_at": "2026-02-19T06:59:46.843849",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16490v1",
+      "title": "From Growing to Looping: A Unified View of Iterative Computation in LLMs",
+      "abstract": "Looping, reusing a block of layers across depth, and depth growing, training shallow-to-deep models by duplicating middle layers, have both been linked to stronger reasoning, but their relationship remains unclear. We provide a mechanistic unification: looped and depth-grown models exhibit convergent depth-wise signatures, including increased reliance on late layers and recurring patterns aligned with the looped or grown block. These shared signatures support the view that their gains stem from a common form of iterative computation. Building on this connection, we show that the two techniques are adaptable and composable: applying inference-time looping to the middle blocks of a depth-grown model improves accuracy on some reasoning primitives by up to $2\\times$, despite the model never being trained to loop. Both approaches also adapt better than the baseline when given more in-context examples or additional supervised fine-tuning data. Additionally, depth-grown models achieve the largest reasoning gains when using higher-quality, math-heavy cooldown mixtures, which can be further boosted by adapting a middle block to loop. Overall, our results position depth growth and looping as complementary, practical methods for inducing and scaling iterative computation to improve reasoning.",
+      "authors": [
+        "Ferdinand Kapl",
+        "Emmanouil Angelis",
+        "Kaitlin Maile",
+        "Johannes von Oswald",
+        "Stefan Bauer"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T14:25:16Z",
+      "updated": "2026-02-18T14:25:16Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16490v1",
+      "abs_url": "http://arxiv.org/abs/2602.16490v1",
+      "summary": "论文统一了LLM中循环和深度增长两种迭代计算方法，并证明了它们之间的互补性。",
+      "key_contributions": [
+        "提出了循环和深度增长模型的统一视角",
+        "证明了循环和深度增长模型具有收敛的深度方向特征",
+        "展示了这两种技术的可适应性和可组合性"
+      ],
+      "methodology": "通过实验分析循环和深度增长模型的内部机制，并验证了在推理和微调中的性能表现。",
+      "tags": [
+        "LLM",
+        "Iteration",
+        "Depth Growing",
+        "Looping",
+        "Reasoning"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接研究了提升LLM推理能力的方法，属于该领域的核心研究。",
+      "analyzed_at": "2026-02-19T06:59:48.504364",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16485v1",
+      "title": "Team of Thoughts: Efficient Test-time Scaling of Agentic Systems through Orchestrated Tool Calling",
+      "abstract": "Existing Multi-Agent Systems (MAS) typically rely on static, homogeneous model configurations, limiting their ability to exploit the distinct strengths of differently post-trained models. To address this, we introduce Team-of-Thoughts, a novel MAS architecture that leverages the complementary capabilities of heterogeneous agents via an orchestrator-tool paradigm. Our framework introduces two key mechanisms to optimize performance: (1) an orchestrator calibration scheme that identifies models with superior coordination capabilities, and (2) a self-assessment protocol where tool agents profile their own domain expertise to account for variations in post-training skills. During inference, the orchestrator dynamically activates the most suitable tool agents based on these proficiency profiles. Experiments on five reasoning and code generation benchmarks show that Team-of-Thoughts delivers consistently superior task performance. Notably, on AIME24 and LiveCodeBench, our approach achieves accuracies of 96.67% and 72.53%, respectively, substantially outperforming homogeneous role-play baselines, which score 80% and 65.93%.",
+      "authors": [
+        "Jeffrey T. H. Wong",
+        "Zixi Zhang",
+        "Junyi Liu",
+        "Yiren Zhao"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T14:19:01Z",
+      "updated": "2026-02-18T14:19:01Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16485v1",
+      "abs_url": "http://arxiv.org/abs/2602.16485v1",
+      "summary": "Team-of-Thoughts通过异构Agent协同，提升Agent系统在推理和代码生成任务上的性能。",
+      "key_contributions": [
+        "提出Team-of-Thoughts架构，利用异构Agent互补能力",
+        "引入Orchestrator校准机制，选择最佳协调模型",
+        "设计自评估协议，使工具Agent评估自身领域专长"
+      ],
+      "methodology": "利用Orchestrator动态激活最合适的工具Agent，基于Agent的专长profile进行推理和代码生成。",
+      "tags": [
+        "Multi-Agent System",
+        "Tool Use",
+        "Reasoning",
+        "Code Generation"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于多Agent系统的设计与优化，与Agent领域直接相关。",
+      "analyzed_at": "2026-02-19T06:59:50.211622",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16481v1",
+      "title": "Leveraging Large Language Models for Causal Discovery: a Constraint-based, Argumentation-driven Approach",
+      "abstract": "Causal discovery seeks to uncover causal relations from data, typically represented as causal graphs, and is essential for predicting the effects of interventions. While expert knowledge is required to construct principled causal graphs, many statistical methods have been proposed to leverage observational data with varying formal guarantees. Causal Assumption-based Argumentation (ABA) is a framework that uses symbolic reasoning to ensure correspondence between input constraints and output graphs, while offering a principled way to combine data and expertise. We explore the use of large language models (LLMs) as imperfect experts for Causal ABA, eliciting semantic structural priors from variable names and descriptions and integrating them with conditional-independence evidence. Experiments on standard benchmarks and semantically grounded synthetic graphs demonstrate state-of-the-art performance, and we additionally introduce an evaluation protocol to mitigate memorisation bias when assessing LLMs for causal discovery.",
+      "authors": [
+        "Zihao Li",
+        "Fabrizio Russo"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T14:15:21Z",
+      "updated": "2026-02-18T14:15:21Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16481v1",
+      "abs_url": "http://arxiv.org/abs/2602.16481v1",
+      "summary": "利用LLM作为不完美的专家，结合因果ABA框架进行因果发现，并提出评估协议。",
+      "key_contributions": [
+        "提出了使用LLM作为因果ABA中语义结构先验来源的方法",
+        "结合条件独立性证据提升因果发现性能",
+        "提出了减轻LLM因果发现评估中记忆偏差的评估协议"
+      ],
+      "methodology": "结合LLM提取的语义先验和条件独立性证据，通过因果ABA框架进行因果图构建。",
+      "tags": [
+        "Causal Discovery",
+        "Large Language Models",
+        "Causal ABA",
+        "Knowledge Integration"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "核心关注LLM在因果推理中的应用，并提出新方法。",
+      "analyzed_at": "2026-02-19T06:59:51.825322",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16467v1",
+      "title": "IndicEval: A Bilingual Indian Educational Evaluation Framework for Large Language Models",
+      "abstract": "The rapid advancement of large language models (LLMs) necessitates evaluation frameworks that reflect real-world academic rigor and multilingual complexity. This paper introduces IndicEval, a scalable benchmarking platform designed to assess LLM performance using authentic high-stakes examination questions from UPSC, JEE, and NEET across STEM and humanities domains in both English and Hindi. Unlike synthetic benchmarks, IndicEval grounds evaluation in real examination standards, enabling realistic measurement of reasoning, domain knowledge, and bilingual adaptability. The framework automates assessment using Zero-Shot, Few-Shot, and Chain-of-Thought (CoT) prompting strategies and supports modular integration of new models and languages. Experiments conducted on Gemini 2.0 Flash, GPT-4, Claude, and LLaMA 3-70B reveal three major findings. First, CoT prompting consistently improves reasoning accuracy, with substantial gains across subjects and languages. Second, significant cross-model performance disparities persist, particularly in high-complexity examinations. Third, multilingual degradation remains a critical challenge, with marked accuracy drops in Hindi compared to English, especially under Zero-Shot conditions. These results highlight persistent gaps in bilingual reasoning and domain transfer. Overall, IndicEval provides a practice-oriented, extensible foundation for rigorous, equitable evaluation of LLMs in multilingual educational settings and offers actionable insights for improving reasoning robustness and language adaptability.",
+      "authors": [
+        "Saurabh Bharti",
+        "Gaurav Azad",
+        "Abhinaw Jagtap",
+        "Nachiket Tapas"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T13:55:57Z",
+      "updated": "2026-02-18T13:55:57Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16467v1",
+      "abs_url": "http://arxiv.org/abs/2602.16467v1",
+      "summary": "IndicEval是一个评估LLM在印度教育场景下多语言能力的评测框架。",
+      "key_contributions": [
+        "提出了一个基于真实考试题目的多语言评估框架IndicEval",
+        "评估了多个LLM在教育场景下的推理能力和语言适应性",
+        "发现了CoT prompting可以显著提升模型表现，但多语言表现仍有差距"
+      ],
+      "methodology": "使用Zero-Shot, Few-Shot, 和Chain-of-Thought (CoT) prompt策略，在包含英语和印地语的真实考试题目上评估LLM。",
+      "tags": [
+        "LLM evaluation",
+        "Multilingual",
+        "Education",
+        "Reasoning"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接关注LLM在推理能力上的评估，尤其是多语言和教育场景下的推理。",
+      "analyzed_at": "2026-02-19T06:59:53.767057",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16456v1",
+      "title": "Beyond SGD, Without SVD: Proximal Subspace Iteration LoRA with Diagonal Fractional K-FAC",
+      "abstract": "Low-Rank Adaptation (LoRA) fine-tunes large models by learning low-rank updates on top of frozen weights, dramatically reducing trainable parameters and memory. In this work, we address the gap between training with full steps with low-rank projections (SVDLoRA) and LoRA fine-tuning. We propose LoRSum, a memory-efficient subroutine that closes this gap for gradient descent by casting LoRA optimization as a proximal sub-problem and solving it efficiently with alternating least squares updates, which we prove to be an implicit block power method. We recover several recently proposed preconditioning methods for LoRA as special cases, and show that LoRSum can also be used for updating a low-rank momentum. In order to address full steps with preconditioned gradient descent, we propose a scaled variant of LoRSum that uses structured metrics such as K-FAC and Shampoo, and we show that storing the diagonal of these metrics still allows them to perform well while remaining memory-efficient. Experiments on a synthetic task, CIFAR-100, and language-model fine-tuning on GLUE, SQuAD v2, and WikiText-103, show that our method can match or improve LoRA baselines given modest compute overhead, while avoiding full-matrix SVD projections and retaining LoRA-style parameter efficiency.",
+      "authors": [
+        "Abdulla Jasem Almansoori",
+        "Maria Ivanova",
+        "Andrey Veprikov",
+        "Aleksandr Beznosikov",
+        "Samuel Horváth",
+        "Martin Takáč"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T13:41:41Z",
+      "updated": "2026-02-18T13:41:41Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16456v1",
+      "abs_url": "http://arxiv.org/abs/2602.16456v1",
+      "summary": "提出了LoRSum方法，通过近端子空间迭代，在避免SVD的情况下高效微调LoRA模型。",
+      "key_contributions": [
+        "提出了LoRSum算法，高效优化LoRA",
+        "将LoRA优化视为近端子问题并用ALS解决",
+        "使用结构化指标（K-FAC, Shampoo）的对角线，提高内存效率"
+      ],
+      "methodology": "将LoRA优化建模为近端子问题，使用交替最小二乘更新（ALS）迭代求解，并结合结构化指标的对角线信息进行预处理。",
+      "tags": [
+        "LoRA",
+        "Fine-tuning",
+        "Low-Rank Adaptation",
+        "Optimization",
+        "K-FAC"
+      ],
+      "assigned_category": "agent_tuning",
+      "relevance_score": 7,
+      "relevance_reason": "主要关注LoRA的优化，是agent tuning的一种方法。",
+      "analyzed_at": "2026-02-19T06:59:55.600507",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16455v1",
+      "title": "Visual Self-Refine: A Pixel-Guided Paradigm for Accurate Chart Parsing",
+      "abstract": "While Large Vision-Language Models (LVLMs) have demonstrated remarkable capabilities for reasoning and self-correction at the textual level, these strengths provide minimal benefits for complex tasks centered on visual perception, such as Chart Parsing. Existing models often struggle with visually dense charts, leading to errors like data omission, misalignment, and hallucination. Inspired by the human strategy of using a finger as a ``visual anchor'' to ensure accuracy when reading complex charts, we propose a new paradigm named Visual Self-Refine (VSR). The core idea of VSR is to enable a model to generate pixel-level localization outputs, visualize them, and then feed these visualizations back to itself, allowing it to intuitively inspect and correct its own potential visual perception errors. We instantiate the VSR paradigm in the domain of Chart Parsing by proposing ChartVSR. This model decomposes the parsing process into two stages: a Refine Stage, where it iteratively uses visual feedback to ensure the accuracy of all data points' Pixel-level Localizations, and a Decode Stage, where it uses these verified localizations as precise visual anchors to parse the final structured data. To address the limitations of existing benchmarks, we also construct ChartP-Bench, a new and highly challenging benchmark for chart parsing. Our work also highlights VSR as a general-purpose visual feedback mechanism, offering a promising new direction for enhancing accuracy on a wide range of vision-centric tasks.",
+      "authors": [
+        "Jinsong Li",
+        "Xiaoyi Dong",
+        "Yuhang Zang",
+        "Yuhang Cao",
+        "Jiaqi Wang",
+        "Dahua Lin"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T13:40:53Z",
+      "updated": "2026-02-18T13:40:53Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16455v1",
+      "abs_url": "http://arxiv.org/abs/2602.16455v1",
+      "summary": "提出Visual Self-Refine框架，利用像素级视觉反馈提升LVLM在图表解析中的准确性。",
+      "key_contributions": [
+        "提出Visual Self-Refine (VSR)范式",
+        "提出ChartVSR模型应用于图表解析",
+        "构建了更具挑战性的图表解析基准数据集ChartP-Bench"
+      ],
+      "methodology": "VSR通过迭代视觉反馈，校正像素级定位，作为视觉锚点解析结构化数据，分为Refine和Decode两个阶段。",
+      "tags": [
+        "Visual Self-Refine",
+        "Chart Parsing",
+        "Vision-Language Model",
+        "Pixel-level Localization"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注VLM在视觉图表解析中的应用，属于多模态学习的关键问题。",
+      "analyzed_at": "2026-02-19T06:59:57.717982",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16444v1",
+      "title": "RoboGene: Boosting VLA Pre-training via Diversity-Driven Agentic Framework for Real-World Task Generation",
+      "abstract": "The pursuit of general-purpose robotic manipulation is hindered by the scarcity of diverse, real-world interaction data. Unlike data collection from web in vision or language, robotic data collection is an active process incurring prohibitive physical costs. Consequently, automated task curation to maximize data value remains a critical yet under-explored challenge. Existing manual methods are unscalable and biased toward common tasks, while off-the-shelf foundation models often hallucinate physically infeasible instructions. To address this, we introduce RoboGene, an agentic framework designed to automate the generation of diverse, physically plausible manipulation tasks across single-arm, dual-arm, and mobile robots. RoboGene integrates three core components: diversity-driven sampling for broad task coverage, self-reflection mechanisms to enforce physical constraints, and human-in-the-loop refinement for continuous improvement. We conduct extensive quantitative analysis and large-scale real-world experiments, collecting datasets of 18k trajectories and introducing novel metrics to assess task quality, feasibility, and diversity. Results demonstrate that RoboGene significantly outperforms state-of-the-art foundation models (e.g., GPT-4o, Gemini 2.5 Pro). Furthermore, real-world experiments show that VLA models pre-trained with RoboGene achieve higher success rates and superior generalization, underscoring the importance of high-quality task generation. Our project is available at https://robogene-boost-vla.github.io.",
+      "authors": [
+        "Yixue Zhang",
+        "Kun Wu",
+        "Zhi Gao",
+        "Zhen Zhao",
+        "Pei Ren",
+        "Zhiyuan Xu",
+        "Fei Liao",
+        "Xinhua Wang",
+        "Shichao Fan",
+        "Di Wu",
+        "Qiuxuan Feng",
+        "Meng Li",
+        "Zhengping Che",
+        "Chang Liu",
+        "Jian Tang"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.RO",
+      "published": "2026-02-18T13:29:43Z",
+      "updated": "2026-02-18T13:29:43Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16444v1",
+      "abs_url": "http://arxiv.org/abs/2602.16444v1",
+      "summary": "RoboGene自动化生成多样且符合物理规律的机器人任务，提升VLA预训练效果。",
+      "key_contributions": [
+        "提出RoboGene框架，用于自动化生成机器人任务",
+        "结合多样性驱动采样、自反思机制和人机协作",
+        "收集了18k轨迹的真实世界数据集，并提出评估指标"
+      ],
+      "methodology": "RoboGene通过多样性驱动采样生成任务，自反思机制保证物理可行性，人机协作进行优化。",
+      "tags": [
+        "机器人",
+        "任务生成",
+        "VLA预训练",
+        "多模态学习"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于通过任务生成提升VLA性能，与多模态学习高度相关。",
+      "analyzed_at": "2026-02-19T06:59:59.583558",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16442v1",
+      "title": "Hardware-accelerated graph neural networks: an alternative approach for neuromorphic event-based audio classification and keyword spotting on SoC FPGA",
+      "abstract": "As the volume of data recorded by embedded edge sensors increases, particularly from neuromorphic devices producing discrete event streams, there is a growing need for hardware-aware neural architectures that enable efficient, low-latency, and energy-conscious local processing. We present an FPGA implementation of event-graph neural networks for audio processing. We utilise an artificial cochlea that converts time-series signals into sparse event data, reducing memory and computation costs. Our architecture was implemented on a SoC FPGA and evaluated on two open-source datasets. For classification task, our baseline floating-point model achieves 92.7% accuracy on SHD dataset - only 2.4% below the state of the art - while requiring over 10x and 67x fewer parameters. On SSC, our models achieve 66.9-71.0% accuracy. Compared to FPGA-based spiking neural networks, our quantised model reaches 92.3% accuracy, outperforming them by up to 19.3% while reducing resource usage and latency. For SSC, we report the first hardware-accelerated evaluation. We further demonstrate the first end-to-end FPGA implementation of event-audio keyword spotting, combining graph convolutional layers with recurrent sequence modelling. The system achieves up to 95% word-end detection accuracy, with only 10.53 microsecond latency and 1.18 W power consumption, establishing a strong benchmark for energy-efficient event-driven KWS.",
+      "authors": [
+        "Kamil Jeziorek",
+        "Piotr Wzorek",
+        "Krzysztof Blachut",
+        "Hiroshi Nakano",
+        "Manon Dampfhoffer",
+        "Thomas Mesquida",
+        "Hiroaki Nishi",
+        "Thomas Dalgaty",
+        "Tomasz Kryjak"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.SD",
+        "eess.AS"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T13:26:22Z",
+      "updated": "2026-02-18T13:26:22Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16442v1",
+      "abs_url": "http://arxiv.org/abs/2602.16442v1",
+      "summary": "论文提出一种基于FPGA的硬件加速事件图神经网络，用于低延迟、低功耗的事件驱动音频处理。",
+      "key_contributions": [
+        "提出基于FPGA的事件图神经网络架构。",
+        "实现高效的事件驱动音频分类和关键词检测。",
+        "在功耗和延迟方面建立新的基准。"
+      ],
+      "methodology": "利用人工耳蜗将时间序列信号转换为稀疏事件数据，使用图卷积网络和循环序列模型进行音频处理，并在SoC FPGA上实现。",
+      "tags": [
+        "FPGA",
+        "图神经网络",
+        "音频处理",
+        "事件驱动",
+        "关键词检测"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 6,
+      "relevance_reason": "虽然主要关注硬件实现，但涉及Agent端感知问题，具有一定参考价值。",
+      "analyzed_at": "2026-02-19T07:00:01.600946",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16438v1",
+      "title": "Intra-Fairness Dynamics: The Bias Spillover Effect in Targeted LLM Alignment",
+      "abstract": "Conventional large language model (LLM) fairness alignment largely focuses on mitigating bias along single sensitive attributes, overlooking fairness as an inherently multidimensional and context-specific value. This approach risks creating systems that achieve narrow fairness metrics while exacerbating disparities along untargeted attributes, a phenomenon known as bias spillover. While extensively studied in machine learning, bias spillover remains critically underexplored in LLM alignment. In this work, we investigate how targeted gender alignment affects fairness across nine sensitive attributes in three state-of-the-art LLMs (Mistral 7B, Llama 3.1 8B, Qwen 2.5 7B). Using Direct Preference Optimization and the BBQ benchmark, we evaluate fairness under ambiguous and disambiguous contexts. Our findings reveal noticeable bias spillover: while aggregate results show improvements, context-aware analysis exposes significant degradations in ambiguous contexts, particularly for physical appearance ($p< 0.001$ across all models), sexual orientation, and disability status. We demonstrate that improving fairness along one attribute can inadvertently worsen disparities in others under uncertainty, highlighting the necessity of context-aware, multi-attribute fairness evaluation frameworks.",
+      "authors": [
+        "Eva Paraschou",
+        "Line Harder Clemmensen",
+        "Sneha Das"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T13:19:11Z",
+      "updated": "2026-02-18T13:19:11Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16438v1",
+      "abs_url": "http://arxiv.org/abs/2602.16438v1",
+      "summary": "研究表明，LLM公平性对齐在单一属性上优化可能导致其他属性的偏差加剧，存在偏差溢出效应。",
+      "key_contributions": [
+        "揭示了LLM对齐中目标属性的公平性优化可能导致其他属性的偏差溢出效应",
+        "通过实验证明了在模糊语境下，改善一个属性的公平性可能恶化其他属性的不公平性",
+        "强调了在LLM公平性评估中进行语境感知和多属性评估的重要性"
+      ],
+      "methodology": "使用直接偏好优化（DPO）对三个LLM进行性别对齐，并使用BBQ基准在模糊和非模糊语境下评估公平性。",
+      "tags": [
+        "LLM",
+        "Fairness",
+        "Bias Spillover",
+        "Alignment"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 8,
+      "relevance_reason": "论文研究了LLM在公平性方面的推理能力，涉及偏差和对齐，对LLM推理有重要参考价值。",
+      "analyzed_at": "2026-02-19T07:00:03.948893",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16435v1",
+      "title": "Causally-Guided Automated Feature Engineering with Multi-Agent Reinforcement Learning",
+      "abstract": "Automated feature engineering (AFE) enables AI systems to autonomously construct high-utility representations from raw tabular data. However, existing AFE methods rely on statistical heuristics, yielding brittle features that fail under distribution shift. We introduce CAFE, a framework that reformulates AFE as a causally-guided sequential decision process, bridging causal discovery with reinforcement learning-driven feature construction. Phase I learns a sparse directed acyclic graph over features and the target to obtain soft causal priors, grouping features as direct, indirect, or other based on their causal influence with respect to the target. Phase II uses a cascading multi-agent deep Q-learning architecture to select causal groups and transformation operators, with hierarchical reward shaping and causal group-level exploration strategies that favor causally plausible transformations while controlling feature complexity. Across 15 public benchmarks (classification with macro-F1; regression with inverse relative absolute error), CAFE achieves up to 7% improvement over strong AFE baselines, reduces episodes-to-convergence, and delivers competitive time-to-target. Under controlled covariate shifts, CAFE reduces performance drop by ~4x relative to a non-causal multi-agent baseline, and produces more compact feature sets with more stable post-hoc attributions. These findings underscore that causal structure, used as a soft inductive prior rather than a rigid constraint, can substantially improve the robustness and efficiency of automated feature engineering.",
+      "authors": [
+        "Arun Vignesh Malarkkan",
+        "Wangyang Ying",
+        "Yanjie Fu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T13:12:11Z",
+      "updated": "2026-02-18T13:12:11Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16435v1",
+      "abs_url": "http://arxiv.org/abs/2602.16435v1",
+      "summary": "CAFE框架利用因果图指导自动特征工程，提高特征的鲁棒性和效率。",
+      "key_contributions": [
+        "提出CAFE框架，结合因果发现和强化学习进行特征工程",
+        "使用多智能体深度Q学习架构选择特征组和转换算子",
+        "验证了因果结构作为软性归纳偏置可以提升 AFE 的鲁棒性和效率"
+      ],
+      "methodology": "分为两个阶段：因果图学习和基于多智能体强化学习的特征构建，并采用分层奖励塑造和因果组级别探索策略。",
+      "tags": [
+        "自动特征工程",
+        "因果推断",
+        "强化学习",
+        "多智能体"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "论文使用多智能体强化学习，构建可以自主进行特征工程的智能体，属于Agent领域的重要方面。",
+      "analyzed_at": "2026-02-19T07:00:06.045765",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16430v1",
+      "title": "Designing Production-Scale OCR for India: Multilingual and Domain-Specific Systems",
+      "abstract": "Designing Optical Character Recognition (OCR) systems for India requires balancing linguistic diversity, document heterogeneity, and deployment constraints. In this paper, we study two training strategies for building multilingual OCR systems with Vision-Language Models through the Chitrapathak series. We first follow a popular multimodal approach, pairing a generic vision encoder with a strong multilingual language model and training the system end-to-end for OCR. Alternatively, we explore fine-tuning an existing OCR model, despite not being trained for the target languages. Through extensive evaluation on multilingual Indic OCR benchmarks and deployment-oriented metrics, we find that the second strategy consistently achieves better accuracy-latency trade-offs. Chitrapathak-2 achieves 3-6x speedup over its predecessor with being state-of-the-art (SOTA) in Telugu (6.69 char ANLS) and second best in the rest. In addition, we present Parichay, an independent OCR model series designed specifically for 9 Indian government documents to extract structured key fields, achieving 89.8% Exact Match score with a faster inference. Together, these systems achieve SOTA performance and provide practical guidance for building production-scale OCR pipelines in the Indian context.",
+      "authors": [
+        "Ali Faraz",
+        "Raja Kolla",
+        "Ashish Kulkarni",
+        "Shubham Agarwal"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T13:03:05Z",
+      "updated": "2026-02-18T13:03:05Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16430v1",
+      "abs_url": "http://arxiv.org/abs/2602.16430v1",
+      "summary": "论文针对印度场景设计高效OCR系统，提出两种训练策略并构建了两个SOTA模型。",
+      "key_contributions": [
+        "提出两种针对印度语境的多语言OCR训练策略",
+        "构建了Chitrapathak系列OCR模型，并在Telugu上达到SOTA",
+        "构建了Parichay系列OCR模型，用于识别印度政府文档",
+        "提供了构建印度生产级OCR流水线的实践指导"
+      ],
+      "methodology": "论文对比了端到端训练和微调现有OCR模型两种方法，并针对特定领域训练OCR模型。",
+      "tags": [
+        "OCR",
+        "多语言",
+        "印度",
+        "视觉语言模型",
+        "文档识别"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 8,
+      "relevance_reason": "论文核心内容是多语言场景下的视觉语言模型应用，与multimodal类别高度相关。",
+      "analyzed_at": "2026-02-19T07:00:08.242318",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16429v1",
+      "title": "TabAgent: A Framework for Replacing Agentic Generative Components with Tabular-Textual Classifiers",
+      "abstract": "Agentic systems, AI architectures that autonomously execute multi-step workflows to achieve complex goals, are often built using repeated large language model (LLM) calls for closed-set decision tasks such as routing, shortlisting, gating, and verification. While convenient, this design makes deployments slow and expensive due to cumulative latency and token usage. We propose TabAgent, a framework for replacing generative decision components in closed-set selection tasks with a compact textual-tabular classifier trained on execution traces. TabAgent (i) extracts structured schema, state, and dependency features from trajectories (TabSchema), (ii) augments coverage with schema-aligned synthetic supervision (TabSynth), and (iii) scores candidates with a lightweight classifier (TabHead). On the long-horizon AppWorld benchmark, TabAgent maintains task-level success while eliminating shortlist-time LLM calls, reducing latency by approximately 95% and inference cost by 85-91%. Beyond tool shortlisting, TabAgent generalizes to other agentic decision heads, establishing a paradigm for learned discriminative replacements of generative bottlenecks in production agent architectures.",
+      "authors": [
+        "Ido Levy",
+        "Eilam Shapira",
+        "Yinon Goldshtein",
+        "Avi Yaeli",
+        "Nir Mashkif",
+        "Segev Shlomov"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T13:01:17Z",
+      "updated": "2026-02-18T13:01:17Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16429v1",
+      "abs_url": "http://arxiv.org/abs/2602.16429v1",
+      "summary": "TabAgent用轻量级分类器替代Agent中耗时的LLM决策组件，显著降低延迟和成本。",
+      "key_contributions": [
+        "提出了TabAgent框架，替换Agent中的生成式决策组件",
+        "使用文本表格分类器，减少延迟和成本",
+        "通过TabSchema和TabSynth增强模型覆盖"
+      ],
+      "methodology": "从执行轨迹提取特征，使用schema-aligned合成数据增强，训练轻量级分类器来替代LLM调用。",
+      "tags": [
+        "AI Agents",
+        "分类器",
+        "文本表格数据",
+        "效率优化"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注Agent的效率优化，直接研究了如何用更高效的模块替代LLM调用。",
+      "analyzed_at": "2026-02-19T07:00:10.169967",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16424v1",
+      "title": "Verifiable Semantics for Agent-to-Agent Communication",
+      "abstract": "Multiagent AI systems require consistent communication, but we lack methods to verify that agents share the same understanding of the terms used. Natural language is interpretable but vulnerable to semantic drift, while learned protocols are efficient but opaque. We propose a certification protocol based on the stimulus-meaning model, where agents are tested on shared observable events and terms are certified if empirical disagreement falls below a statistical threshold. In this protocol, agents restricting their reasoning to certified terms (\"core-guarded reasoning\") achieve provably bounded disagreement. We also outline mechanisms for detecting drift (recertification) and recovering shared vocabulary (renegotiation). In simulations with varying degrees of semantic divergence, core-guarding reduces disagreement by 72-96%. In a validation with fine-tuned language models, disagreement is reduced by 51%. Our framework provides a first step towards verifiable agent-to-agent communication.",
+      "authors": [
+        "Philipp Schoenegger",
+        "Matt Carlson",
+        "Chris Schneider",
+        "Chris Daly"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T12:55:58Z",
+      "updated": "2026-02-18T12:55:58Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16424v1",
+      "abs_url": "http://arxiv.org/abs/2602.16424v1",
+      "summary": "提出了一种可验证的多智能体通信框架，降低语义分歧，提升一致性。",
+      "key_contributions": [
+        "提出基于刺激-意义模型（stimulus-meaning model）的认证协议。",
+        "核心保护推理（core-guarded reasoning）可证明地限制分歧。",
+        "提出语义漂移检测和词汇恢复机制。"
+      ],
+      "methodology": "通过共享可观察事件测试智能体，使用统计阈值认证术语，限制智能体使用认证术语进行推理。",
+      "tags": [
+        "multi-agent systems",
+        "communication protocols",
+        "verifiable semantics",
+        "semantic drift"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接解决了多智能体通信中的语义一致性问题，是agent领域的核心问题。",
+      "analyzed_at": "2026-02-19T07:00:12.026811",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16422v1",
+      "title": "Automated Histopathology Report Generation via Pyramidal Feature Extraction and the UNI Foundation Model",
+      "abstract": "Generating diagnostic text from histopathology whole slide images (WSIs) is challenging due to the gigapixel scale of the input and the requirement for precise, domain specific language. We propose a hierarchical vision language framework that combines a frozen pathology foundation model with a Transformer decoder for report generation. To make WSI processing tractable, we perform multi resolution pyramidal patch selection (downsampling factors 2^3 to 2^6) and remove background and artifacts using Laplacian variance and HSV based criteria. Patch features are extracted with the UNI Vision Transformer and projected to a 6 layer Transformer decoder that generates diagnostic text via cross attention. To better represent biomedical terminology, we tokenize the output using BioGPT. Finally, we add a retrieval based verification step that compares generated reports with a reference corpus using Sentence BERT embeddings; if a high similarity match is found, the generated report is replaced with the retrieved ground truth reference to improve reliability.",
+      "authors": [
+        "Ahmet Halici",
+        "Ece Tugba Cebeci",
+        "Musa Balci",
+        "Mustafa Cini",
+        "Serkan Sokmen"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "primary_category": "eess.IV",
+      "published": "2026-02-18T12:55:20Z",
+      "updated": "2026-02-18T12:55:20Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16422v1",
+      "abs_url": "http://arxiv.org/abs/2602.16422v1",
+      "summary": "提出一种基于金字塔特征提取和UNI基础模型的自动病理报告生成框架。",
+      "key_contributions": [
+        "提出基于UNI和Transformer解码器的分层视觉语言框架",
+        "采用多分辨率金字塔式patch选择和图像预处理",
+        "使用BioGPT分词器优化生物医学术语表示"
+      ],
+      "methodology": "利用金字塔特征提取WSI图像特征，通过UNI和Transformer解码器生成报告，并进行检索验证。",
+      "tags": [
+        "病理报告生成",
+        "视觉语言模型",
+        "医学图像处理"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "核心研究视觉和语言结合的病理报告自动生成，属于该领域关键问题。",
+      "analyzed_at": "2026-02-19T07:00:13.996567",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16412v1",
+      "title": "ReMoRa: Multimodal Large Language Model based on Refined Motion Representation for Long-Video Understanding",
+      "abstract": "While multimodal large language models (MLLMs) have shown remarkable success across a wide range of tasks, long-form video understanding remains a significant challenge. In this study, we focus on video understanding by MLLMs. This task is challenging because processing a full stream of RGB frames is computationally intractable and highly redundant, as self-attention have quadratic complexity with sequence length. In this paper, we propose ReMoRa, a video MLLM that processes videos by operating directly on their compressed representations. A sparse set of RGB keyframes is retained for appearance, while temporal dynamics are encoded as a motion representation, removing the need for sequential RGB frames. These motion representations act as a compact proxy for optical flow, capturing temporal dynamics without full frame decoding. To refine the noise and low fidelity of block-based motions, we introduce a module to denoise and generate a fine-grained motion representation. Furthermore, our model compresses these features in a way that scales linearly with sequence length. We demonstrate the effectiveness of ReMoRa through extensive experiments across a comprehensive suite of long-video understanding benchmarks. ReMoRa outperformed baseline methods on multiple challenging benchmarks, including LongVideoBench, NExT-QA, and MLVU.",
+      "authors": [
+        "Daichi Yashima",
+        "Shuhei Kurita",
+        "Yusuke Oda",
+        "Komei Sugiura"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T12:37:35Z",
+      "updated": "2026-02-18T12:37:35Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16412v1",
+      "abs_url": "http://arxiv.org/abs/2602.16412v1",
+      "summary": "ReMoRa通过精炼的运动表征，提升多模态大语言模型在长视频理解上的性能。",
+      "key_contributions": [
+        "提出ReMoRa，一种基于压缩表示的视频MLLM",
+        "使用运动表征编码时间动态，减少计算冗余",
+        "引入模块降噪并生成细粒度的运动表征"
+      ],
+      "methodology": "ReMoRa保留RGB关键帧提取外观信息，利用运动表征捕捉时间动态，并通过降噪模块生成精细的运动信息。",
+      "tags": [
+        "MLLM",
+        "多模态",
+        "视频理解",
+        "运动表征",
+        "长视频"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心是解决长视频理解的MLLM问题，直接相关。",
+      "analyzed_at": "2026-02-19T07:00:16.018747",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16379v1",
+      "title": "Label-Consistent Data Generation for Aspect-Based Sentiment Analysis Using LLM Agents",
+      "abstract": "We propose an agentic data augmentation method for Aspect-Based Sentiment Analysis (ABSA) that uses iterative generation and verification to produce high quality synthetic training examples. To isolate the effect of agentic structure, we also develop a closely matched prompting-based baseline using the same model and instructions. Both methods are evaluated across three ABSA subtasks (Aspect Term Extraction (ATE), Aspect Sentiment Classification (ATSC), and Aspect Sentiment Pair Extraction (ASPE)), four SemEval datasets, and two encoder-decoder models: T5-Base and Tk-Instruct. Our results show that the agentic augmentation outperforms raw prompting in label preservation of the augmented data, especially when the tasks require aspect term generation. In addition, when combined with real data, agentic augmentation provides higher gains, consistently outperforming prompting-based generation. These benefits are most pronounced for T5-Base, while the more heavily pretrained Tk-Instruct exhibits smaller improvements. As a result, augmented data helps T5-Base achieve comparable performance with its counterpart.",
+      "authors": [
+        "Mohammad H. A. Monfared",
+        "Lucie Flek",
+        "Akbar Karimi"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T11:38:11Z",
+      "updated": "2026-02-18T11:38:11Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16379v1",
+      "abs_url": "http://arxiv.org/abs/2602.16379v1",
+      "summary": "提出了一种基于LLM Agent的ABSA数据增强方法，通过迭代生成和验证提高合成数据的质量。",
+      "key_contributions": [
+        "提出Agentic数据增强方法，提升ABSA性能",
+        "对比Agentic方法和Prompting基线",
+        "在多个数据集和模型上验证有效性"
+      ],
+      "methodology": "使用LLM Agent进行迭代生成和验证，生成高质量的ABSA合成训练数据，并结合真实数据进行训练。",
+      "tags": [
+        "ABSA",
+        "数据增强",
+        "LLM Agent",
+        "情感分析"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "论文核心在于使用LLM Agent进行数据生成，与AI Agents领域高度相关。",
+      "analyzed_at": "2026-02-19T07:00:17.629553",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16375v1",
+      "title": "Variable-Length Semantic IDs for Recommender Systems",
+      "abstract": "Generative models are increasingly used in recommender systems, both for modeling user behavior as event sequences and for integrating large language models into recommendation pipelines. A key challenge in this setting is the extremely large cardinality of item spaces, which makes training generative models difficult and introduces a vocabulary gap between natural language and item identifiers. Semantic identifiers (semantic IDs), which represent items as sequences of low-cardinality tokens, have recently emerged as an effective solution to this problem.   However, existing approaches generate semantic identifiers of fixed length, assigning the same description length to all items. This is inefficient, misaligned with natural language, and ignores the highly skewed frequency structure of real-world catalogs, where popular items and rare long-tail items exhibit fundamentally different information requirements. In parallel, the emergent communication literature studies how agents develop discrete communication protocols, often producing variable-length messages in which frequent concepts receive shorter descriptions. Despite the conceptual similarity, these ideas have not been systematically adopted in recommender systems.   In this work, we bridge recommender systems and emergent communication by introducing variable-length semantic identifiers for recommendation. We propose a discrete variational autoencoder with Gumbel-Softmax reparameterization that learns item representations of adaptive length under a principled probabilistic framework, avoiding the instability of REINFORCE-based training and the fixed-length constraints of prior semantic ID methods.",
+      "authors": [
+        "Kirill Khrylchenko"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "primary_category": "cs.IR",
+      "published": "2026-02-18T11:29:05Z",
+      "updated": "2026-02-18T11:29:05Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16375v1",
+      "abs_url": "http://arxiv.org/abs/2602.16375v1",
+      "summary": "提出一种变长语义ID的推荐系统模型，解决固定长度语义ID的效率和信息不对称问题。",
+      "key_contributions": [
+        "提出变长语义ID用于推荐系统",
+        "使用离散变分自编码器学习项目表征",
+        "避免了REINFORCE训练的不稳定性和固定长度约束"
+      ],
+      "methodology": "使用Gumbel-Softmax重参数化的离散变分自编码器，学习具有自适应长度的项目表征。",
+      "tags": [
+        "推荐系统",
+        "语义ID",
+        "变分自编码器",
+        "生成模型",
+        "自然语言处理"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 6,
+      "relevance_reason": "虽然主要关注推荐系统，但涉及了AI agent中通信协议学习的相关概念。",
+      "analyzed_at": "2026-02-19T07:00:19.340972",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16372v1",
+      "title": "AI-Driven Structure Refinement of X-ray Diffraction",
+      "abstract": "Artificial intelligence can rapidly propose candidate phases and structures from X-ray diffraction (XRD), but these hypotheses often fail in downstream refinement because peak intensities cannot be stably assigned under severe overlap and diffraction consistency is enforced only weakly. Here we introduce WPEM, a physics-constrained whole-pattern decomposition and refinement workflow that turns Bragg's law into an explicit constraint within a batch expectation--maximization framework. WPEM models the full profile as a probabilistic mixture density and iteratively infers component-resolved intensities while keeping peak centres Bragg-consistent, producing a continuous, physically admissible intensity representation that remains stable in heavily overlapped regions and in the presence of mixed radiation or multiple phases. We benchmark WPEM on standard reference patterns (\\ce{PbSO4} and \\ce{Tb2BaCoO5}), where it yields lower $R_{\\mathrm{p}}$/$R_{\\mathrm{wp}}$ than widely used packages (FullProf and TOPAS) under matched refinement conditions. We further demonstrate generality across realistic experimental scenarios, including phase-resolved decomposition of a multiphase Ti--15Nb thin film, quantitative recovery of \\ce{NaCl}--\\ce{Li2CO3} mixture compositions, separation of crystalline peaks from amorphous halos in semicrystalline polymers, high-throughput operando lattice tracking in layered cathodes, automated refinement of a compositionally disordered Ru--Mn oxide solid solution (CCDC 2530452), and quantitative phase-resolved deciphering of an ancient Egyptian make-up sample from synchrotron powder XRD. By providing Bragg-consistent, uncertainty-aware intensity partitioning as a refinement-ready interface, WPEM closes the gap between AI-generated hypotheses and diffraction-admissible structure refinement on challenging XRD data.",
+      "authors": [
+        "Bin Cao",
+        "Qian Zhang",
+        "Zhenjie Feng",
+        "Taolue Zhang",
+        "Jiaqiang Huang",
+        "Lu-Tao Weng",
+        "Tong-Yi Zhang"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.AI"
+      ],
+      "primary_category": "cond-mat.mtrl-sci",
+      "published": "2026-02-18T11:14:35Z",
+      "updated": "2026-02-18T11:14:35Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16372v1",
+      "abs_url": "http://arxiv.org/abs/2602.16372v1",
+      "summary": "论文提出了一种基于人工智能和物理约束的XRD结构精修方法WPEM，提升了衍射数据分析的准确性和效率。",
+      "key_contributions": [
+        "提出了基于物理约束的整体模式分解和精修工作流程WPEM",
+        "实现了布拉格定律在batch EM框架中的显式约束",
+        "在复杂XRD数据分析中表现优于传统方法，应用于多种实际场景"
+      ],
+      "methodology": "WPEM利用概率混合密度模型完整轮廓，迭代推断成分分解的强度，同时保持峰中心与布拉格一致，进行结构精修。",
+      "tags": [
+        "X-ray Diffraction",
+        "Structure Refinement",
+        "Artificial Intelligence",
+        "Physics-constrained",
+        "Expectation-Maximization"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 5,
+      "relevance_reason": "虽然应用了AI，但侧重于物理模型的改进，推理能力的提升有限。",
+      "analyzed_at": "2026-02-19T07:00:21.314239",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16363v1",
+      "title": "Improved Bounds for Reward-Agnostic and Reward-Free Exploration",
+      "abstract": "We study reward-free and reward-agnostic exploration in episodic finite-horizon Markov decision processes (MDPs), where an agent explores an unknown environment without observing external rewards. Reward-free exploration aims to enable $ε$-optimal policies for any reward revealed after exploration, while reward-agnostic exploration targets $ε$-optimality for rewards drawn from a small finite class. In the reward-agnostic setting, Li, Yan, Chen, and Fan achieve minimax sample complexity, but only for restrictively small accuracy parameter $ε$. We propose a new algorithm that significantly relaxes the requirement on $ε$. Our approach is novel and of technical interest by itself. Our algorithm employs an online learning procedure with carefully designed rewards to construct an exploration policy, which is used to gather data sufficient for accurate dynamics estimation and subsequent computation of an $ε$-optimal policy once the reward is revealed. Finally, we establish a tight lower bound for reward-free exploration, closing the gap between known upper and lower bounds.",
+      "authors": [
+        "Oran Ridel",
+        "Alon Cohen"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T11:04:15Z",
+      "updated": "2026-02-18T11:04:15Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16363v1",
+      "abs_url": "http://arxiv.org/abs/2602.16363v1",
+      "summary": "改进了MDP中reward-free和reward-agnostic探索的界限，并提出了新的算法。",
+      "key_contributions": [
+        "放松了reward-agnostic探索中对ε的要求",
+        "提出了一种新的在线学习算法",
+        "建立了reward-free探索的tight lower bound"
+      ],
+      "methodology": "使用在线学习程序，精心设计奖励以构建探索策略，收集数据以进行精确的动态估计和后续计算ε-optimal策略。",
+      "tags": [
+        "强化学习",
+        "探索",
+        "MDP",
+        "在线学习"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 7,
+      "relevance_reason": "该论文探讨了智能体在未知环境中探索的策略，与智能体设计相关。",
+      "analyzed_at": "2026-02-19T07:00:22.973611",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16356v1",
+      "title": "Articulated 3D Scene Graphs for Open-World Mobile Manipulation",
+      "abstract": "Semantics has enabled 3D scene understanding and affordance-driven object interaction. However, robots operating in real-world environments face a critical limitation: they cannot anticipate how objects move. Long-horizon mobile manipulation requires closing the gap between semantics, geometry, and kinematics. In this work, we present MoMa-SG, a novel framework for building semantic-kinematic 3D scene graphs of articulated scenes containing a myriad of interactable objects. Given RGB-D sequences containing multiple object articulations, we temporally segment object interactions and infer object motion using occlusion-robust point tracking. We then lift point trajectories into 3D and estimate articulation models using a novel unified twist estimation formulation that robustly estimates revolute and prismatic joint parameters in a single optimization pass. Next, we associate objects with estimated articulations and detect contained objects by reasoning over parent-child relations at identified opening states. We also introduce the novel Arti4D-Semantic dataset, which uniquely combines hierarchical object semantics including parent-child relation labels with object axis annotations across 62 in-the-wild RGB-D sequences containing 600 object interactions and three distinct observation paradigms. We extensively evaluate the performance of MoMa-SG on two datasets and ablate key design choices of our approach. In addition, real-world experiments on both a quadruped and a mobile manipulator demonstrate that our semantic-kinematic scene graphs enable robust manipulation of articulated objects in everyday home environments. We provide code and data at: https://momasg.cs.uni-freiburg.de.",
+      "authors": [
+        "Martin Büchner",
+        "Adrian Röfer",
+        "Tim Engelbracht",
+        "Tim Welschehold",
+        "Zuria Bauer",
+        "Hermann Blum",
+        "Marc Pollefeys",
+        "Abhinav Valada"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "primary_category": "cs.RO",
+      "published": "2026-02-18T10:40:35Z",
+      "updated": "2026-02-18T10:40:35Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16356v1",
+      "abs_url": "http://arxiv.org/abs/2602.16356v1",
+      "summary": "提出MoMa-SG框架，构建可交互场景的语义-运动学3D场景图，用于移动操作任务。",
+      "key_contributions": [
+        "提出MoMa-SG框架",
+        "提出统一twist估计公式",
+        "构建Arti4D-Semantic数据集"
+      ],
+      "methodology": "通过时序分割交互，用鲁棒点跟踪推断运动，提升为3D，估计关节模型，关联对象，检测包含对象。",
+      "tags": [
+        "3D Scene Graph",
+        "Mobile Manipulation",
+        "Articulated Objects",
+        "Kinematics",
+        "Semantics"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 8,
+      "relevance_reason": "该论文旨在解决移动操作任务，智能体是其核心应用场景。",
+      "analyzed_at": "2026-02-19T07:00:24.703965",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16346v1",
+      "title": "Helpful to a Fault: Measuring Illicit Assistance in Multi-Turn, Multilingual LLM Agents",
+      "abstract": "LLM-based agents execute real-world workflows via tools and memory. These affordances enable ill-intended adversaries to also use these agents to carry out complex misuse scenarios. Existing agent misuse benchmarks largely test single-prompt instructions, leaving a gap in measuring how agents end up helping with harmful or illegal tasks over multiple turns. We introduce STING (Sequential Testing of Illicit N-step Goal execution), an automated red-teaming framework that constructs a step-by-step illicit plan grounded in a benign persona and iteratively probes a target agent with adaptive follow-ups, using judge agents to track phase completion. We further introduce an analysis framework that models multi-turn red-teaming as a time-to-first-jailbreak random variable, enabling analysis tools like discovery curves, hazard-ratio attribution by attack language, and a new metric: Restricted Mean Jailbreak Discovery. Across AgentHarm scenarios, STING yields substantially higher illicit-task completion than single-turn prompting and chat-oriented multi-turn baselines adapted to tool-using agents. In multilingual evaluations across six non-English settings, we find that attack success and illicit-task completion do not consistently increase in lower-resource languages, diverging from common chatbot findings. Overall, STING provides a practical way to evaluate and stress-test agent misuse in realistic deployment settings, where interactions are inherently multi-turn and often multilingual.",
+      "authors": [
+        "Nivya Talokar",
+        "Ayush K Tarun",
+        "Murari Mandal",
+        "Maksym Andriushchenko",
+        "Antoine Bosselut"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T10:31:19Z",
+      "updated": "2026-02-18T10:31:19Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16346v1",
+      "abs_url": "http://arxiv.org/abs/2602.16346v1",
+      "summary": "STING框架用于评估多轮多语言LLM Agent的非法辅助能力，发现现有方法不足，并提出改进。",
+      "key_contributions": [
+        "提出了STING框架，用于自动化评估多轮LLM Agent的非法辅助能力。",
+        "引入了分析框架，将多轮红队测试建模为时间-越狱事件，并提出了RMD指标。",
+        "多语言评估表明，攻击成功率和任务完成度不一定随低资源语言而增加。"
+      ],
+      "methodology": "构建基于良性角色设定的逐步非法计划，迭代探测Agent，使用judge agents跟踪完成情况，并进行统计分析。",
+      "tags": [
+        "LLM Agents",
+        "Red Teaming",
+        "Multilingual",
+        "Security"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "核心关注LLM Agent的安全和多轮交互，直接相关。",
+      "analyzed_at": "2026-02-19T07:00:26.768816",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16341v1",
+      "title": "Explainability for Fault Detection System in Chemical Processes",
+      "abstract": "In this work, we apply and compare two state-of-the-art eXplainability Artificial Intelligence (XAI) methods, the Integrated Gradients (IG) and the SHapley Additive exPlanations (SHAP), that explain the fault diagnosis decisions of a highly accurate Long Short-Time Memory (LSTM) classifier. The classifier is trained to detect faults in a benchmark non-linear chemical process, the Tennessee Eastman Process (TEP). It is highlighted how XAI methods can help identify the subsystem of the process where the fault occurred. Using our knowledge of the process, we note that in most cases the same features are indicated as the most important for the decision, while insome cases the SHAP method seems to be more informative and closer to the root cause of the fault. Finally, since the used XAI methods are model-agnostic, the proposed approach is not limited to the specific process and can also be used in similar problems.",
+      "authors": [
+        "Georgios Gravanis",
+        "Dimitrios Kyriakou",
+        "Spyros Voutetakis",
+        "Simira Papadopoulou",
+        "Konstantinos Diamantaras"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T10:26:12Z",
+      "updated": "2026-02-18T10:26:12Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16341v1",
+      "abs_url": "http://arxiv.org/abs/2602.16341v1",
+      "summary": "论文对比了IG和SHAP两种XAI方法在化工过程故障检测LSTM分类器中的应用，并分析了其有效性。",
+      "key_contributions": [
+        "比较IG和SHAP在化工过程故障诊断中的表现",
+        "利用XAI方法定位故障发生的子系统",
+        "验证了模型无关方法的可迁移性"
+      ],
+      "methodology": "使用IG和SHAP两种XAI方法解释LSTM分类器的决策，并在田纳西伊士曼过程(TEP)基准上进行验证。",
+      "tags": [
+        "XAI",
+        "LSTM",
+        "Fault Detection",
+        "Chemical Processes",
+        "SHAP",
+        "Integrated Gradients"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 6,
+      "relevance_reason": "虽然关注化工过程，但核心在于用XAI解释模型决策，属于可解释推理范畴。",
+      "analyzed_at": "2026-02-19T07:00:28.876364",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16334v1",
+      "title": "Spatial Audio Question Answering and Reasoning on Dynamic Source Movements",
+      "abstract": "Spatial audio understanding aims to enable machines to interpret complex auditory scenes, particularly when sound sources move over time. In this work, we study Spatial Audio Question Answering (Spatial AQA) with a focus on movement reasoning, where a model must infer object motion, position, and directional changes directly from stereo audio. First, we introduce a movement-centric spatial audio augmentation framework that synthesizes diverse motion patterns from isolated mono audio events, enabling controlled and scalable training data generation. Second, we propose an end-to-end multimodal finetuning approach with a thinking mode, which allows audio-language models to produce explicit intermediate reasoning steps before predicting an answer. Third, we investigate the impact of query-conditioned source separation as a preprocessing stage and compare three inference regimes: no masking, an audio grounding model (AGM), and ground-truth masks. Our results show that reasoning amplifies the benefits of source separation, with thinking mode showing significant improvement of +5.1% when a single event is present in the question. These findings highlight the interplay between movement modeling, reasoning, and separation quality, offering new insights for advancing spatial audio understanding.",
+      "authors": [
+        "Arvind Krishna Sridhar",
+        "Yinyi Guo",
+        "Erik Visser"
+      ],
+      "categories": [
+        "cs.SD",
+        "cs.AI"
+      ],
+      "primary_category": "cs.SD",
+      "published": "2026-02-18T10:16:30Z",
+      "updated": "2026-02-18T10:16:30Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16334v1",
+      "abs_url": "http://arxiv.org/abs/2602.16334v1",
+      "summary": "该论文研究了动态声源运动场景下的空间音频问答，并提出了相应的解决方案。",
+      "key_contributions": [
+        "提出了运动中心的空间音频增强框架",
+        "设计了带有思考模式的端到端多模态微调方法",
+        "研究了查询条件下的源分离作为预处理的影响"
+      ],
+      "methodology": "通过合成数据增强、多模态微调和源分离等方法，提升模型对动态声源空间音频的理解和推理能力。",
+      "tags": [
+        "空间音频",
+        "问答",
+        "运动推理",
+        "多模态学习",
+        "源分离"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 8,
+      "relevance_reason": "论文核心是多模态（音频-语言）学习，解决空间音频理解的推理任务。",
+      "analyzed_at": "2026-02-19T07:00:30.785478",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16320v1",
+      "title": "RefineFormer3D: Efficient 3D Medical Image Segmentation via Adaptive Multi-Scale Transformer with Cross Attention Fusion",
+      "abstract": "Accurate and computationally efficient 3D medical image segmentation remains a critical challenge in clinical workflows. Transformer-based architectures often demonstrate superior global contextual modeling but at the expense of excessive parameter counts and memory demands, restricting their clinical deployment. We propose RefineFormer3D, a lightweight hierarchical transformer architecture that balances segmentation accuracy and computational efficiency for volumetric medical imaging. The architecture integrates three key components: (i) GhostConv3D-based patch embedding for efficient feature extraction with minimal redundancy, (ii) MixFFN3D module with low-rank projections and depthwise convolutions for parameter-efficient feature extraction, and (iii) a cross-attention fusion decoder enabling adaptive multi-scale skip connection integration. RefineFormer3D contains only 2.94M parameters, substantially fewer than contemporary transformer-based methods. Extensive experiments on ACDC and BraTS benchmarks demonstrate that RefineFormer3D achieves 93.44\\% and 85.9\\% average Dice scores respectively, outperforming or matching state-of-the-art methods while requiring significantly fewer parameters. Furthermore, the model achieves fast inference (8.35 ms per volume on GPU) with low memory requirements, supporting deployment in resource-constrained clinical environments. These results establish RefineFormer3D as an effective and scalable solution for practical 3D medical image segmentation.",
+      "authors": [
+        "Kavyansh Tyagi",
+        "Vishwas Rathi",
+        "Puneet Goyal"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "primary_category": "eess.IV",
+      "published": "2026-02-18T09:58:59Z",
+      "updated": "2026-02-18T09:58:59Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16320v1",
+      "abs_url": "http://arxiv.org/abs/2602.16320v1",
+      "summary": "RefineFormer3D是一种高效的3D医学图像分割模型，兼顾精度和效率。",
+      "key_contributions": [
+        "提出RefineFormer3D，一种轻量级transformer架构",
+        "使用GhostConv3D进行高效特征提取",
+        "利用交叉注意力融合解码器实现自适应多尺度跳跃连接"
+      ],
+      "methodology": "利用GhostConv3D、MixFFN3D和交叉注意力融合解码器，构建轻量级transformer进行3D医学图像分割。",
+      "tags": [
+        "3D 医学图像分割",
+        "Transformer",
+        "深度学习",
+        "医疗影像"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 5,
+      "relevance_reason": "医学图像处理可以被视为多模态问题的一种变体，涉及不同图像特征的融合。",
+      "analyzed_at": "2026-02-19T07:00:32.541693",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16313v1",
+      "title": "MemoryArena: Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks",
+      "abstract": "Existing evaluations of agents with memory typically assess memorization and action in isolation. One class of benchmarks evaluates memorization by testing recall of past conversations or text but fails to capture how memory is used to guide future decisions. Another class focuses on agents acting in single-session tasks without the need for long-term memory. However, in realistic settings, memorization and action are tightly coupled: agents acquire memory while interacting with the environment, and subsequently rely on that memory to solve future tasks. To capture this setting, we introduce MemoryArena, a unified evaluation gym for benchmarking agent memory in multi-session Memory-Agent-Environment loops. The benchmark consists of human-crafted agentic tasks with explicitly interdependent subtasks, where agents must learn from earlier actions and feedback by distilling experiences into memory, and subsequently use that memory to guide later actions to solve the overall task. MemoryArena supports evaluation across web navigation, preference-constrained planning, progressive information search, and sequential formal reasoning, and reveals that agents with near-saturated performance on existing long-context memory benchmarks like LoCoMo perform poorly in our agentic setting, exposing a gap in current evaluations for agents with memory.",
+      "authors": [
+        "Zexue He",
+        "Yu Wang",
+        "Churan Zhi",
+        "Yuanzhe Hu",
+        "Tzu-Ping Chen",
+        "Lang Yin",
+        "Ze Chen",
+        "Tong Arthur Wu",
+        "Siru Ouyang",
+        "Zihan Wang",
+        "Jiaxin Pei",
+        "Julian McAuley",
+        "Yejin Choi",
+        "Alex Pentland"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-02-18T09:49:14Z",
+      "updated": "2026-02-18T09:49:14Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16313v1",
+      "abs_url": "http://arxiv.org/abs/2602.16313v1",
+      "summary": "提出了MemoryArena，一个多会话Agent任务评估平台，用于评估Agent在实际场景中的记忆能力。",
+      "key_contributions": [
+        "提出了MemoryArena评估框架",
+        "设计了明确依赖子任务的Agent任务",
+        "揭示了现有记忆评估方法的局限性"
+      ],
+      "methodology": "构建了一个包含多种Agent任务的统一评估环境，涉及Web导航、规划、信息搜索和形式推理，用于测试Agent的记忆和行动的耦合。",
+      "tags": [
+        "memory",
+        "agent",
+        "benchmark",
+        "multi-session"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "该论文专注于Agent在多会话环境中的记忆和行动，直接解决Agent领域的重要问题。",
+      "analyzed_at": "2026-02-19T07:00:34.173238",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16309v1",
+      "title": "The Weight of a Bit: EMFI Sensitivity Analysis of Embedded Deep Learning Models",
+      "abstract": "Fault injection attacks on embedded neural network models have been shown as a potent threat. Numerous works studied resilience of models from various points of view. As of now, there is no comprehensive study that would evaluate the influence of number representations used for model parameters against electromagnetic fault injection (EMFI) attacks.   In this paper, we investigate how four different number representations influence the success of an EMFI attack on embedded neural network models. We chose two common floating-point representations (32-bit, and 16-bit), and two integer representations (8-bit, and 4-bit). We deployed four common image classifiers, ResNet-18, ResNet-34, ResNet-50, and VGG-11, on an embedded memory chip, and utilized a low-cost EMFI platform to trigger faults. Our results show that while floating-point representations exhibit almost a complete degradation in accuracy (Top-1 and Top-5) after a single fault injection, integer representations offer better resistance overall. Especially, when considering the the 8-bit representation on a relatively large network (VGG-11), the Top-1 accuracies stay at around 70% and the Top-5 at around 90%.",
+      "authors": [
+        "Jakub Breier",
+        "Štefan Kučerák",
+        "Xiaolu Hou"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CR",
+      "published": "2026-02-18T09:40:29Z",
+      "updated": "2026-02-18T09:40:29Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16309v1",
+      "abs_url": "http://arxiv.org/abs/2602.16309v1",
+      "summary": "研究不同数值表示对嵌入式深度学习模型抗电磁故障注入攻击能力的影响。",
+      "key_contributions": [
+        "首次全面评估数值表示对EMFI攻击的影响",
+        "对比了浮点数和整数表示的抗攻击能力",
+        "验证了整数表示比浮点数表示具有更好的抗攻击性"
+      ],
+      "methodology": "在嵌入式芯片上部署图像分类模型，利用EMFI平台注入故障，评估模型准确率下降程度。",
+      "tags": [
+        "EMFI",
+        "Fault Injection",
+        "Embedded Deep Learning",
+        "Number Representation",
+        "Security"
+      ],
+      "assigned_category": "agent_tuning",
+      "relevance_score": 6,
+      "relevance_reason": "虽然不直接涉及agent，但优化模型抗攻击能力有相关性。",
+      "analyzed_at": "2026-02-19T07:00:35.744509",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16301v1",
+      "title": "Multi-agent cooperation through in-context co-player inference",
+      "abstract": "Achieving cooperation among self-interested agents remains a fundamental challenge in multi-agent reinforcement learning. Recent work showed that mutual cooperation can be induced between \"learning-aware\" agents that account for and shape the learning dynamics of their co-players. However, existing approaches typically rely on hardcoded, often inconsistent, assumptions about co-player learning rules or enforce a strict separation between \"naive learners\" updating on fast timescales and \"meta-learners\" observing these updates. Here, we demonstrate that the in-context learning capabilities of sequence models allow for co-player learning awareness without requiring hardcoded assumptions or explicit timescale separation. We show that training sequence model agents against a diverse distribution of co-players naturally induces in-context best-response strategies, effectively functioning as learning algorithms on the fast intra-episode timescale. We find that the cooperative mechanism identified in prior work-where vulnerability to extortion drives mutual shaping-emerges naturally in this setting: in-context adaptation renders agents vulnerable to extortion, and the resulting mutual pressure to shape the opponent's in-context learning dynamics resolves into the learning of cooperative behavior. Our results suggest that standard decentralized reinforcement learning on sequence models combined with co-player diversity provides a scalable path to learning cooperative behaviors.",
+      "authors": [
+        "Marissa A. Weis",
+        "Maciej Wołczyk",
+        "Rajai Nasser",
+        "Rif A. Saurous",
+        "Blaise Agüera y Arcas",
+        "João Sacramento",
+        "Alexander Meulemans"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T09:31:43Z",
+      "updated": "2026-02-18T09:31:43Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16301v1",
+      "abs_url": "http://arxiv.org/abs/2602.16301v1",
+      "summary": "论文提出利用序列模型的上下文学习能力，通过多智能体合作训练，实现无需硬编码的智能体间合作。",
+      "key_contributions": [
+        "提出利用序列模型进行上下文学习以实现智能体合作",
+        "证明了在上下文学习中，智能体易受勒索的特性促进了合作",
+        "表明标准分散强化学习结合合作者多样性是学习合作行为的可扩展方法"
+      ],
+      "methodology": "训练序列模型智能体对抗不同的合作者，使其在情节内快速学习，并通过上下文学习适应对方，从而实现合作。",
+      "tags": [
+        "多智能体强化学习",
+        "上下文学习",
+        "序列模型",
+        "合作"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于使用LLM（序列模型）的上下文学习能力，解决多智能体之间的合作问题，直接属于AI Agents领域。",
+      "analyzed_at": "2026-02-19T07:00:37.991158",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16265v1",
+      "title": "On sparsity, extremal structure, and monotonicity properties of Wasserstein and Gromov-Wasserstein optimal transport plans",
+      "abstract": "This note gives a self-contained overview of some important properties of the Gromov-Wasserstein (GW) distance, compared with the standard linear optimal transport (OT) framework. More specifically, I explore the following questions: are GW optimal transport plans sparse? Under what conditions are they supported on a permutation? Do they satisfy a form of cyclical monotonicity? In particular, I present the conditionally negative semi-definite property and show that, when it holds, there are GW optimal plans that are sparse and supported on a permutation.",
+      "authors": [
+        "Titouan Vayer"
+      ],
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "published": "2026-02-18T08:35:36Z",
+      "updated": "2026-02-18T08:35:36Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16265v1",
+      "abs_url": "http://arxiv.org/abs/2602.16265v1",
+      "summary": "探讨Gromov-Wasserstein距离的稀疏性、极值结构和单调性，并与线性最优传输对比。",
+      "key_contributions": [
+        "研究GW最优传输方案的稀疏性",
+        "分析GW最优传输方案在什么条件下是置换矩阵",
+        "探讨GW最优传输方案是否满足循环单调性"
+      ],
+      "methodology": "理论分析，证明条件负半定性质，并以此推导出稀疏和置换矩阵形式的GW最优传输方案。",
+      "tags": [
+        "Gromov-Wasserstein",
+        "Optimal Transport",
+        "Sparsity",
+        "Monotonicity"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 6,
+      "relevance_reason": "论文涉及最优传输，与LLM的语义推理或生成过程中的优化有间接联系。",
+      "analyzed_at": "2026-02-19T07:00:40.023306",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16246v1",
+      "title": "Toward Scalable Verifiable Reward: Proxy State-Based Evaluation for Multi-turn Tool-Calling LLM Agents",
+      "abstract": "Interactive large language model (LLM) agents operating via multi-turn dialogue and multi-step tool calling are increasingly used in production. Benchmarks for these agents must both reliably compare models and yield on-policy training data. Prior agentic benchmarks (e.g., tau-bench, tau2-bench, AppWorld) rely on fully deterministic backends, which are costly to build and iterate. We propose Proxy State-Based Evaluation, an LLM-driven simulation framework that preserves final state-based evaluation without a deterministic database. Specifically, a scenario specifies the user goal, user/system facts, expected final state, and expected agent behavior, and an LLM state tracker infers a structured proxy state from the full interaction trace. LLM judges then verify goal completion and detect tool/user hallucinations against scenario constraints. Empirically, our benchmark produces stable, model-differentiating rankings across families and inference-time reasoning efforts, and its on-/off-policy rollouts provide supervision that transfers to unseen scenarios. Careful scenario specification yields near-zero simulator hallucination rates as supported by ablation studies. The framework also supports sensitivity analyses over user personas. Human-LLM judge agreement exceeds 90%, indicating reliable automated evaluation. Overall, proxy state-based evaluation offers a practical, scalable alternative to deterministic agentic benchmarks for industrial LLM agents.",
+      "authors": [
+        "Yun-Shiuan Chuang",
+        "Chaitanya Kulkarni",
+        "Alec Chiu",
+        "Avinash Thangali",
+        "Zijie Pan",
+        "Shivani Shekhar",
+        "Yirou Ge",
+        "Yixi Li",
+        "Uma Kona",
+        "Linsey Pang",
+        "Prakhar Mehrotra"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-18T07:49:47Z",
+      "updated": "2026-02-18T07:49:47Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16246v1",
+      "abs_url": "http://arxiv.org/abs/2602.16246v1",
+      "summary": "提出了一种基于代理状态评估的可扩展验证奖励框架，用于评估多轮工具调用LLM Agent。",
+      "key_contributions": [
+        "提出了基于代理状态评估的LLM Agent评估框架。",
+        "该框架利用LLM进行状态跟踪和目标完成度验证，无需确定性后端。",
+        "实验表明该框架具有稳定、可区分模型的排名能力，且可用于生成高质量的训练数据。"
+      ],
+      "methodology": "使用LLM状态跟踪器从交互轨迹推断代理状态，并使用LLM判断器根据场景约束验证目标完成情况。",
+      "tags": [
+        "LLM Agents",
+        "Evaluation",
+        "Tool Calling",
+        "Scalability"
+      ],
+      "assigned_category": "agent",
+      "relevance_score": 9,
+      "relevance_reason": "论文直接关注LLM Agent的评估和奖励，是该领域的核心问题。",
+      "analyzed_at": "2026-02-19T07:00:41.924355",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16245v1",
+      "title": "HyPCA-Net: Advancing Multimodal Fusion in Medical Image Analysis",
+      "abstract": "Multimodal fusion frameworks, which integrate diverse medical imaging modalities (e.g., MRI, CT), have shown great potential in applications such as skin cancer detection, dementia diagnosis, and brain tumor prediction. However, existing multimodal fusion methods face significant challenges. First, they often rely on computationally expensive models, limiting their applicability in low-resource environments. Second, they often employ cascaded attention modules, which potentially increase risk of information loss during inter-module transitions and hinder their capacity to effectively capture robust shared representations across modalities. This restricts their generalization in multi-disease analysis tasks. To address these limitations, we propose a Hybrid Parallel-Fusion Cascaded Attention Network (HyPCA-Net), composed of two core novel blocks: (a) a computationally efficient residual adaptive learning attention block for capturing refined modality-specific representations, and (b) a dual-view cascaded attention block aimed at learning robust shared representations across diverse modalities. Extensive experiments on ten publicly available datasets exhibit that HyPCA-Net significantly outperforms existing leading methods, with improvements of up to 5.2% in performance and reductions of up to 73.1% in computational cost. Code: https://github.com/misti1203/HyPCA-Net.",
+      "authors": [
+        "J. Dhar",
+        "M. K. Pandey",
+        "D. Chakladar",
+        "M. Haghighat",
+        "A. Alavi",
+        "S. Mistry",
+        "N. Zaidi"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-02-18T07:47:49Z",
+      "updated": "2026-02-18T07:47:49Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16245v1",
+      "abs_url": "http://arxiv.org/abs/2602.16245v1",
+      "summary": "HyPCA-Net提出了一种混合并行融合的级联注意力网络，用于提升多模态医学图像分析的性能和效率。",
+      "key_contributions": [
+        "提出了计算高效的残差自适应学习注意力模块，用于捕捉精细的模态特定表征。",
+        "提出了双视角级联注意力模块，用于学习不同模态之间鲁棒的共享表征。",
+        "在十个公开数据集上的实验表明，HyPCA-Net显著优于现有方法，性能提升高达5.2%，计算成本降低高达73.1%。"
+      ],
+      "methodology": "HyPCA-Net结合残差自适应学习注意力和双视角级联注意力，分别处理模态特定信息和跨模态共享信息。",
+      "tags": [
+        "多模态融合",
+        "医学图像分析",
+        "注意力机制",
+        "深度学习"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心在于多模态医学图像融合，与multimodal类别直接相关。",
+      "analyzed_at": "2026-02-19T07:00:43.993486",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2602.16229v1",
+      "title": "Factored Latent Action World Models",
+      "abstract": "Learning latent actions from action-free video has emerged as a powerful paradigm for scaling up controllable world model learning. Latent actions provide a natural interface for users to iteratively generate and manipulate videos. However, most existing approaches rely on monolithic inverse and forward dynamics models that learn a single latent action to control the entire scene, and therefore struggle in complex environments where multiple entities act simultaneously. This paper introduces Factored Latent Action Model (FLAM), a factored dynamics framework that decomposes the scene into independent factors, each inferring its own latent action and predicting its own next-step factor value. This factorized structure enables more accurate modeling of complex multi-entity dynamics and improves video generation quality in action-free video settings compared to monolithic models. Based on experiments on both simulation and real-world multi-entity datasets, we find that FLAM outperforms prior work in prediction accuracy and representation quality, and facilitates downstream policy learning, demonstrating the benefits of factorized latent action models.",
+      "authors": [
+        "Zizhao Wang",
+        "Chang Shi",
+        "Jiaheng Hu",
+        "Kevin Rohling",
+        "Roberto Martín-Martín",
+        "Amy Zhang",
+        "Peter Stone"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-02-18T07:08:14Z",
+      "updated": "2026-02-18T07:08:14Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.16229v1",
+      "abs_url": "http://arxiv.org/abs/2602.16229v1",
+      "summary": "FLAM分解场景为独立因子，学习隐变量动作，提升多实体环境下视频生成质量和策略学习。",
+      "key_contributions": [
+        "提出了一种分解的隐变量动作模型FLAM",
+        "FLAM在复杂多实体环境中建模更准确",
+        "实验证明FLAM在预测精度和表征质量上优于现有方法"
+      ],
+      "methodology": "FLAM将场景分解为独立因子，为每个因子推断隐变量动作并预测下一步因子值。",
+      "tags": [
+        "世界模型",
+        "隐变量动作",
+        "视频生成",
+        "多实体"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 8,
+      "relevance_reason": "涉及视频生成和视觉表征学习，属于multimodal领域的重要方面。",
+      "analyzed_at": "2026-02-19T07:00:45.626375",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    }
+  ],
+  "fetch_time": "2026-02-19T07:00:45.626616"
+}
