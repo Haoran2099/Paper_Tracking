@@ -1,0 +1,93 @@
+{
+  "date": "2026-03-03",
+  "papers": [
+    {
+      "arxiv_id": "2603.01947v1",
+      "title": "physfusion: A Transformer-based Dual-Stream Radar and Vision Fusion Framework for Open Water Surface Object Detection",
+      "abstract": "Detecting water-surface targets for Unmanned Surface Vehicles (USVs) is challenging due to wave clutter,   specular reflections, and weak appearance cues in long-range observations. Although 4D millimeter-wave   radar complements cameras under degraded illumination, maritime radar point clouds are sparse and   intermittent, with reflectivity attributes exhibiting heavy-tailed variations under scattering and   multipath, making conventional fusion designs struggle to exploit radar cues effectively.   We propose PhysFusion, a physics-informed radar-image detection framework for water-surface perception.   The framework integrates: (1) a Physics-Informed Radar Encoder (PIR Encoder) with an RCS Mapper and   Quality Gate, transforming per-point radar attributes into compact scattering priors and predicting   point-wise reliability for robust feature learning under clutter; (2) a Radar-guided Interactive Fusion   Module (RIFM) performing query-level radar-image fusion between semantically enriched radar features and   multi-scale visual features, with the radar branch modeled by a dual-stream backbone including a   point-based local stream and a transformer-based global stream using Scattering-Aware Self-Attention   (SASA); and (3) a Temporal Query Aggregation module (TQA) aggregating frame-wise fused queries over a   short temporal window for temporally consistent representations.   Experiments on WaterScenes and FLOW demonstrate that PhysFusion achieves 59.7% mAP50:95 and 90.3% mAP50   on WaterScenes (T=5 radar history) using 5.6M parameters and 12.5G FLOPs, and reaches 94.8% mAP50 and   46.2% mAP50:95 on FLOW under radar+camera setting. Ablation studies quantify the contributions of PIR   Encoder, SASA-based global reasoning, and RIFM.",
+      "authors": [
+        "Yuting Wan",
+        "Liguo Sun",
+        "Jiuwu Hao",
+        "Zao Zhang",
+        "Pin LV"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-03-02T15:00:22Z",
+      "updated": "2026-03-02T15:00:22Z",
+      "pdf_url": "https://arxiv.org/pdf/2603.01947v1",
+      "abs_url": "http://arxiv.org/abs/2603.01947v1",
+      "summary": "提出PhysFusion，利用雷达和视觉信息融合，提升水面目标检测精度和鲁棒性。",
+      "key_contributions": [
+        "提出物理信息雷达编码器(PIR Encoder)",
+        "设计雷达引导的交互式融合模块(RIFM)",
+        "引入时序查询聚合模块(TQA)"
+      ],
+      "methodology": "基于Transformer的双流架构，融合雷达散射先验和多尺度视觉特征，并利用时序信息增强目标表示。",
+      "tags": [
+        "水面目标检测",
+        "雷达视觉融合",
+        "Transformer",
+        "USV"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 8,
+      "relevance_reason": "属于典型的多模态学习问题，融合雷达和视觉信息进行目标检测。",
+      "analyzed_at": "2026-03-03T06:48:27.791128",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2603.01928v1",
+      "title": "LaST-VLA: Thinking in Latent Spatio-Temporal Space for Vision-Language-Action in Autonomous Driving",
+      "abstract": "While Vision-Language-Action (VLA) models have revolutionized autonomous driving by unifying perception and planning, their reliance on explicit textual Chain-of-Thought (CoT) leads to semantic-perceptual decoupling and perceptual-symbolic conflicts. Recent shifts toward latent reasoning attempt to bypass these bottlenecks by thinking in continuous hidden space. However, without explicit intermediate constraints, standard latent CoT often operates as a physics-agnostic representation. To address this, we propose the Latent Spatio-Temporal VLA (LaST-VLA), a framework shifting the reasoning paradigm from discrete symbolic processing into a physically grounded Latent Spatio-Temporal CoT. By implementing a dual-feature alignment mechanism, we distill geometric constraints from 3D foundation models and dynamic foresight from world models directly into the latent space. Coupled with a progressive SFT training strategy that transitions from feature alignment to trajectory generation, and refined via Reinforcement Learning with Group Relative Policy Optimization (GRPO) to ensure safety and rule compliance. \\method~setting a new record on NAVSIM v1 (91.3 PDMS) and NAVSIM v2 (87.1 EPDMS), while excelling in spatial-temporal reasoning on SURDS and NuDynamics benchmarks.",
+      "authors": [
+        "Yuechen Luo",
+        "Fang Li",
+        "Shaoqing Xu",
+        "Yang Ji",
+        "Zehan Zhang",
+        "Bing Wang",
+        "Yuannan Shen",
+        "Jianwei Cui",
+        "Long Chen",
+        "Guang Chen",
+        "Hangjun Ye",
+        "Zhi-Xin Yang",
+        "Fuxi Wen"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-03-02T14:42:36Z",
+      "updated": "2026-03-02T14:42:36Z",
+      "pdf_url": "https://arxiv.org/pdf/2603.01928v1",
+      "abs_url": "http://arxiv.org/abs/2603.01928v1",
+      "summary": "提出LaST-VLA框架，通过潜在时空推理提升自动驾驶视觉-语言-动作模型性能，解决语义-感知解耦和感知-符号冲突。",
+      "key_contributions": [
+        "提出Latent Spatio-Temporal CoT框架",
+        "引入双重特征对齐机制，从3D基础模型和世界模型中提取几何约束和动态预测信息",
+        "提出渐进式SFT训练策略和GRPO强化学习优化"
+      ],
+      "methodology": "利用双重特征对齐将几何约束和动态预测融入潜在空间，结合渐进式SFT和GRPO进行模型训练，实现物理层面上的时空推理。",
+      "tags": [
+        "自动驾驶",
+        "视觉语言动作模型",
+        "潜在空间推理",
+        "时空推理"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "该论文核心关注多模态视觉语言和动作结合，用于自动驾驶这一重要应用。",
+      "analyzed_at": "2026-03-03T06:48:31.736445",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    }
+  ],
+  "fetch_time": "2026-03-03T06:49:30.140204"
+}
