@@ -1,0 +1,250 @@
+{
+  "date": "2026-04-21",
+  "papers": [
+    {
+      "arxiv_id": "2604.18530v1",
+      "title": "OGER: A Robust Offline-Guided Exploration Reward for Hybrid Reinforcement Learning",
+      "abstract": "Recent advancements in Reinforcement Learning with Verifiable Rewards (RLVR) have significantly improved Large Language Model (LLM) reasoning, yet models often struggle to explore novel trajectories beyond their initial latent space. While offline teacher guidance and entropy-driven strategies have been proposed to address this, they often lack deep integration or are constrained by the model's inherent capacity. In this paper, we propose OGER, a novel framework that unifies offline teacher guidance and online reinforcement learning through a specialized reward modeling lens. OGER employs multi-teacher collaborative training and constructs an auxiliary exploration reward that leverages both offline trajectories and the model's own entropy to incentivize autonomous exploration. Extensive experiments across mathematical and general reasoning benchmarks demonstrate that OGER significantly outperforms competitive baselines, achieving substantial gains in mathematical reasoning while maintaining robust generalization to out-of-domain tasks. We provide a comprehensive analysis of training dynamics and conduct detailed ablation studies to validate the effectiveness of our entropy-aware reward modulation. Our code is available at https://github.com/ecoli-hit/OGER.git.",
+      "authors": [
+        "Xinyu Ma",
+        "Mingzhou Xu",
+        "Xuebo Liu",
+        "Chang Jin",
+        "Qiang Wang",
+        "Derek F. Wong",
+        "Min Zhang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-04-20T17:26:00Z",
+      "updated": "2026-04-20T17:26:00Z",
+      "pdf_url": "https://arxiv.org/pdf/2604.18530v1",
+      "abs_url": "http://arxiv.org/abs/2604.18530v1",
+      "summary": "OGER通过离线指导和在线探索相结合，提升LLM在推理任务上的性能和泛化能力。",
+      "key_contributions": [
+        "提出OGER框架，结合离线指导和在线强化学习",
+        "设计了基于熵的辅助探索奖励，鼓励模型自主探索",
+        "实验证明OGER在数学和通用推理任务上优于现有方法"
+      ],
+      "methodology": "OGER利用多教师协同训练，构建辅助探索奖励，结合离线轨迹和模型自身熵来激励自主探索。",
+      "tags": [
+        "强化学习",
+        "LLM推理",
+        "离线指导",
+        "探索奖励",
+        "熵"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心是提升LLM的推理能力，并验证了方法在数学推理上的有效性。",
+      "analyzed_at": "2026-04-21T07:33:08.371649",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2604.18429v1",
+      "title": "Revisiting Change VQA in Remote Sensing with Structured and Native Multimodal Qwen Models",
+      "abstract": "Change visual question answering (Change VQA) addresses the problem of answering natural-language questions about semantic changes between bi-temporal remote sensing (RS) images. Although vision-language models (VLMs) have recently been studied for temporal RS image understanding, Change VQA remains underexplored in the context of modern multimodal models. In this letter, we revisit the CDVQA benchmark using recent Qwen models under a unified low-rank adaptation (LoRA) setting. We compare Qwen3-VL, which follows a structured vision-language pipeline with multi-depth visual conditioning and a full-attention decoder, with Qwen3.5, a native multimodal model that combines a single-stage alignment with a hybrid decoder backbone. Experimental results on the official CDVQA test splits show that recent VLMs improve over earlier specialized baselines. They further show that performance does not scale monotonically with model size, and that native multimodal models are more effective than structured vision-language pipelines for this task. These findings indicate that tightly integrated multimodal backbones contribute more to performance than scale or explicit multi-depth visual conditioning for language-driven semantic change reasoning in RS imagery.",
+      "authors": [
+        "Yakoub Bazi",
+        "Mohamad M. Al Rahhal",
+        "Mansour Zuair",
+        "Faroun Mohamed"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-04-20T15:47:52Z",
+      "updated": "2026-04-20T15:47:52Z",
+      "pdf_url": "https://arxiv.org/pdf/2604.18429v1",
+      "abs_url": "http://arxiv.org/abs/2604.18429v1",
+      "summary": "该论文探索了Qwen模型在遥感图像变化视觉问答(Change VQA)任务中的应用，并对比了不同模型架构。",
+      "key_contributions": [
+        "评估了Qwen系列模型在CDVQA基准上的性能",
+        "对比了结构化视觉语言模型和原生多模态模型的效果",
+        "发现原生多模态模型在Change VQA任务中更有效"
+      ],
+      "methodology": "采用低秩自适应(LoRA)微调Qwen3-VL和Qwen3.5模型，并在CDVQA数据集上进行实验，比较不同模型的性能。",
+      "tags": [
+        "Change VQA",
+        "遥感",
+        "视觉问答",
+        "多模态学习",
+        "Qwen"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注多模态模型在特定视觉问答任务上的应用，直接相关。",
+      "analyzed_at": "2026-04-21T07:33:17.218695",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2604.18307v1",
+      "title": "Reasoning Models Know What's Important, and Encode It in Their Activations",
+      "abstract": "Language models often solve complex tasks by generating long reasoning chains, consisting of many steps with varying importance. While some steps are crucial for generating the final answer, others are removable. Determining which steps matter most, and why, remains an open question central to understanding how models process reasoning. We investigate if this question is best approached through model internals or through tokens of the reasoning chain itself. We find that model activations contain more information than tokens for identifying important reasoning steps. Crucially, by training probes on model activations to predict importance, we show that models encode an internal representation of step importance, even prior to the generation of subsequent steps. This internal representation of importance generalizes across models, is distributed across layers, and does not correlate with surface-level features, such as a step's relative position or its length. Our findings suggest that analyzing activations can reveal aspects of reasoning that surface-level approaches fundamentally miss, indicating that reasoning analyses should look into model internals.",
+      "authors": [
+        "Yaniv Nikankin",
+        "Martin Tutek",
+        "Tomer Ashuach",
+        "Jonathan Rosenfeld",
+        "Yonatan Belinkov"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "primary_category": "cs.CL",
+      "published": "2026-04-20T14:15:57Z",
+      "updated": "2026-04-20T14:15:57Z",
+      "pdf_url": "https://arxiv.org/pdf/2604.18307v1",
+      "abs_url": "http://arxiv.org/abs/2604.18307v1",
+      "summary": "研究表明，语言模型激活中包含比推理链token更多的重要步骤信息，模型内部编码步骤重要性。",
+      "key_contributions": [
+        "证明了模型激活包含比token更多的推理步骤重要性信息",
+        "揭示了模型内部存在步骤重要性的表示",
+        "该内部表示具有跨模型泛化能力"
+      ],
+      "methodology": "通过训练探测器预测激活的重要性，并分析激活与表面特征的相关性，来研究模型内部如何表示步骤重要性。",
+      "tags": [
+        "LLM",
+        "Reasoning",
+        "Model Internals"
+      ],
+      "assigned_category": "reasoning",
+      "relevance_score": 9,
+      "relevance_reason": "直接研究LLM的推理过程，并深入探讨了模型内部的机制。",
+      "analyzed_at": "2026-04-21T07:33:29.686399",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2604.18250v1",
+      "title": "Medical Image Understanding Improves Survival Prediction via Visual Instruction Tuning",
+      "abstract": "Accurate prognostication and risk estimation are essential for guiding clinical decision-making and optimizing patient management. While radiologist-assessed features from CT scans provide valuable indicators of disease severity and outcomes, interpreting such images requires expert knowledge, and translating rich visual information into textual summaries inevitably leads to information loss. In this work, we propose a vision-language framework for 3D CT image understanding that leverages large-scale open-sourced CT images paired with radiology reports through visual instruction tuning. This pre-training enables the model to learn clinically meaningful visual-textual representations, which can then be adapted to downstream survival prediction tasks. By incorporating a survival prediction head on top of the pre-trained model, our approach improves survival prediction from CT images and clinical data while generating clinically meaningful language responses to predefined questions. Experimental results demonstrate that our method outperforms baseline methods in survival prediction, particularly, when clinical data alone is less predictive. The code will be released upon acceptance.",
+      "authors": [
+        "Xixi Liu",
+        "Jorge Lazo",
+        "Andreas Hallqvist",
+        "Mikael Johansson",
+        "Åse Johnsson",
+        "Jonas S Andersson",
+        "Ella Äng Eklund",
+        "Patrik Sund",
+        "Nasser Hosseini",
+        "Jennifer Alvén",
+        "Ida Häggström"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "primary_category": "cs.CV",
+      "published": "2026-04-20T13:27:39Z",
+      "updated": "2026-04-20T13:27:39Z",
+      "pdf_url": "https://arxiv.org/pdf/2604.18250v1",
+      "abs_url": "http://arxiv.org/abs/2604.18250v1",
+      "summary": "该论文提出了一种利用视觉指令调整的视觉-语言框架，通过理解医学图像来提高生存预测的准确性。",
+      "key_contributions": [
+        "提出了基于视觉指令调整的3D CT图像理解框架",
+        "利用大规模CT图像和放射报告进行预训练，学习临床有意义的视觉-文本表示",
+        "通过整合生存预测头，提高了生存预测性能，尤其是在临床数据较弱的情况下"
+      ],
+      "methodology": "使用视觉指令调整对3D CT图像进行预训练，然后通过生存预测头进行微调，以提高生存预测性能。",
+      "tags": [
+        "医学图像",
+        "生存预测",
+        "视觉指令调整",
+        "CT图像",
+        "Vision-Language"
+      ],
+      "assigned_category": "multimodal",
+      "relevance_score": 9,
+      "relevance_reason": "论文核心关注视觉-语言模型的医学图像理解和生存预测任务，与多模态学习紧密相关。",
+      "analyzed_at": "2026-04-21T07:33:34.535366",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2604.18137v1",
+      "title": "AQPIM: Breaking the PIM Capacity Wall for LLMs with In-Memory Activation Quantization",
+      "abstract": "Processing-in-Memory (PIM) architectures offer a promising solution to the memory bottlenecks in data-intensive machine learning, yet often overlook the growing challenge of activation memory footprint. Conventional PIM approaches struggle with massive KV cache sizes generated in long-context scenarios by Transformer-based models, frequently exceeding PIM's limited memory capacity, while techniques like sparse attention can conflict with PIM's need for data locality. Existing PIM approaches and quantization methods are often insufficient or poorly suited for leveraging the unique characteristics of activations. This work identifies an opportunity for PIM-specialized activation quantization to enhance bandwidth and compute efficiency.   We explore clustering-based vector quantization approaches, which align well with activation characteristics and PIM's internal bandwidth capabilities. Building on this, we introduce AQPIM, a novel PIM-aware activation quantization framework based on Product Quantization (PQ), optimizing it for modern Large Language Models (LLMs). By performing quantization directly within memory, AQPIM leverages PIM's high internal bandwidth and enables direct computation on compressed data, significantly reducing both memory footprint and computational overhead for attention computation. AQPIM addresses PQ's accuracy challenges by introducing several algorithmic optimizations. Evaluations demonstrate that AQPIM achieves significant performance improvements, drastically reducing of GPU-CPU communication that can account for 90$\\sim$98.5\\% of decoding latency, together with 3.4$\\times$ speedup over a SOTA PIM approach.",
+      "authors": [
+        "Kosuke Matsushima",
+        "Yasuyuki Okoshi",
+        "Masato Motomura",
+        "Daichi Fujiki"
+      ],
+      "categories": [
+        "cs.AR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "primary_category": "cs.AR",
+      "published": "2026-04-20T12:04:51Z",
+      "updated": "2026-04-20T12:04:51Z",
+      "pdf_url": "https://arxiv.org/pdf/2604.18137v1",
+      "abs_url": "http://arxiv.org/abs/2604.18137v1",
+      "summary": "AQPIM通过PIM内激活量化，突破LLM容量瓶颈，提高带宽和计算效率。",
+      "key_contributions": [
+        "提出AQPIM框架，针对PIM优化激活量化",
+        "在PIM内进行量化，直接在压缩数据上计算",
+        "引入算法优化，解决PQ的准确性问题"
+      ],
+      "methodology": "基于Product Quantization (PQ)，针对PIM特性和LLM需求进行优化，实现PIM内激活量化和直接计算。",
+      "tags": [
+        "PIM",
+        "量化",
+        "LLM",
+        "激活函数",
+        "内存"
+      ],
+      "assigned_category": "memory",
+      "relevance_score": 8,
+      "relevance_reason": "论文关注LLM内存瓶颈，通过量化解决PIM容量限制问题，密切相关。",
+      "analyzed_at": "2026-04-21T07:33:41.862200",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    },
+    {
+      "arxiv_id": "2604.17937v1",
+      "title": "ContraPrompt: Contrastive Prompt Optimization via Dyadic Reasoning Trace Analysis",
+      "abstract": "Prompt optimization methods either analyze individual failures in isolation or compare prompt variants across examples, operating on single execution traces with no access to the reasoning process distinguishing success from failure on the same input. We introduce ContraPrompt, built on the observation that when a model fails but succeeds on a retry with feedback, the difference between its two chain-of-thought traces constitutes an optimization signal not captured by prior methods. Unlike prior contrastive methods, we compare complete intermediate reasoning processes: the two traces share model, input, and base prompt, so remaining differences reflect reasoning strategy and appended error feedback -- we call this dyadic reasoning trace analysis. The multi-attempt solving phase is an instrumented agentic retry loop that generates contrastive data automatically without human annotation. Extracted rules are organized into an input-aware decision tree routing instructions by observable input characteristics. On four reasoning and compliance benchmarks, ContraPrompt outperforms GEPA (Agrawal et al., 2026) on all four, with absolute gains of +8.29 pp on HotPotQA (+20.8% rel.), +2.21 pp on GDPR-Bench (+18.2% rel.), +7.14 pp on GPQA Diamond (+10.6% rel.), and +0.74 pp on BBH (+0.85% rel.). Ablations confirm dyadic trace contrastivity is the critical component, with a -16% relative average drop upon its removal. On 53 EvalSet black-box optimization problems, ContraPrompt beats GEPA on 11, ties on 41, and loses on 1 at equal budget. On FiNER-139 financial named entity recognition (Loukas et al., 2022), ContraPrompt achieves +7.77 pp over the unoptimized baseline (+11.6% rel.) and +1.94 pp over GEPA (+2.66% rel.), with branch conditions aligning with standard US GAAP financial-instrument categories.",
+      "authors": [
+        "Rishav Rishav",
+        "Pushpak Pujari",
+        "Pushpendre Rastogi"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-04-20T08:17:15Z",
+      "updated": "2026-04-20T08:17:15Z",
+      "pdf_url": "https://arxiv.org/pdf/2604.17937v1",
+      "abs_url": "http://arxiv.org/abs/2604.17937v1",
+      "summary": "ContraPrompt通过对比推理轨迹优化Prompt，显著提升LLM在复杂任务上的性能。",
+      "key_contributions": [
+        "提出ContraPrompt方法，利用成对推理轨迹进行Prompt优化。",
+        "无需人工标注，自动生成对比数据。",
+        "在多个基准测试中超越现有Prompt优化方法GEPA。"
+      ],
+      "methodology": "ContraPrompt利用模型在失败和成功重试时的推理轨迹差异，学习输入相关的决策规则，优化Prompt。",
+      "tags": [
+        "Prompt Optimization",
+        "Contrastive Learning",
+        "Chain-of-Thought",
+        "Reasoning"
+      ],
+      "assigned_category": "agent_tuning",
+      "relevance_score": 9,
+      "relevance_reason": "论文专注于Prompt优化，属于agent_tuning的核心领域。",
+      "analyzed_at": "2026-04-21T07:34:02.730596",
+      "llm_provider": "gemini",
+      "llm_model": "gemini-2.0-flash"
+    }
+  ],
+  "fetch_time": "2026-04-21T07:34:03.713449"
+}
